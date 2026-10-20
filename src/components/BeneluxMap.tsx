@@ -104,13 +104,34 @@ const BeneluxMap: React.FC<MapProps> = ({
       const count = institution.publications.length;
       const color = count > 50 ? '#dc2626' : count > 20 ? '#ea580c' : count > 10 ? '#eab308' : '#3b82f6';
 
-      const marker = L.circleMarker([institution.coordinates[0], institution.coordinates[1]], {
-        radius: 16,
-        fillColor: color,
-        color: '#000',
-        weight: 1,
-        opacity: 1,
-        fillOpacity: 0.8,
+      // Create custom icon with publication count
+      const icon = L.divIcon({
+        html: `
+          <div style="
+            background-color: ${color};
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #000;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            font-family: Arial, sans-serif;
+          ">
+            ${count}
+          </div>
+        `,
+        className: '',
+        iconSize: [40, 40],
+        iconAnchor: [20, 20],
+      });
+
+      const marker = L.marker([institution.coordinates[0], institution.coordinates[1]], {
+        icon: icon,
       })
         .bindPopup(`
           <div style="font-family: sans-serif;">
@@ -122,7 +143,7 @@ const BeneluxMap: React.FC<MapProps> = ({
         .on('click', () => onInstitutionClick(institution as any))
         .addTo(map);
 
-      markersRef.current[`${institution.name}-${institution.city}`] = marker;
+      markersRef.current[`${institution.name}-${institution.city}`] = marker as any;
     });
   }, [institutions, onInstitutionClick]);
 
