@@ -40,17 +40,9 @@ const BeneluxMap: React.FC<MapProps> = ({
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       maxZoom: 19,
-      minZoom: 6,
+      minZoom: 2,
       zIndex: 1,
     }).addTo(map);
-
-    // Set bounds but don't fit to them - just prevent panning outside
-    const beneluxBounds = L.latLngBounds(
-      [50.7, 2.3],  // Southwest
-      [53.5, 7.2]   // Northeast
-    );
-    
-    map.setMaxBounds(beneluxBounds);
 
     // Add event listener to clear selection when map is moved or zoomed
     map.on('zoom', () => {
