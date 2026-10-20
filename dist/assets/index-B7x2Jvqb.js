@@ -44,7 +44,7 @@ Error generating stack: `+e.message+`
             ">
               ${t}
             </div>
-          `,className:`crm-label`,iconSize:[180,24],iconAnchor:[90,12]}),s=y.default.marker([r,a],{icon:o}).addTo(e);c.current.push(s)}}let l=.015,u=o.length;o.forEach((t,a)=>{let o=n-l*(u-1)/2+l*a,c=i+.04,d=t.publications.length,f=t.name,p=y.default.divIcon({html:`
+          `,className:`crm-label`,iconSize:[180,24],iconAnchor:[90,12]}),s=y.default.marker([r,a],{icon:o}).addTo(e);c.current.push(s)}}let l=.015,u=o.length;[...o].sort((e,t)=>(t.publications?.length||0)-(e.publications?.length||0)).forEach((t,a)=>{let o=n-l*(u-1)/2+l*a,c=i+.04,d=t.publications.length,f=t.name,p=y.default.divIcon({html:`
           <div style="display: flex; align-items: center; gap: 0; margin: 0; padding: 0; position: relative;">
             <div style="background-color: #ea580c; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #000; color: white; font-weight: bold; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); font-family: Arial, sans-serif; flex-shrink: 0; z-index: 2;">${d}</div>
             <div style="background-color: white; padding: 6px 14px; border-radius: 8px; color: black; font-weight: normal; font-size: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); font-family: Arial, sans-serif; white-space: nowrap; margin-left: -10px; z-index: 1;">${f}</div>

@@ -257,7 +257,12 @@ const BeneluxMap: React.FC<MapProps> = ({
     const verticalSpacing = 0.015; // degrees between each department row
     const count = departments.length;
     
-    departments.forEach((dept: any, idx: number) => {
+    // Sort departments by publication count (descending)
+    const sortedDepartments = [...departments].sort((a: any, b: any) => {
+      return (b.publications?.length || 0) - (a.publications?.length || 0);
+    });
+    
+    sortedDepartments.forEach((dept: any, idx: number) => {
       // Position vertically stacked, offset to the right
       const deptLat = instLat - (verticalSpacing * (count - 1) / 2) + (verticalSpacing * idx);
       const deptLng = instLng + horizontalOffset;
