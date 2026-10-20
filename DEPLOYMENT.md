@@ -101,7 +101,7 @@ Benefits:
 ### Option 3: Docker + Any Server
 
 ```dockerfile
-FROM node:18-alpine
+FROM node:22-alpine
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
@@ -142,7 +142,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 22
       - run: npm install
       - run: npm run build
       - uses: peaceiris/actions-gh-pages@v3
