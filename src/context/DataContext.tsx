@@ -2,54 +2,48 @@ import type { ReactNode } from 'react';
 import { createContext, useContext, useState, useEffect } from 'react';
 import { getPublications, type Publication as SupabasePublication } from '../utils/supabaseClient';
 
-// Helper function to get coordinates from zipcode using comprehensive database
-let zipcodeDatabase: Record<string, [number, number]> = {};
+// Helper function to get coordinates from country + zipcode using country-aware database
+let zipcodeCountryDatabase: Record<string, any> = {};
 
-const loadZipcodeDatabase = async (): Promise<Record<string, [number, number]>> => {
-  if (Object.keys(zipcodeDatabase).length > 0) return zipcodeDatabase;
+const loadZipcodeCountryDatabase = async (): Promise<Record<string, any>> => {
+  if (Object.keys(zipcodeCountryDatabase).length > 0) return zipcodeCountryDatabase;
   
   try {
-    const response = await fetch('/sciencemap/zipcode_coordinates.json');
+    const response = await fetch('/sciencemap/zipcode_country_coordinates.json');
     if (response.ok) {
-      zipcodeDatabase = await response.json();
-      console.log('Loaded zipcode database with', Object.keys(zipcodeDatabase).length, 'entries');
-      return zipcodeDatabase;
+      zipcodeCountryDatabase = await response.json();
+      console.log('Loaded country-aware zipcode database with', Object.keys(zipcodeCountryDatabase).length, 'entries');
+      return zipcodeCountryDatabase;
     }
   } catch (err) {
-    console.warn('Could not load zipcode database:', err);
+    console.warn('Could not load country-aware zipcode database:', err);
   }
   
   return {};
 };
 
-const getCoordinatesForZipcode = (zipcode: string, db: Record<string, [number, number]>): [number, number] => {
-  if (!zipcode) return [51.5, 4.75]; // Default to Benelux center
+const getCoordinatesForZipcodeAndCountry = (zipcode: string, country: string, db: Record<string, any>): [number, number] => {
+  if (!zipcode || !country) return [51.5, 4.75]; // Default to Benelux center
   
   const cleanZip = String(zipcode).trim();
   
-  // Try exact match first
-  if (db[cleanZip]) {
-    return db[cleanZip];
+  // Try exact country-zipcode match first (highest priority)
+  const countryZipKey = `${country}|${cleanZip}`;
+  if (db[countryZipKey]?.coordinates) {
+    return db[countryZipKey].coordinates;
   }
   
-  // Try first 4 digits (for postal codes with letters like Dutch ones)
-  const firstFour = cleanZip.substring(0, 4);
-  if (db[firstFour]) {
-    return db[firstFour];
+  // Fallback: try any zipcode match with this country (for partial matches)
+  const countryMatches = Object.entries(db)
+    .filter(([k]) => k.startsWith(`${country}|`) && k.includes(cleanZip))
+    .map(([, v]: [string, any]) => v);
+  
+  if (countryMatches.length > 0 && countryMatches[0]?.coordinates) {
+    return countryMatches[0].coordinates;
   }
   
-  // Try regional fallback (first 2 digits)
-  const firstTwo = cleanZip.substring(0, 2);
-  const regionEntries = Object.entries(db).filter(([k]) => k.startsWith(firstTwo));
-  if (regionEntries.length > 0) {
-    const avg: [number, number] = [
-      regionEntries.reduce((sum, [, coords]) => sum + coords[0], 0) / regionEntries.length,
-      regionEntries.reduce((sum, [, coords]) => sum + coords[1], 0) / regionEntries.length,
-    ];
-    return avg;
-  }
-  
-  return [51.5, 4.75]; // Default to Benelux center
+  // Final fallback: return Benelux center
+  return [51.5, 4.75];
 };
 
 export interface Publication {
@@ -116,8 +110,8 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       try {
         console.log('Loading enriched publications and geographic index...');
         
-        // Load zipcode database first
-        const zipcodeDb = await loadZipcodeDatabase();
+        // Load country-aware zipcode database
+        const zipcodeDb = await loadZipcodeCountryDatabase();
         
         const [enrichedResponse, geoResponse] = await Promise.all([
           fetch('/sciencemap/enriched_publications.json'),
@@ -153,12 +147,15 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
           const city = pub.lastauthorcity || 'Unknown City';
           const country = pub.lastauthorcountry || 'Unknown';
           
-          if (!zipcode) return; // Skip publications without zipcode
+          if (!zipcode || !country) return; // Skip publications without zipcode or country
           
-          // Use zipcode as the primary key for location clustering
-          if (!locationMap.has(zipcode)) {
-            const coords = getCoordinatesForZipcode(zipcode, zipcodeDb);
-            locationMap.set(zipcode, {
+          // Use country-zipcode as the primary key for location clustering
+          const locationKey = `${country}|${zipcode}`;
+          
+          if (!locationMap.has(locationKey)) {
+            // Get coordinates using country-aware lookup
+            const coords = getCoordinatesForZipcodeAndCountry(zipcode, country, zipcodeDb);
+            locationMap.set(locationKey, {
               name: `${city} (${zipcode})`,
               city: city,
               postalCode: zipcode,
@@ -169,7 +166,7 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             });
           }
           
-          const location = locationMap.get(zipcode)!;
+          const location = locationMap.get(locationKey)!;
           const publication: Publication = {
             pmid: pub.pmid,
             title: pub.title || '',

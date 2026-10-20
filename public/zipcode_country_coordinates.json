@@ -1,0 +1,498 @@
+{
+  "Belgium|2650": {
+    "coordinates": [
+      51.0833,
+      4.4833
+    ],
+    "city": null,
+    "pub_count": 1
+  },
+  "the Netherlands|2333": {
+    "coordinates": [
+      52.185,
+      4.4567
+    ],
+    "city": null,
+    "pub_count": 51
+  },
+  "Belgium|4000": {
+    "coordinates": [
+      50.6333,
+      5.5667
+    ],
+    "city": null,
+    "pub_count": 19
+  },
+  "Belgium|1000": {
+    "coordinates": [
+      52.3676,
+      4.9041
+    ],
+    "city": "Brussels",
+    "pub_count": 1
+  },
+  "Belgium|9000": {
+    "coordinates": [
+      51.0379,
+      3.7196
+    ],
+    "city": "Ghent",
+    "pub_count": 74
+  },
+  "the Netherlands|6700": {
+    "coordinates": [
+      51.7167,
+      6.1667
+    ],
+    "city": "Wageningen",
+    "pub_count": 6
+  },
+  "Belgium|3000": {
+    "coordinates": [
+      50.8798,
+      4.7005
+    ],
+    "city": "Leuven",
+    "pub_count": 97
+  },
+  "Belgium|1050": {
+    "coordinates": [
+      52.3531,
+      4.8858
+    ],
+    "city": "Brussels",
+    "pub_count": 21
+  },
+  "the Netherlands|3015": {
+    "coordinates": [
+      52.0667,
+      5.0667
+    ],
+    "city": "Rotterdam",
+    "pub_count": 18
+  },
+  "the Netherlands|1105": {
+    "coordinates": [
+      52.3798,
+      4.8929
+    ],
+    "city": "Amsterdam",
+    "pub_count": 44
+  },
+  "the Netherlands|2311": {
+    "coordinates": [
+      52.172,
+      4.5119
+    ],
+    "city": "Leiden",
+    "pub_count": 12
+  },
+  "the Netherlands|5612": {
+    "coordinates": [
+      51.438,
+      5.4733
+    ],
+    "city": "Eindhoven",
+    "pub_count": 8
+  },
+  "Belgium|3500": {
+    "coordinates": [
+      52.0908,
+      5.1186
+    ],
+    "city": "Diepenbeek",
+    "pub_count": 6
+  },
+  "the Netherlands|2628": {
+    "coordinates": [
+      51.1417,
+      4.4583
+    ],
+    "city": "Delft",
+    "pub_count": 11
+  },
+  "the Netherlands|9713": {
+    "coordinates": [
+      53.21,
+      6.5531
+    ],
+    "city": "Groningen",
+    "pub_count": 9
+  },
+  "the Netherlands|6708": {
+    "coordinates": [
+      51.4416,
+      5.4697
+    ],
+    "city": "Wageningen",
+    "pub_count": 37
+  },
+  "the Netherlands|6525": {
+    "coordinates": [
+      51.8667,
+      5.8667
+    ],
+    "city": "Nijmegen",
+    "pub_count": 20
+  },
+  "the Netherlands|3584": {
+    "coordinates": [
+      52.1267,
+      5.2584
+    ],
+    "city": "Utrecht",
+    "pub_count": 47
+  },
+  "Belgium|1348": {
+    "coordinates": [
+      49.6116,
+      6.1319
+    ],
+    "city": "Brussels",
+    "pub_count": 10
+  },
+  "the Netherlands|1066": {
+    "coordinates": [
+      52.3405,
+      4.8813
+    ],
+    "city": "Amsterdam",
+    "pub_count": 9
+  },
+  "the Netherlands|9747": {
+    "coordinates": [
+      51.0144,
+      4.0833
+    ],
+    "city": "Groningen",
+    "pub_count": 2
+  },
+  "the Netherlands|1081": {
+    "coordinates": [
+      52.3491,
+      4.923
+    ],
+    "city": "Amsterdam",
+    "pub_count": 15
+  },
+  "the Netherlands|9712": {
+    "coordinates": [
+      53.2145,
+      6.5597
+    ],
+    "city": "Groningen",
+    "pub_count": 6
+  },
+  "Belgium|9052": {
+    "coordinates": [
+      51.0417,
+      3.725
+    ],
+    "city": "Ghent",
+    "pub_count": 7
+  },
+  "the Netherlands|6200": {
+    "coordinates": [
+      50.3817,
+      4.8517
+    ],
+    "city": "Maastricht",
+    "pub_count": 1
+  },
+  "the Netherlands|1012": {
+    "coordinates": [
+      52.3729,
+      4.8952
+    ],
+    "city": "Amsterdam",
+    "pub_count": 7
+  },
+  "Luxembourg|4365": {
+    "coordinates": [
+      50.5667,
+      5.65
+    ],
+    "city": "Esch-sur-Alzette",
+    "pub_count": 7
+  },
+  "Belgium|7000": {
+    "coordinates": [
+      51.9833,
+      5.8833
+    ],
+    "city": "Mons",
+    "pub_count": 4
+  },
+  "Belgium|9820": {
+    "coordinates": [
+      51.0306,
+      4.0692
+    ],
+    "city": "Merelbeke",
+    "pub_count": 5
+  },
+  "Belgium|5030": {
+    "coordinates": [
+      50.45,
+      4.8667
+    ],
+    "city": "Gembloux",
+    "pub_count": 3
+  },
+  "Belgium|6041": {
+    "coordinates": [
+      50.9,
+      5.8667
+    ],
+    "city": "Gosselies",
+    "pub_count": 6
+  },
+  "Belgium|1200": {
+    "coordinates": [
+      52.3084,
+      4.8699
+    ],
+    "city": "Brussels",
+    "pub_count": 4
+  },
+  "the Netherlands|6229": {
+    "coordinates": [
+      50.9167,
+      5.8833
+    ],
+    "city": "Maastricht",
+    "pub_count": 6
+  },
+  "Belgium|8400": {
+    "coordinates": [
+      51.2167,
+      3.2
+    ],
+    "city": "Oostende",
+    "pub_count": 2
+  },
+  "Belgium|2000": {
+    "coordinates": [
+      51.2213,
+      4.3998
+    ],
+    "city": "Antwerp",
+    "pub_count": 5
+  },
+  "Luxembourg|4362": {
+    "coordinates": [
+      50.5667,
+      5.6333
+    ],
+    "city": "Esch-Sur-Alzette",
+    "pub_count": 1
+  },
+  "Belgium|1040": {
+    "coordinates": [
+      52.3597,
+      4.8945
+    ],
+    "city": "Leuven",
+    "pub_count": 1
+  },
+  "Belgium|2440": {
+    "coordinates": [
+      52.0333,
+      4.3667
+    ],
+    "city": "Geel",
+    "pub_count": 2
+  },
+  "the Netherlands|7500": {
+    "coordinates": [
+      51.9667,
+      5.9
+    ],
+    "city": "Enschede",
+    "pub_count": 2
+  },
+  "Belgium|3001": {
+    "coordinates": [
+      50.8798,
+      4.7005
+    ],
+    "city": "Heverlee",
+    "pub_count": 4
+  },
+  "the Netherlands|4401": {
+    "coordinates": [
+      50.5833,
+      5.6833
+    ],
+    "city": "Yerseke",
+    "pub_count": 1
+  },
+  "Belgium|3080": {
+    "coordinates": [
+      50.8617,
+      4.695
+    ],
+    "city": "Tervuren",
+    "pub_count": 1
+  },
+  "Belgium|5000": {
+    "coordinates": [
+      50.4667,
+      4.8667
+    ],
+    "city": "Namur",
+    "pub_count": 4
+  },
+  "the Netherlands|3508": {
+    "coordinates": [
+      52.0866,
+      5.12
+    ],
+    "city": "Utrecht",
+    "pub_count": 1
+  },
+  "the Netherlands|5600": {
+    "coordinates": [
+      51.4416,
+      5.4697
+    ],
+    "city": "Eindhoven",
+    "pub_count": 2
+  },
+  "Belgium|1070": {
+    "coordinates": [
+      52.3333,
+      4.8689
+    ],
+    "city": "Brussels",
+    "pub_count": 4
+  },
+  "the Netherlands|7511": {
+    "coordinates": [
+      51.9667,
+      5.9167
+    ],
+    "city": "Enschede",
+    "pub_count": 1
+  },
+  "Belgium|1090": {
+    "coordinates": [
+      52.3751,
+      4.9345
+    ],
+    "city": "Brussels",
+    "pub_count": 1
+  },
+  "the Netherlands|7522": {
+    "coordinates": [
+      51.95,
+      5.9333
+    ],
+    "city": "Enschede",
+    "pub_count": 4
+  },
+  "the Netherlands|1098": {
+    "coordinates": [
+      52.3648,
+      4.9442
+    ],
+    "city": "Amsterdam",
+    "pub_count": 3
+  },
+  "the Netherlands|6500": {
+    "coordinates": [
+      51.8425,
+      5.852
+    ],
+    "city": "Nijmegen",
+    "pub_count": 4
+  },
+  "the Netherlands|1018": {
+    "coordinates": [
+      52.3754,
+      4.9002
+    ],
+    "city": "Amsterdam",
+    "pub_count": 1
+  },
+  "Belgium|1180": {
+    "coordinates": [
+      52.3176,
+      4.8505
+    ],
+    "city": "Brussels",
+    "pub_count": 2
+  },
+  "the Netherlands|2629": {
+    "coordinates": [
+      51.145,
+      4.46
+    ],
+    "city": "Delft",
+    "pub_count": 2
+  },
+  "Belgium|2610": {
+    "coordinates": [
+      51.15,
+      4.4333
+    ],
+    "city": "Antwerp",
+    "pub_count": 1
+  },
+  "Belgium|8500": {
+    "coordinates": [
+      50.9597,
+      3.0667
+    ],
+    "city": "Kortrijk",
+    "pub_count": 1
+  },
+  "Belgium|3590": {
+    "coordinates": [
+      52.1233,
+      5.245
+    ],
+    "city": "Diepenbeek",
+    "pub_count": 2
+  },
+  "the Netherlands|9700": {
+    "coordinates": [
+      53.213,
+      6.5681
+    ],
+    "city": "Groningen",
+    "pub_count": 1
+  },
+  "the Netherlands|2300": {
+    "coordinates": [
+      52.1601,
+      4.4944
+    ],
+    "city": "Leiden",
+    "pub_count": 1
+  },
+  "Luxembourg|1210": {
+    "coordinates": [
+      52.2886,
+      4.8614
+    ],
+    "city": "Strassen",
+    "pub_count": 2
+  },
+  "the Netherlands|8200": {
+    "coordinates": [
+      51.1744,
+      3.1833
+    ],
+    "city": "Lelystad",
+    "pub_count": 1
+  },
+  "the Netherlands|6629": {
+    "coordinates": [
+      51.6333,
+      6.25
+    ],
+    "city": "Maastricht",
+    "pub_count": 1
+  }
+}
