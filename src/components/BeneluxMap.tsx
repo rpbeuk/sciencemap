@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { LatLng, LatLngBounds, Map as LeafletMap } from 'leaflet';
-import type { Institution } from '../context/DataContext';
 import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+import type { Institution } from '../context/DataContext';
 
 interface MapProps {
   institutions: Institution[];
@@ -12,102 +11,108 @@ interface MapProps {
 
 const BeneluxMap: React.FC<MapProps> = ({
   institutions,
-  selectedInstitution,
   onInstitutionClick,
 }) => {
-  const mapRef = useRef<LeafletMap>(null);
-
-  // Benelux bounds: Southwest corner (50.7, 2.3) to Northeast corner (53.5, 7.2)
-  const beneluxBounds = new LatLngBounds(
-    [50.7, 2.3],  // Southwest
-    [53.5, 7.2]   // Northeast
-  );
-  
-  const center: [number, number] = [51.5, 4.75];
-  const zoom = 8;
+  const containerRef = useRef<HTMLDivElement>(null);
+  const mapRef = useRef<L.Map | null>(null);
+  const markersRef = useRef<{ [key: string]: L.CircleMarker }>({});
 
   useEffect(() => {
-    // Ensure map knows its container size and tiles render at integer pixels
-    if (mapRef.current) {
-      // Call invalidateSize twice - once immediately, once after a small delay
-      mapRef.current.invalidateSize();
-      
-      const timer = setTimeout(() => {
-        if (mapRef.current) {
-          mapRef.current.invalidateSize(false);
-          // Reset view to ensure tiles are rendered at correct zoom level
-          mapRef.current.setView(center, zoom, { animate: false });
-        }
-      }, 50);
-      
-      return () => clearTimeout(timer);
-    }
-  }, [center, zoom]);
-
-  const getMarkerColor = (count: number): string => {
-    if (count > 50) return '#dc2626';
-    if (count > 20) return '#ea580c';
-    if (count > 10) return '#eab308';
-    return '#3b82f6';
-  };
-
-  const getMarkerIcon = (institution: Institution) => {
-    const isSelected = selectedInstitution?.name === institution.name;
-    const color = getMarkerColor(institution.publications.length);
+    // Only initialize once
+    if (mapRef.current) return;
     
-    return L.divIcon({
-      html: `<div style="background-color: ${color}; width: 32px; height: 32px; border-radius: 50%; border: ${
-        isSelected ? '3px solid white' : '2px solid rgba(0,0,0,0.2)'
-      }; box-shadow: 0 2px 4px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; color: white;">
-        ${institution.publications.length}
-      </div>`,
-      className: '',
-      iconSize: [32, 32],
-      iconAnchor: [16, 16],
+    if (!containerRef.current) return;
+
+    // Create map with explicit options
+    const map = L.map(containerRef.current, {
+      center: [51.5, 4.75],
+      zoom: 8,
+      zoomControl: true,
+      attributionControl: true,
+      preferCanvas: true,
     });
-  };
+
+    // Add tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 19,
+      minZoom: 6,
+    }).addTo(map);
+
+    // Set bounds
+    const beneluxBounds = L.latLngBounds(
+      [50.7, 2.3],  // Southwest
+      [53.5, 7.2]   // Northeast
+    );
+    
+    map.setMaxBounds(beneluxBounds);
+    map.fitBounds(beneluxBounds, { padding: [50, 50] });
+
+    mapRef.current = map;
+
+    // Ensure map size is correct after initialization
+    setTimeout(() => {
+      map.invalidateSize(false);
+    }, 100);
+
+    return () => {
+      // Cleanup on unmount
+      if (mapRef.current) {
+        mapRef.current.remove();
+        mapRef.current = null;
+      }
+    };
+  }, []);
+
+  // Add/update markers when institutions change
+  useEffect(() => {
+    if (!mapRef.current) return;
+
+    const map = mapRef.current;
+
+    // Remove old markers
+    Object.values(markersRef.current).forEach(marker => {
+      map.removeLayer(marker);
+    });
+    markersRef.current = {};
+
+    // Add new markers
+    institutions.forEach((institution) => {
+      const count = institution.publications.length;
+      const color = count > 50 ? '#dc2626' : count > 20 ? '#ea580c' : count > 10 ? '#eab308' : '#3b82f6';
+
+      const marker = L.circleMarker([institution.coordinates[0], institution.coordinates[1]], {
+        radius: 16,
+        fillColor: color,
+        color: '#000',
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.8,
+      })
+        .bindPopup(`
+          <div style="font-family: sans-serif;">
+            <h3 style="margin: 0 0 8px 0; font-weight: bold;">${institution.name}</h3>
+            <p style="margin: 0 0 4px 0; color: #666;">${institution.city}, ${institution.country}</p>
+            <p style="margin: 8px 0 0 0;"><strong>${count}</strong> publications</p>
+          </div>
+        `)
+        .on('click', () => onInstitutionClick(institution))
+        .addTo(map);
+
+      markersRef.current[`${institution.name}-${institution.city}`] = marker;
+    });
+  }, [institutions, onInstitutionClick]);
 
   return (
-    <MapContainer 
-      ref={mapRef}
-      center={center}
-      zoom={zoom}
-      maxBounds={beneluxBounds}
-      maxBoundsViscosity={1.0}
-      style={{ 
-        width: '100%', 
-        height: '100%', 
-        display: 'block',
-        margin: '0',
-        padding: '0'
+    <div 
+      ref={containerRef}
+      style={{
+        width: '100%',
+        height: '100%',
+        margin: 0,
+        padding: 0,
       }}
-    >
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      />
-      
-      {institutions.map((institution) => (
-        <Marker
-          key={`${institution.name}-${institution.city}`}
-          position={new LatLng(institution.coordinates[0], institution.coordinates[1])}
-          icon={getMarkerIcon(institution)}
-          eventHandlers={{
-            click: () => onInstitutionClick(institution),
-          }}
-        >
-          <Popup>
-            <div style={{ width: '200px' }}>
-              <h3 style={{ fontWeight: 'bold', fontSize: '14px', margin: '0 0 4px 0' }}>{institution.name}</h3>
-              <p style={{ fontSize: '12px', color: '#666', margin: '0 0 4px 0' }}>{institution.city}, {institution.country}</p>
-              <p style={{ fontSize: '12px', margin: '8px 0 0 0' }}>
-                <strong>{institution.publications.length}</strong> publications
-              </p>
-            </div>
-          </Popup>
-        </Marker>
-      ))}
-    </MapContainer>
+    />
   );
 };
 

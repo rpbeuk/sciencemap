@@ -21,46 +21,14 @@ body {
   padding: 0;
 }
 
-/* Leaflet map container - ensure it fills parent completely */
+/* Leaflet styles */
 .leaflet-container {
-  font-family: inherit;
-  width: 100% !important;
-  height: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  display: block !important;
-  position: relative !important;
-  background-clip: padding-box !important;
-}
-
-/* Fix tile layer rendering to prevent subpixel rendering */
-.leaflet-tile {
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-}
-
-/* Ensure tile pane uses integer coordinates */
-.leaflet-pane {
-  position: absolute !important;
-  width: 100% !important;
-  height: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-.leaflet-tile-pane {
-  z-index: 2;
-}
-
-/* Disable any transforms that might cause misalignment */
-.leaflet-transform {
-  position: relative !important;
-}
-
-/* Ensure proper rendering of map tiles */
-.leaflet-zoom-anim .leaflet-tile,
-.leaflet-zoom-anim .leaflet-marker-shadow {
-  will-change: transform;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  box-sizing: border-box;
 }
 
 .leaflet-popup-content {
