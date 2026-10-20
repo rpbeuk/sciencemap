@@ -168,7 +168,7 @@ const BeneluxMap: React.FC<MapProps> = ({
     if (!mapRef.current || !selectedInstitution) return;
     
     const map = mapRef.current;
-    const targetZoom = 13; // Zoom level to show department details
+    const targetZoom = 11; // Zoom level to show department details perfectly
     
     // Zoom to institution coordinates with smooth animation
     map.flyTo(
@@ -177,8 +177,8 @@ const BeneluxMap: React.FC<MapProps> = ({
       { duration: 1 }
     );
     
-    // Set max zoom to 13 when institution is selected (prevent zooming in further)
-    map.setMaxZoom(13);
+    // Set max zoom to 11 when institution is selected (prevent zooming in further)
+    map.setMaxZoom(11);
   }, [selectedInstitution]);
 
   // Render department nodes vertically stacked to the right of selected institution
