@@ -15,12 +15,24 @@ function AppContent() {
   }, [useSupabase, supabaseInsts]);
 
   return (
-    <div style={{ width: '100vw', height: '100vh', margin: 0, padding: 0, overflow: 'hidden' }}>
-      <BeneluxMap
-        institutions={supabaseInsts}
-        selectedInstitution={null}
-        onInstitutionClick={() => {}}
-      />
+    <div style={{ 
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '100vw', 
+      height: '100vh', 
+      margin: 0, 
+      padding: 0, 
+      overflow: 'hidden',
+      backgroundColor: '#f5f5f5'
+    }}>
+      <div style={{ width: '1024px', height: '800px', overflow: 'hidden' }}>
+        <BeneluxMap
+          institutions={supabaseInsts}
+          selectedInstitution={null}
+          onInstitutionClick={() => {}}
+        />
+      </div>
     </div>
   );
 }
