@@ -24,6 +24,7 @@ function AppContent() {
   const [error, setError] = useState<string | null>(null);
   const [dataLoaded, setDataLoaded] = useState(false);
   const [uploadMessage, setUploadMessage] = useState<string | null>(null);
+  const [showPublications, setShowPublications] = useState(false);
 
   // Use Supabase data if available
   const displayPublications = useSupabase ? supabasePubs : publications;
@@ -66,6 +67,7 @@ function AppContent() {
   const handleInstitutionClick = (institution: Institution) => {
     setSelectedInstitution(institution);
     setSelectedPublication(null);
+    setShowPublications(true);
   };
 
   const handlePublicationClick = (pub: Publication) => {
@@ -122,8 +124,11 @@ function AppContent() {
       <div style={{ height: 'calc(100vh - 120px)', overflow: 'auto' }}>
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Map */}
-            <div className="lg:col-span-2" style={{ height: '600px' }}>
+            {/* Map - Full width when publications hidden */}
+            <div 
+              className={showPublications ? 'lg:col-span-2' : 'lg:col-span-3'}
+              style={{ height: '600px' }}
+            >
               <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full">
                 <BeneluxMap
                   institutions={displayInstitutions}
@@ -133,14 +138,27 @@ function AppContent() {
               </div>
             </div>
 
-            {/* Publication Browser */}
-            <div className="bg-white rounded-lg shadow-lg overflow-y-auto" style={{ height: '600px' }}>
-              <PublicationBrowser
-                publications={selectedPublications}
-                selectedPublication={selectedPublication}
-                onPublicationClick={handlePublicationClick}
-              />
-            </div>
+            {/* Publication Browser - Show only when selected */}
+            {showPublications && (
+              <div className="bg-white rounded-lg shadow-lg overflow-y-auto flex flex-col" style={{ height: '600px' }}>
+                <div className="p-4 border-b flex items-center justify-between">
+                  <h3 className="font-bold text-lg">Publications</h3>
+                  <button
+                    onClick={() => setShowPublications(false)}
+                    className="text-gray-500 hover:text-gray-700 text-xl"
+                  >
+                    ✕
+                  </button>
+                </div>
+                <div style={{ flex: 1, overflow: 'auto' }}>
+                  <PublicationBrowser
+                    publications={selectedPublications}
+                    selectedPublication={selectedPublication}
+                    onPublicationClick={handlePublicationClick}
+                  />
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Statistics */}
