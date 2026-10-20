@@ -30,21 +30,22 @@ Error generating stack: `+e.message+`
           ${e.city}, ${e.country}<br/>
           ${r} publications
         </div>
-      `,{permanent:!1,direction:`top`,offset:[0,-10]}),o.current[`${e.name}-${e.city}`]=a})},[e,n]),(0,_.useEffect)(()=>{if(!a.current||!t)return;let e=a.current;l.current=!0,e.flyTo([t.coordinates[0],t.coordinates[1]],11,{duration:1,easeLinearity:.25}),e.setMaxZoom(11);let n=()=>{l.current=!1,e.off(`zoomend`,n)};e.on(`zoomend`,n)},[t]),(0,_.useEffect)(()=>{if(!a.current)return;let e=a.current;if(s.current.forEach(t=>{e.removeLayer(t)}),c.current.forEach(t=>{e.removeLayer(t)}),s.current=[],c.current=[],!t||!t.departments)return;let n=t.coordinates[0],i=t.coordinates[1],o=t.departments;if(o.length>0&&o[0].publications&&o[0].publications.length>0){let t=o[0].publications[0].crm_level_1;if(t){let r=n+.025,a=i+.04,o=y.default.divIcon({html:`
+      `,{permanent:!1,direction:`top`,offset:[0,-10]}),o.current[`${e.name}-${e.city}`]=a})},[e,n]),(0,_.useEffect)(()=>{if(!a.current||!t)return;let e=a.current;l.current=!0,e.flyTo([t.coordinates[0],t.coordinates[1]],11,{duration:1,easeLinearity:.25}),e.setMaxZoom(11);let n=()=>{l.current=!1,e.off(`zoomend`,n)};e.on(`zoomend`,n)},[t]),(0,_.useEffect)(()=>{if(!a.current)return;let e=a.current;if(s.current.forEach(t=>{e.removeLayer(t)}),c.current.forEach(t=>{e.removeLayer(t)}),s.current=[],c.current=[],!t||!t.departments)return;let n=t.coordinates[0],i=t.coordinates[1],o=t.departments;if(o.length>0&&o[0].publications&&o[0].publications.length>0){let t=o[0].publications[0].crm_level_1;if(t){let r=n+.035,a=i+.04,o=y.default.divIcon({html:`
             <div style="
-              background-color: #333;
+              background-color: #1f2937;
               color: white;
-              padding: 4px 8px;
-              border-radius: 4px;
-              font-size: 11px;
-              font-weight: 600;
+              padding: 6px 12px;
+              border-radius: 6px;
+              font-size: 12px;
+              font-weight: 700;
               white-space: nowrap;
               font-family: Arial, sans-serif;
-              box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+              box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+              border: 1px solid rgba(255,255,255,0.2);
             ">
               ${t}
             </div>
-          `,className:`crm-label`,iconSize:[180,24],iconAnchor:[90,12]}),s=y.default.marker([r,a],{icon:o}).addTo(e);c.current.push(s)}}let l=.015,u=o.length;[...o].sort((e,t)=>(t.publications?.length||0)-(e.publications?.length||0)).forEach((t,a)=>{let o=n-l*(u-1)/2+l*a,c=i+.04,d=t.publications.length,f=t.name,p=y.default.divIcon({html:`
+          `,className:`crm-label`,iconSize:[220,32],iconAnchor:[110,16]}),s=y.default.marker([r,a],{icon:o}).addTo(e);c.current.push(s)}}let l=.015,u=o.length;[...o].sort((e,t)=>(t.publications?.length||0)-(e.publications?.length||0)).forEach((t,a)=>{let o=n-l*(u-1)/2+l*a,c=i+.04,d=t.publications.length,f=t.name,p=y.default.divIcon({html:`
           <div style="display: flex; align-items: center; gap: 0; margin: 0; padding: 0; position: relative;">
             <div style="background-color: #ea580c; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #000; color: white; font-weight: bold; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); font-family: Arial, sans-serif; flex-shrink: 0; z-index: 2;">${d}</div>
             <div style="background-color: white; padding: 6px 14px; border-radius: 8px; color: black; font-weight: normal; font-size: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); font-family: Arial, sans-serif; white-space: nowrap; margin-left: -10px; z-index: 1;">${f}</div>
