@@ -37,23 +37,46 @@ function AppContent() {
 
   // Filter institutions based on selected filters
   const filteredInstitutions = supabaseInsts.filter(inst => {
-    // Map country codes to region names
-    let instCountry = inst.country;
-    if (instCountry === 'NL') {
-      // For Netherlands, check if city matches any province
-      const city = inst.city;
-      const matchedProvince = Object.entries(DUTCH_PROVINCES).find(([_, cities]) =>
-        cities.some(c => c.toLowerCase() === city.toLowerCase())
-      );
-      const province = matchedProvince ? matchedProvince[0] : null;
-      return province ? filters.regions.includes(province) : false;
-    } else if (instCountry === 'BE') {
-      instCountry = 'Belgium';
-    } else if (instCountry === 'LU') {
-      instCountry = 'Luxembourg';
+    // Map country names to region names for filtering
+    const countryLower = (inst.country || '').toLowerCase().trim();
+    
+    // Determine the region(s) this institution belongs to
+    let regionMatches: string[] = [];
+    
+    if (countryLower === 'the netherlands' || countryLower === 'nl') {
+      // For Netherlands, try to match city to province
+      const city = (inst.city || '').trim();
+      const matchedProvinces = Object.entries(DUTCH_PROVINCES)
+        .filter(([_, cities]) =>
+          cities.some(c => c.toLowerCase() === city.toLowerCase())
+        )
+        .map(([province]) => province);
+      
+      // If city matches a province, use that; otherwise accept institution if any NL province is selected
+      if (matchedProvinces.length > 0) {
+        regionMatches = matchedProvinces;
+      } else if (city) {
+        // City doesn't match hardcoded list, but institution is still Dutch
+        // Accept it if ANY Dutch province filter is selected
+        const dutchProvinces = Object.keys(DUTCH_PROVINCES);
+        if (dutchProvinces.some(p => filters.regions.includes(p))) {
+          regionMatches = dutchProvinces.filter(p => filters.regions.includes(p));
+        }
+      } else {
+        // No city info, accept if any Dutch province is selected
+        const dutchProvinces = Object.keys(DUTCH_PROVINCES);
+        if (dutchProvinces.some(p => filters.regions.includes(p))) {
+          regionMatches = dutchProvinces.filter(p => filters.regions.includes(p));
+        }
+      }
+    } else if (countryLower === 'belgium' || countryLower === 'be') {
+      regionMatches = ['Belgium'];
+    } else if (countryLower === 'luxembourg' || countryLower === 'lu') {
+      regionMatches = ['Luxembourg'];
     }
     
-    return filters.regions.includes(instCountry);
+    // Check if any of the institution's regions are in the selected filters
+    return regionMatches.length > 0 && regionMatches.some(r => filters.regions.includes(r));
   });
 
   return (
