@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import BeneluxMap from './components/BeneluxMap';
 import PublicationBrowser from './components/PublicationBrowser';
@@ -22,12 +22,19 @@ function AppContent() {
   const [selectedPublication, setSelectedPublication] = useState<Publication | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [dataLoaded, setDataLoaded] = useState(useSupabase);
+  const [dataLoaded, setDataLoaded] = useState(false);
   const [uploadMessage, setUploadMessage] = useState<string | null>(null);
 
   // Use Supabase data if available
   const displayPublications = useSupabase ? supabasePubs : publications;
   const displayInstitutions = useSupabase ? supabaseInsts : institutions;
+
+  // Set dataLoaded when Supabase data becomes available
+  useEffect(() => {
+    if (useSupabase && supabasePubs.length > 0) {
+      setDataLoaded(true);
+    }
+  }, [useSupabase, supabasePubs]);
 
   const handleFilesSelected = async (pubFile: File, accFile: File) => {
     setLoading(true);

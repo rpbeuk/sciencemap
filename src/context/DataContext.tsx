@@ -55,11 +55,16 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   // Check if Supabase is available
   useEffect(() => {
     // Try to load Supabase data
-    setUseSupabase(true);
-    loadSupabaseData().catch((err) => {
-      console.error('Failed to load Supabase data:', err);
-      setUseSupabase(false);
-    });
+    const load = async () => {
+      setUseSupabase(true);
+      try {
+        await loadSupabaseData();
+      } catch (err) {
+        console.error('Failed to load Supabase data:', err);
+        setUseSupabase(false);
+      }
+    };
+    load();
   }, []);
 
   const loadSupabaseData = async () => {
