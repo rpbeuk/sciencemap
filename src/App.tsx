@@ -5,6 +5,20 @@ import FilterPanel from './components/FilterPanel';
 import type { FilterOptions } from './components/FilterPanel';
 import { useData, DataProvider } from './context/DataContext';
 
+const DUTCH_PROVINCES: Record<string, string[]> = {
+  'North Holland': ['Amsterdam', 'Haarlem', 'Alkmaar', 'Enkhuizen', 'Hoofddorp', 'Landsmeer', 'Naarden', 'Zaventem'],
+  'South Holland': ['Rotterdam', 'Den Haag', 'Leiden', 'Delft', 'Dordrecht', 'Gouda', 'Leiderdorp', 'Oegstgeest', 'Rijswijk', 'Waddinxveen', 'Zoetermeer', 'Voorburg', 'Delfgauw', 'Nieuw Vennep', 'Badhoevedorp'],
+  'Utrecht': ['Utrecht', 'Amersfoort', 'Bilthoven', 'Bunnik', 'Houten', 'Maarssen', 'Nieuwegein', 'Veenendaal', 'Zeist', 'Ijsselstein'],
+  'Flevoland': ['Almere', 'Lelystad', 'Zevenhuizen'],
+  'Gelderland': ['Nijmegen', 'Arnhem', 'Wageningen', 'Ede', 'Deventer', 'Harderwijk', 'Duiven', 'Huissen', 'Wijchen', 'Beuningen', 'Beek-Ubbergen', 'Heumen', 'Boven Leeuwen'],
+  'North Brabant': ['Breda', 'Eindhoven', 'Tilburg', "'s Hertogenbosch", 'Den Bosch', "'s-Hertogenbosch", 'Oss', 'Enschede', 'Venlo', 'Son', 'Best', 'Veldhoven', 'Vught', 'Oosterhout', 'Made', 'Nunhem', 'Boxmeer', 'Horst'],
+  'Limburg': ['Maastricht', 'Geleen', 'Kerkrade'],
+  'Overijssel': ['Enschede', 'Zwolle', 'Deventer', 'Hengelo', 'Drachten', 'Tynaarlo', 'Joure', 'Bolsward'],
+  'Friesland': ['Bolsward', 'Enkhuizen', 'Joure'],
+  'Groningen': ['Groningen', 'Assen', 'Emmen'],
+  'Drenthe': ['Assen', 'Emmen', 'Tynaarlo'],
+};
+
 function AppContent() {
   const { 
     institutions: supabaseInsts, 
@@ -12,7 +26,7 @@ function AppContent() {
   } = useData();
 
   const [filters, setFilters] = useState<FilterOptions>({
-    regions: ['Netherlands', 'Belgium', 'Luxembourg'],
+    regions: ['Belgium', 'Luxembourg', 'North Holland', 'South Holland', 'Utrecht', 'Gelderland', 'North Brabant', 'Limburg', 'Flevoland', 'Overijssel', 'Friesland', 'Groningen', 'Drenthe'],
     portfolios: ['Sample Prep', 'Cell Separation', 'Cell Culture', 'Cell Analysis', 'Imaging', 'Clinical'],
   });
 
@@ -23,7 +37,23 @@ function AppContent() {
 
   // Filter institutions based on selected filters
   const filteredInstitutions = supabaseInsts.filter(inst => {
-    return filters.regions.includes(inst.country);
+    // Map country codes to region names
+    let instCountry = inst.country;
+    if (instCountry === 'NL') {
+      // For Netherlands, check if city matches any province
+      const city = inst.city;
+      const matchedProvince = Object.entries(DUTCH_PROVINCES).find(([_, cities]) =>
+        cities.some(c => c.toLowerCase() === city.toLowerCase())
+      );
+      const province = matchedProvince ? matchedProvince[0] : null;
+      return province ? filters.regions.includes(province) : false;
+    } else if (instCountry === 'BE') {
+      instCountry = 'Belgium';
+    } else if (instCountry === 'LU') {
+      instCountry = 'Luxembourg';
+    }
+    
+    return filters.regions.includes(instCountry);
   });
 
   return (

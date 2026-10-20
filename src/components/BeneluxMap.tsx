@@ -68,6 +68,18 @@ const BeneluxMap: React.FC<MapProps> = ({
     };
   }, []);
 
+  // Load institutions from matched publications JSON
+  useEffect(() => {
+    const loadInstitutions = async () => {
+      try {
+        await fetch('/institutions_data.json');
+      } catch (error) {
+        console.error('Failed to load institutions data:', error);
+      }
+    };
+    loadInstitutions();
+  }, []);
+
   // Add/update markers when institutions change
   useEffect(() => {
     if (!mapRef.current) return;
@@ -80,27 +92,8 @@ const BeneluxMap: React.FC<MapProps> = ({
     });
     markersRef.current = {};
 
-    // Add test institutions for LUMC and RadboudUMC
-    const testInstitutions = [
-      {
-        name: 'LUMC',
-        city: 'Leiden',
-        country: 'Netherlands',
-        coordinates: [52.1667, 4.4833] as [number, number], // Leiden coordinates
-        publications: Array(25).fill({ title: 'Test publication', keywords: ['tissue', 'sample'] }),
-      },
-      {
-        name: 'RadboudUMC',
-        city: 'Nijmegen',
-        country: 'Netherlands',
-        coordinates: [51.8425, 5.8520] as [number, number], // Nijmegen coordinates
-        publications: Array(25).fill({ title: 'Test publication', keywords: ['research', 'study'] }),
-      },
-      ...institutions,
-    ];
-
-    // Add markers
-    testInstitutions.forEach((institution) => {
+    // Add markers for all institutions
+    institutions.forEach((institution) => {
       const count = institution.publications.length;
       const color = count > 50 ? '#dc2626' : count > 20 ? '#ea580c' : count > 10 ? '#eab308' : '#3b82f6';
 

@@ -61,17 +61,85 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   // Check if Supabase is available
   useEffect(() => {
-    // Try to load Supabase data
-    const load = async () => {
-      setUseSupabase(true);
+    // First try to load institutions from matched publications JSON
+    const loadFromJSON = async () => {
       try {
+        const response = await fetch('/sciencemap/institutions_data.json');
+        if (!response.ok) throw new Error('Failed to load institutions data');
+        
+        const rawInstitutions = await response.json();
+        
+        // Load CRM mappings
+        let crmMappings: Record<number, string> = {};
+        try {
+          const mappingResponse = await fetch('/sciencemap/crm_mappings.json');
+          const mappings: Array<{ pmid: number; crm_level_3: string }> = await mappingResponse.json();
+          crmMappings = Object.fromEntries(mappings.map(m => [m.pmid, m.crm_level_3]));
+        } catch (err) {
+          console.warn('Could not load CRM mappings:', err);
+        }
+
+        // Transform institutions data
+        const transformed: Institution[] = rawInstitutions.map((inst: any) => {
+          const publications: Publication[] = inst.publications.map((pub: any) => ({
+            pmid: pub.pmid,
+            title: pub.title || '',
+            authors: pub.authors || '',
+            year: new Date().getFullYear(),
+            journal: '',
+            summary: '',
+            city: inst.city,
+            institute: inst.name,
+            country: inst.country,
+            department: crmMappings[pub.pmid] || pub.crm_level_3 || 'General',
+          }));
+
+          // Aggregate by department
+          const deptMap = new Map<string, Publication[]>();
+          publications.forEach(pub => {
+            const dept = pub.department || 'General';
+            if (!deptMap.has(dept)) {
+              deptMap.set(dept, []);
+            }
+            deptMap.get(dept)!.push(pub);
+          });
+
+          const departments: Department[] = Array.from(deptMap.entries())
+            .map(([name, pubs]) => ({ name, publications: pubs }))
+            .sort((a, b) => a.name.localeCompare(b.name));
+
+          return {
+            name: inst.name,
+            city: inst.city,
+            postalCode: inst.postal || '',
+            country: inst.country,
+            coordinates: inst.coordinates as [number, number],
+            publications,
+            departments,
+          };
+        });
+
+        setInstitutions(transformed);
+        const allPubs = transformed.flatMap(inst => inst.publications);
+        setPublications(allPubs);
+        setUseSupabase(true);
+        return;
+      } catch (err) {
+        console.warn('Could not load from JSON, falling back to Supabase:', err);
+      }
+
+      // Fallback: Try to load from Supabase
+      try {
+        setUseSupabase(true);
         await loadSupabaseData();
       } catch (err) {
-        console.error('Failed to load Supabase data:', err);
+        console.error('Failed to load from both JSON and Supabase:', err);
+        setError('No data available');
         setUseSupabase(false);
       }
     };
-    load();
+
+    loadFromJSON();
   }, []);
 
   const loadSupabaseData = async () => {
