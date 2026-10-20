@@ -29,6 +29,14 @@ zipcode_coords = {
     "2000": [51.2213, 4.3998],  # Antwerp
     "2010": [51.2321, 4.4124],  # Antwerp
     "2020": [51.2138, 4.3876],  # Antwerp
+    "2140": [51.2000, 4.4167],  # Antwerp area
+    "2170": [51.2167, 4.4500],  # Antwerp area
+    "2600": [51.1667, 4.4167],  # Antwerp area
+    "2610": [51.1500, 4.4333],  # Antwerp area
+    "2620": [51.1333, 4.4500],  # Antwerp area
+    "2628": [51.1417, 4.4583],  # Antwerp area
+    "2629": [51.1450, 4.4600],  # Antwerp area
+    "2650": [51.0833, 4.4833],  # Antwerp area
     
     # BELGIUM (Bruges/Gent area)
     "8000": [51.2093, 3.2244],  # Bruges
@@ -37,10 +45,18 @@ zipcode_coords = {
     "9000": [51.0379, 3.7196],  # Ghent/Gent
     "9200": [51.1622, 3.8244],  # Dendermonde
     
+    # BELGIUM (Leuven area - 3000 range)
+    "3000": [50.8798, 4.7005],  # Leuven
+    "3001": [50.8798, 4.7005],  # Leuven
+    "3080": [50.8617, 4.6950],  # Tervuren (Leuven area)
+    
     # BELGIUM (Liege/Liège area)
     "4000": [50.6333, 5.5667],  # Liège
     "4020": [50.6292, 5.5797],  # Liège
     "4030": [50.6183, 5.5933],  # Grivegnée
+    "4362": [50.5667, 5.6333],  # Liège area
+    "4365": [50.5667, 5.6500],  # Liège area
+    "4401": [50.5833, 5.6833],  # Liège area
     
     # BELGIUM (Namur area)
     "5000": [50.4667, 4.8667],  # Namur
@@ -85,6 +101,7 @@ zipcode_coords = {
     "3501": [52.0906, 5.1154],  # Utrecht
     "3504": [52.0916, 5.1152],  # Utrecht
     "3505": [52.0898, 5.1239],  # Utrecht
+    "3508": [52.0866, 5.1200],  # Utrecht
     "3510": [52.0866, 5.1184],  # Utrecht
     "3511": [52.0843, 5.1118],  # Utrecht
     "3512": [52.0841, 5.1086],  # Utrecht
@@ -93,13 +110,19 @@ zipcode_coords = {
     "3515": [52.0868, 5.0973],  # Utrecht
     "3581": [52.1209, 5.1867],  # Zeist
     "3584": [52.1267, 5.2584],  # Bilthoven
+    "3590": [52.1233, 5.2450],  # Utrecht area
     "3600": [52.0333, 5.1167],  # Utrecht
     "3605": [52.0292, 5.1242],  # Maarssen
     "3015": [52.0667, 5.0667],  # Nieuwegein
     
-    # NETHERLANDS (Nijmegen area)
-    "6500": [51.8425, 5.8520],  # Nijmegen
-    "6525": [51.8667, 5.8667],  # Nijmegen
+    # NETHERLANDS (Namur/Walloon area)
+    "5030": [50.4500, 4.8667],  # Namur area
+    
+    # NETHERLANDS (Limburg area)
+    "6041": [50.9000, 5.8667],  # Limburg
+    "6229": [50.9167, 5.8833],  # Limburg
+    "6629": [51.6333, 6.2500],  # Limburg area
+    "6700": [51.7167, 6.1667],  # Limburg area
     
     # NETHERLANDS (Eindhoven area)
     "5600": [51.4416, 5.4697],  # Eindhoven
@@ -117,6 +140,22 @@ zipcode_coords = {
     "5708": [51.4597, 5.5208],  # Eindhoven
     "6708": [51.4416, 5.4697],  # Eindhoven
     
+    # NETHERLANDS (Nijmegen area)
+    "6500": [51.8425, 5.8520],  # Nijmegen
+    "6525": [51.8667, 5.8667],  # Nijmegen
+    
+    # NETHERLANDS (Arnhem area - 7000 range)
+    "7000": [51.9833, 5.8833],  # Arnhem
+    "7500": [51.9667, 5.9000],  # Arnhem area
+    "7511": [51.9667, 5.9167],  # Arnhem area
+    "7522": [51.9500, 5.9333],  # Arnhem area
+    
+    # BELGIUM (Bruges area - 8400 range)
+    "8400": [51.2167, 3.2000],  # Bruges area
+    
+    # BELGIUM/NETHERLANDS (Ghent area - 9000-9100)
+    "9052": [51.0417, 3.7250],  # Ghent area
+    
     # NETHERLANDS (Groningen area)
     "9700": [53.2130, 6.5681],  # Groningen
     "9711": [53.2211, 6.5739],  # Groningen
@@ -130,7 +169,7 @@ zipcode_coords = {
     "9719": [53.2295, 6.5562],  # Groningen
     "9720": [53.2325, 6.5467],  # Groningen
     "9722": [53.2089, 6.6236],  # Groningen
-    "9723": [53.2012, 5.5928],  # Groningen
+    "9723": [53.2012, 6.5928],  # Groningen
     "9724": [53.1982, 6.5706],  # Groningen
     "9725": [53.1980, 6.5489],  # Groningen
     "9726": [53.2011, 6.5294],  # Groningen
