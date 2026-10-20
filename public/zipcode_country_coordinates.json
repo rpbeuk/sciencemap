@@ -124,8 +124,8 @@
     "country": "Belgium",
     "city": "Diepenbeek",
     "coordinates": [
-      52.1267,
-      5.2584
+      50.8365,
+      5.3619
     ],
     "pub_count": 6
   },
@@ -274,8 +274,8 @@
     "country": "Belgium",
     "city": "Mons",
     "coordinates": [
-      51.9833,
-      5.8833
+      50.4502,
+      4.4914
     ],
     "pub_count": 4
   },
@@ -564,8 +564,8 @@
     "country": "Belgium",
     "city": "Diepenbeek",
     "coordinates": [
-      52.1233,
-      5.245
+      50.8365,
+      5.3619
     ],
     "pub_count": 2
   },
