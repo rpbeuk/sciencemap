@@ -193,15 +193,15 @@ const BeneluxMap: React.FC<MapProps> = ({
       
       // Create circle with count + label with dept name
       const circleRadius = 20; // 40px diameter
-      const rectWidth = 150;
-      const gapBetween = 8;
-      const totalWidth = circleRadius * 2 + gapBetween + rectWidth;
+      const minRectWidth = 250; // Minimum width for text box
+      const overlapOffset = -10; // Negative value makes box overlap the circle
+      const totalWidth = circleRadius * 2 + minRectWidth + overlapOffset;
       
       const deptIcon = L.divIcon({
         html: `
-          <div style="display: flex; align-items: center; gap: 8px; margin: 0; padding: 0;">
-            <div style="background-color: #ea580c; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #000; color: white; font-weight: bold; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); font-family: Arial, sans-serif;">${pubCount}</div>
-            <div style="background-color: white; padding: 6px 12px; border-radius: 8px; color: black; font-weight: normal; font-size: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); font-family: Arial, sans-serif; white-space: nowrap;">${deptName}</div>
+          <div style="display: flex; align-items: center; gap: 0; margin: 0; padding: 0; position: relative;">
+            <div style="background-color: #ea580c; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #000; color: white; font-weight: bold; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); font-family: Arial, sans-serif; flex-shrink: 0; z-index: 2;">${pubCount}</div>
+            <div style="background-color: white; padding: 6px 14px; border-radius: 8px; color: black; font-weight: normal; font-size: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); font-family: Arial, sans-serif; white-space: nowrap; margin-left: ${overlapOffset}px; z-index: 1;">${deptName}</div>
           </div>
         `,
         className: 'dept-marker',
