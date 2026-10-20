@@ -156,7 +156,7 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             // Get coordinates using country-aware lookup
             const coords = getCoordinatesForZipcodeAndCountry(zipcode, country, zipcodeDb);
             locationMap.set(locationKey, {
-              name: `${city} (${zipcode})`,
+              name: `${instName} (${zipcode})`,
               city: city,
               postalCode: zipcode,
               country: country,

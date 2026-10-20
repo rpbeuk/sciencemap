@@ -95,7 +95,7 @@ const BeneluxMap: React.FC<MapProps> = ({
     // Add markers for all institutions
     institutions.forEach((institution) => {
       const count = institution.publications.length;
-      const color = count > 50 ? '#dc2626' : count > 20 ? '#ea580c' : count > 10 ? '#eab308' : '#3b82f6';
+      const color = '#ea580c'; // Always orange
 
       // Create custom icon with publication count
       const icon = L.divIcon({
