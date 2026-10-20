@@ -231,10 +231,10 @@ const BeneluxMap: React.FC<MapProps> = ({
         const verticalSpacing = 0.015; // Same spacing as departments
         const count = sortedDepartments.length;
         
-        // Position above the first department (north = decrease latitude)
+        // Position above the first department (north = increase latitude in our inverted system)
         const firstDeptLat = instLat - (verticalSpacing * (count - 1) / 2);
-        const labelLat = firstDeptLat - verticalSpacing; // Subtract to go north (above)
-        const labelLng = instLng + 0.025; // Align with left edge of circle (circles at instLng + 0.04)
+        const labelLat = firstDeptLat + verticalSpacing; // Add to go north (above)
+        const labelLng = instLng + 0.027; // Slightly more right
         
         const crmLabel = L.divIcon({
           html: `
