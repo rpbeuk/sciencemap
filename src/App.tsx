@@ -87,15 +87,18 @@ function AppContent() {
 
           {selectedDepartment && (
             <div style={{
-              width: '600px',
-              height: '100%',
+              position: 'fixed',
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0,
               backgroundColor: 'white',
-              borderLeft: '1px solid #e5e7eb',
               overflowY: 'auto',
               overflowX: 'hidden',
               padding: '16px',
               fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
               fontSize: '13px',
+              zIndex: 1000,
             }}>
               <div style={{ marginBottom: '16px' }}>
                 <button
@@ -118,7 +121,7 @@ function AppContent() {
                 {selectedDepartment.name}
               </h3>
 
-              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', paddingBottom: '24px' }}>
                 {selectedDepartment.publications.map((pub: any, idx: number) => (
                   <div 
                     key={idx}
@@ -129,7 +132,7 @@ function AppContent() {
                       border: '1px solid #e5e7eb',
                       borderRadius: '8px',
                       padding: '12px',
-                      minHeight: '200px',
+                      minHeight: '400px',
                       display: 'flex',
                       flexDirection: 'column',
                       cursor: 'pointer',
@@ -160,26 +163,32 @@ function AppContent() {
 
                     {/* Properties - Always Visible */}
                     <div style={{ fontSize: '10px', color: '#666', lineHeight: '1.6', flex: 1 }}>
-                      {pub.sampleType && (
+                      {pub.territory && (
                         <div style={{ marginBottom: '6px' }}>
-                          <strong>Sample Type:</strong> {pub.sampleType}
+                          <strong>Territory:</strong> {pub.territory}
                         </div>
                       )}
                       
-                      {pub.instrument && (
+                      {pub.crm_level_3 && (
                         <div style={{ marginBottom: '6px' }}>
-                          <strong>Instruments:</strong> {pub.instrument}
+                          <strong>Department:</strong> {pub.crm_level_3}
                         </div>
                       )}
                       
-                      {pub.miltenyiProduct && (
+                      {pub.year && (
                         <div style={{ marginBottom: '6px' }}>
-                          <strong>Miltenyi Product:</strong> {pub.miltenyiProduct}
+                          <strong>Year:</strong> {pub.year}
+                        </div>
+                      )}
+                      
+                      {pub.journal && (
+                        <div style={{ marginBottom: '6px' }}>
+                          <strong>Journal:</strong> {pub.journal}
                         </div>
                       )}
                     </div>
 
-                    {/* Summary - Shows on Title Hover */}
+                    {/* Summary - Shows on Hover */}
                     <div 
                       style={{ 
                         fontSize: '9px', 
@@ -197,7 +206,7 @@ function AppContent() {
                       {pub.summary && (
                         <div style={{ marginBottom: '6px' }}>
                           <strong style={{ display: 'block', marginBottom: '3px' }}>Summary:</strong>
-                          {pub.summary.substring(0, 200)}...
+                          {pub.summary}
                         </div>
                       )}
                     </div>
