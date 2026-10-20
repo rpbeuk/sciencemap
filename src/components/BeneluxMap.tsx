@@ -196,57 +196,22 @@ const BeneluxMap: React.FC<MapProps> = ({
       const pubCount = dept.publications.length;
       const deptName = dept.name;
       
-      // Create a container with circle and rectangle side by side
+      // Create circle with count + label with dept name
+      const circleRadius = 20; // 40px diameter
+      const rectWidth = 150;
+      const gapBetween = 8;
+      const totalWidth = circleRadius * 2 + gapBetween + rectWidth;
+      
       const deptIcon = L.divIcon({
         html: `
-          <div style="
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            white-space: nowrap;
-            padding: 0;
-            margin: 0;
-          ">
-            <!-- Publication count circle -->
-            <div style="
-              background-color: #ea580c;
-              width: 40px;
-              height: 40px;
-              min-width: 40px;
-              border-radius: 50%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              border: 2px solid #000;
-              color: white;
-              font-weight: bold;
-              font-size: 14px;
-              box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-              font-family: Arial, sans-serif;
-              flex-shrink: 0;
-            ">
-              ${pubCount}
-            </div>
-            <!-- Department name rectangle -->
-            <div style="
-              background-color: white;
-              padding: 6px 12px;
-              border-radius: 8px;
-              color: black;
-              font-weight: normal;
-              font-size: 12px;
-              box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-              font-family: Arial, sans-serif;
-              line-height: 1.3;
-              white-space: nowrap;
-            ">
-              ${deptName}
-            </div>
+          <div style="display: flex; align-items: center; gap: 8px; margin: 0; padding: 0;">
+            <div style="background-color: #ea580c; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #000; color: white; font-weight: bold; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); font-family: Arial, sans-serif;">${pubCount}</div>
+            <div style="background-color: white; padding: 6px 12px; border-radius: 8px; color: black; font-weight: normal; font-size: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); font-family: Arial, sans-serif; white-space: nowrap;">${deptName}</div>
           </div>
         `,
-        className: 'dept-node-marker',
-        iconSize: [240, 48],
-        iconAnchor: [20, 24], // Anchor on circle
+        className: 'dept-marker',
+        iconSize: [totalWidth, 50],
+        iconAnchor: [circleRadius, 25], // Anchor on left circle
       });
       
       const deptMarker = L.marker([deptLat, deptLng], {
