@@ -16,7 +16,6 @@ const BeneluxMap: React.FC<MapProps> = ({
   onInstitutionClick,
 }) => {
   const mapRef = useRef<LeafletMap>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
 
   // Benelux bounds: Southwest corner (50.7, 2.3) to Northeast corner (53.5, 7.2)
   const beneluxBounds = new LatLngBounds(
@@ -28,15 +27,14 @@ const BeneluxMap: React.FC<MapProps> = ({
   const zoom = 8;
 
   useEffect(() => {
-    // Wait for map to mount and be ready
+    // Ensure map knows its container size
     if (mapRef.current) {
-      // Use requestAnimationFrame to ensure layout is complete
-      requestAnimationFrame(() => {
+      // Wait a tick for DOM to settle
+      setTimeout(() => {
         if (mapRef.current) {
           mapRef.current.invalidateSize();
-          mapRef.current.fitBounds(beneluxBounds, { padding: [20, 20] });
         }
-      });
+      }, 100);
     }
   }, []);
 
@@ -64,52 +62,46 @@ const BeneluxMap: React.FC<MapProps> = ({
   };
 
   return (
-    <div 
-      ref={containerRef}
+    <MapContainer 
+      ref={mapRef}
+      center={center}
+      zoom={zoom}
+      maxBounds={beneluxBounds}
+      maxBoundsViscosity={1.0}
       style={{ 
         width: '100%', 
-        height: '100%',
-        margin: 0,
-        padding: 0,
-        boxSizing: 'border-box'
+        height: '100%', 
+        display: 'block',
+        margin: '0',
+        padding: '0'
       }}
     >
-      <MapContainer 
-        ref={mapRef}
-        center={center}
-        zoom={zoom}
-        maxBounds={beneluxBounds}
-        maxBoundsViscosity={1.0}
-        style={{ width: '100%', height: '100%', display: 'block' }}
-        className="leaflet-container"
-      >
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        />
-        
-        {institutions.map((institution) => (
-          <Marker
-            key={`${institution.name}-${institution.city}`}
-            position={new LatLng(institution.coordinates[0], institution.coordinates[1])}
-            icon={getMarkerIcon(institution)}
-            eventHandlers={{
-              click: () => onInstitutionClick(institution),
-            }}
-          >
-            <Popup>
-              <div style={{ width: '200px' }}>
-                <h3 style={{ fontWeight: 'bold', fontSize: '14px', margin: '0 0 4px 0' }}>{institution.name}</h3>
-                <p style={{ fontSize: '12px', color: '#666', margin: '0 0 4px 0' }}>{institution.city}, {institution.country}</p>
-                <p style={{ fontSize: '12px', margin: '8px 0 0 0' }}>
-                  <strong>{institution.publications.length}</strong> publications
-                </p>
-              </div>
-            </Popup>
-          </Marker>
-        ))}
-      </MapContainer>
-    </div>
+      <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      />
+      
+      {institutions.map((institution) => (
+        <Marker
+          key={`${institution.name}-${institution.city}`}
+          position={new LatLng(institution.coordinates[0], institution.coordinates[1])}
+          icon={getMarkerIcon(institution)}
+          eventHandlers={{
+            click: () => onInstitutionClick(institution),
+          }}
+        >
+          <Popup>
+            <div style={{ width: '200px' }}>
+              <h3 style={{ fontWeight: 'bold', fontSize: '14px', margin: '0 0 4px 0' }}>{institution.name}</h3>
+              <p style={{ fontSize: '12px', color: '#666', margin: '0 0 4px 0' }}>{institution.city}, {institution.country}</p>
+              <p style={{ fontSize: '12px', margin: '8px 0 0 0' }}>
+                <strong>{institution.publications.length}</strong> publications
+              </p>
+            </div>
+          </Popup>
+        </Marker>
+      ))}
+    </MapContainer>
   );
 };
 
