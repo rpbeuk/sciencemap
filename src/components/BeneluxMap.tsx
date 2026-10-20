@@ -6,13 +6,16 @@ import type { Institution } from '../context/DataContext';
 interface MapProps {
   institutions: Institution[];
   selectedInstitution: Institution | null;
+  selectedDepartment: any | null;
   onInstitutionClick: (inst: Institution) => void;
+  onDepartmentClick: (dept: any) => void;
 }
 
 const BeneluxMap: React.FC<MapProps> = ({
   institutions,
   selectedInstitution,
   onInstitutionClick,
+  onDepartmentClick,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<L.Map | null>(null);
@@ -210,6 +213,15 @@ const BeneluxMap: React.FC<MapProps> = ({
         icon: deptIcon,
       }).addTo(map);
       
+      // Add click handler to department marker
+      const markerElement = deptMarker.getElement();
+      if (markerElement) {
+        markerElement.addEventListener('click', () => {
+          onDepartmentClick(dept);
+        });
+        markerElement.style.cursor = 'pointer';
+      }
+      
       deptMarker.bindTooltip(`${dept.name}: ${pubCount} publications`, {
         permanent: false,
         direction: 'right',
@@ -218,7 +230,7 @@ const BeneluxMap: React.FC<MapProps> = ({
       
       departmentMarkersRef.current.push(deptMarker as any);
     });
-  }, [selectedInstitution]);
+  }, [selectedInstitution, onDepartmentClick]);
 
   return (
     <div 
