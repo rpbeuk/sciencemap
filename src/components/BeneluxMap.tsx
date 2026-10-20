@@ -37,6 +37,8 @@ const BeneluxMap: React.FC<MapProps> = ({
       attributionControl: true,
       preferCanvas: true,
       zoomAnimation: false,
+      maxZoom: 14, // Default max zoom
+      minZoom: 2,
     });
 
     // Add tile layer
@@ -47,19 +49,23 @@ const BeneluxMap: React.FC<MapProps> = ({
       zIndex: 1,
     }).addTo(map);
 
-    // Add event listener to clear selection when map is moved or zoomed
+    // Handle zoom changes to hide department nodes when zooming out
     map.on('zoom', () => {
-      onInstitutionClick(null as any);
+      const currentZoom = map.getZoom();
+      // If zoom is less than 11, clear selection and hide department nodes
+      if (currentZoom < 11) {
+        onInstitutionClick(null as any);
+        map.setMaxZoom(14); // Reset to default max zoom
+      }
     });
     
     map.on('move', () => {
-      onInstitutionClick(null as any);
+      // Don't clear on move, only on zoom
     });
 
     mapRef.current = map;
 
     // Ensure map size is correct after initialization
-    // Use requestAnimationFrame to wait for next paint
     requestAnimationFrame(() => {
       if (mapRef.current) {
         mapRef.current.invalidateSize(false);
@@ -156,6 +162,24 @@ const BeneluxMap: React.FC<MapProps> = ({
       markersRef.current[`${institution.name}-${institution.city}`] = marker as any;
     });
   }, [institutions, onInstitutionClick]);
+
+  // Zoom to institution when selected
+  useEffect(() => {
+    if (!mapRef.current || !selectedInstitution) return;
+    
+    const map = mapRef.current;
+    const targetZoom = 13; // Zoom level to show department details
+    
+    // Zoom to institution coordinates with smooth animation
+    map.flyTo(
+      [selectedInstitution.coordinates[0], selectedInstitution.coordinates[1]],
+      targetZoom,
+      { duration: 1 }
+    );
+    
+    // Set max zoom to 13 when institution is selected (prevent zooming in further)
+    map.setMaxZoom(13);
+  }, [selectedInstitution]);
 
   // Render department nodes vertically stacked to the right of selected institution
   useEffect(() => {
