@@ -97,6 +97,7 @@ export const loadExcelData = async (
           country: pub.country,
           coordinates: coords,
           publications: [],
+          departments: [],
         });
       }
       institutionMap.get(key)!.publications.push(pub);
@@ -117,6 +118,7 @@ export const loadExcelData = async (
           country: country,
           coordinates: coords,
           publications: [],
+          departments: [],
         });
       }
     });

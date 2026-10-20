@@ -13,10 +13,16 @@ export interface Publication {
   city: string;
   institute: string;
   country: string;
+  department?: string;
   sampleType?: string;
   enzymes?: string;
   instrument?: string;
   miltenyiProduct?: string;
+}
+
+export interface Department {
+  name: string;
+  publications: Publication[];
 }
 
 export interface Institution {
@@ -26,6 +32,7 @@ export interface Institution {
   country: string;
   coordinates: [number, number];
   publications: Publication[];
+  departments: Department[];
 }
 
 interface DataContextType {
@@ -86,6 +93,7 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
           city: pub.lastauthorcity || '',
           institute: '',
           country: pub.lastauthorcountry || '',
+          department: pub.department || 'General',
           sampleType: pub.sampletype,
           enzymes: pub.enzymes,
           instrument: pub.instrument,
@@ -93,7 +101,7 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
         setPublications(transformed);
 
-        // Aggregate by institution (city + country)
+        // Aggregate by institution (city + country) with department grouping
         const instMap = new Map<string, Institution>();
         transformed.forEach((pub) => {
           const key = `${pub.city}-${pub.country}`;
@@ -105,12 +113,39 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
               country: pub.country,
               coordinates: [50.8, 4.3], // Default center
               publications: [],
+              departments: [],
             });
           }
-          instMap.get(key)!.publications.push(pub);
+          const inst = instMap.get(key)!;
+          inst.publications.push(pub);
         });
 
-        setInstitutions(Array.from(instMap.values()));
+        // Now aggregate publications by department within each institution
+        const institutions = Array.from(instMap.values()).map(inst => {
+          const deptMap = new Map<string, Publication[]>();
+          
+          inst.publications.forEach(pub => {
+            const dept = pub.department || 'General';
+            if (!deptMap.has(dept)) {
+              deptMap.set(dept, []);
+            }
+            deptMap.get(dept)!.push(pub);
+          });
+
+          const departments: Department[] = Array.from(deptMap.entries()).map(
+            ([name, publications]) => ({
+              name,
+              publications,
+            })
+          );
+
+          return {
+            ...inst,
+            departments: departments.sort((a, b) => a.name.localeCompare(b.name)),
+          };
+        });
+
+        setInstitutions(institutions);
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load data');

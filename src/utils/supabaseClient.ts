@@ -21,6 +21,7 @@ export interface Publication {
   enzymes: string;
   lastauthorcity: string;
   lastauthorcountry: string;
+  department?: string;
   beneluxflag: boolean;
   status: string;
   createdat?: string;
