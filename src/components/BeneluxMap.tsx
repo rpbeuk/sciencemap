@@ -231,8 +231,9 @@ const BeneluxMap: React.FC<MapProps> = ({
         const verticalSpacing = 0.015; // Same spacing as departments
         const count = sortedDepartments.length;
         
-        // Position above the first department with same vertical spacing
-        const labelLat = instLat - (verticalSpacing * (count - 1) / 2) - verticalSpacing;
+        // Position at the same vertical level as the first department circle
+        const firstDeptLat = instLat - (verticalSpacing * (count - 1) / 2);
+        const labelLat = firstDeptLat + verticalSpacing; // Add spacing to place above
         const labelLng = instLng + 0.04;
         
         const crmLabel = L.divIcon({
