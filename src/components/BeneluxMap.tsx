@@ -215,9 +215,9 @@ const BeneluxMap: React.FC<MapProps> = ({
     const instLat = selectedInstitution.coordinates[0];
     const instLng = selectedInstitution.coordinates[1];
     const departments = selectedInstitution.departments;
-    // Sort departments by publication count (descending) - do this early
+    // Sort departments by publication count (ascending) - do this early
     const sortedDepartments = [...departments].sort((a: any, b: any) => {
-      return (b.publications?.length || 0) - (a.publications?.length || 0);
+      return (a.publications?.length || 0) - (b.publications?.length || 0);
     });
     
     console.log('DEBUG: Departments before sorting:', departments.map((d: any) => ({ name: d.name, count: d.publications?.length })));
