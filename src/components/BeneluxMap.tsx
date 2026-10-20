@@ -41,27 +41,6 @@ const BeneluxMap: React.FC<MapProps> = ({
       zIndex: 1,
     }).addTo(map);
 
-    // Add North Holland province polygon (green highlight)
-    const northHollandCoordinates: [number, number][] = [
-      [52.5, 4.7],   // North
-      [52.35, 4.75], // Northeast
-      [52.2, 5.2],   // East
-      [52.0, 5.1],   // Southeast
-      [51.95, 4.9],  // South
-      [52.0, 4.5],   // Southwest
-      [52.1, 4.3],   // West
-      [52.3, 4.2],   // Northwest
-      [52.5, 4.7],   // Close polygon
-    ];
-
-    L.polygon(northHollandCoordinates, {
-      color: '#10b981',
-      weight: 2,
-      opacity: 0.7,
-      fillOpacity: 0.15,
-      fill: true,
-    }).addTo(map);
-
     // Set bounds but don't fit to them - just prevent panning outside
     const beneluxBounds = L.latLngBounds(
       [50.7, 2.3],  // Southwest
