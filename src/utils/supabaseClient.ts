@@ -1,9 +1,9 @@
 import { createClient } from '@supabase/supabase-js';
 
 const SUPABASE_URL = 'https://zwropbskjywvpzaqyrtd.supabase.co';
-const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_KEY;
+const SUPABASE_KEY = 'sb_publishable_QliePmyF31f-uYMayncEig_tRAbWl7x';
 
-export const supabase = createClient(SUPABASE_URL, SUPABASE_KEY || '');
+export const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 export interface Publication {
   id?: string;
@@ -14,17 +14,17 @@ export interface Publication {
   year: number;
   journal: string;
   summary: string;
-  summaryMandM: string;
-  sampleSpecies: string;
-  sampleType: string;
+  summarymandm: string;
+  samplespecies: string;
+  sampletype: string;
   instrument: string;
   enzymes: string;
-  lastAuthorCity: string;
-  lastAuthorCountry: string;
-  beneluxFlag: boolean;
+  lastauthorcity: string;
+  lastauthorcountry: string;
+  beneluxflag: boolean;
   status: string;
-  createdAt?: string;
-  updatedAt?: string;
+  createdat?: string;
+  updatedat?: string;
 }
 
 export interface PublicationBatch {
@@ -123,16 +123,16 @@ export async function uploadPublications(
       year: pub.year,
       journal: pub.journal,
       summary: pub.summary,
-      summaryMandM: pub.summaryMandM,
-      sampleSpecies: pub.sampleSpecies,
-      sampleType: pub.sampleType,
+      summarymandm: pub.summarymandm,
+      samplespecies: pub.samplespecies,
+      sampletype: pub.sampletype,
       instrument: pub.instrument,
       enzymes: pub.enzymes,
-      lastAuthorCity: pub.lastAuthorCity,
-      lastAuthorCountry: pub.lastAuthorCountry,
-      beneluxFlag: pub.beneluxFlag,
+      lastauthorcity: pub.lastauthorcity,
+      lastauthorcountry: pub.lastauthorcountry,
+      beneluxflag: pub.beneluxflag,
       status: pub.status,
-      batchId,
+      batchid: batchId,
     }));
 
     // Insert publications in chunks to avoid request size limits
@@ -174,16 +174,16 @@ export async function getPublications(filters?: {
     let query = supabase.from('publications').select('*');
 
     if (filters?.city) {
-      query = query.ilike('lastAuthorCity', `%${filters.city}%`);
+      query = query.ilike('lastauthorcity', `%${filters.city}%`);
     }
     if (filters?.country) {
-      query = query.eq('lastAuthorCountry', filters.country);
+      query = query.eq('lastauthorcountry', filters.country);
     }
     if (filters?.species) {
-      query = query.ilike('sampleSpecies', `%${filters.species}%`);
+      query = query.ilike('samplespecies', `%${filters.species}%`);
     }
     if (filters?.sampleType) {
-      query = query.ilike('sampleType', `%${filters.sampleType}%`);
+      query = query.ilike('sampletype', `%${filters.sampleType}%`);
     }
 
     const { data, error } = await query;
@@ -202,7 +202,7 @@ export async function searchPublications(keyword: string): Promise<Publication[]
       .from('publications')
       .select('*')
       .or(
-        `title.ilike.%${keyword}%,summary.ilike.%${keyword}%,sampleType.ilike.%${keyword}%,instrument.ilike.%${keyword}%`
+        `title.ilike.%${keyword}%,summary.ilike.%${keyword}%,sampletype.ilike.%${keyword}%,instrument.ilike.%${keyword}%`
       )
       .limit(100);
 

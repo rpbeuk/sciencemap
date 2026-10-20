@@ -54,12 +54,12 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   // Check if Supabase is available
   useEffect(() => {
-    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-    const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
-    if (supabaseUrl && supabaseKey) {
-      setUseSupabase(true);
-      loadSupabaseData();
-    }
+    // Try to load Supabase data
+    setUseSupabase(true);
+    loadSupabaseData().catch((err) => {
+      console.error('Failed to load Supabase data:', err);
+      setUseSupabase(false);
+    });
   }, []);
 
   const loadSupabaseData = async () => {
@@ -78,10 +78,10 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
           year: pub.year || new Date().getFullYear(),
           journal: pub.journal || '',
           summary: pub.summary || '',
-          city: pub.lastAuthorCity || '',
+          city: pub.lastauthorcity || '',
           institute: '',
-          country: pub.lastAuthorCountry || '',
-          sampleType: pub.sampleType,
+          country: pub.lastauthorcountry || '',
+          sampleType: pub.sampletype,
           enzymes: pub.enzymes,
           instrument: pub.instrument,
         }));
