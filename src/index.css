@@ -13,11 +13,7 @@ body {
   height: 100%;
 }
 
-.benelux-map {
-  width: 100% !important;
-  height: 100% !important;
-}
-
+/* Leaflet map container - ensure it fills parent */
 .leaflet-container {
   font-family: inherit;
   width: 100% !important;

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { LatLng, Map as LeafletMap } from 'leaflet';
+import { LatLng, LatLngBounds, Map as LeafletMap } from 'leaflet';
 import type { Institution } from '../context/DataContext';
 import L from 'leaflet';
 
@@ -16,18 +16,21 @@ const BeneluxMap: React.FC<MapProps> = ({
   onInstitutionClick,
 }) => {
   const mapRef = useRef<LeafletMap>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const center: [number, number] = [50.8, 4.3];
+
+  // Benelux bounds: Southwest corner (50.7, 2.3) to Northeast corner (53.5, 7.2)
+  const beneluxBounds = new LatLngBounds(
+    [50.7, 2.3],  // Southwest
+    [53.5, 7.2]   // Northeast
+  );
+  
+  const center: [number, number] = [51.5, 4.75];
   const zoom = 8;
 
-  // Invalidate size after container is ready
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (mapRef.current) {
-        mapRef.current.invalidateSize(true);
-      }
-    }, 300);
-    return () => clearTimeout(timer);
+    if (mapRef.current) {
+      // Fit bounds and prevent panning outside
+      mapRef.current.fitBounds(beneluxBounds, { padding: [50, 50] });
+    }
   }, []);
 
   const getMarkerColor = (count: number): string => {
@@ -54,47 +57,40 @@ const BeneluxMap: React.FC<MapProps> = ({
   };
 
   return (
-    <div 
-      ref={containerRef}
-      style={{ 
-        width: '100%', 
-        height: '100%',
-        position: 'relative'
-      }}
+    <MapContainer 
+      ref={mapRef}
+      center={center}
+      zoom={zoom}
+      maxBounds={beneluxBounds}
+      maxBoundsViscosity={1.0}
+      style={{ width: '100%', height: '100%' }}
     >
-      <MapContainer 
-        ref={mapRef}
-        center={center} 
-        zoom={zoom}
-        className="benelux-map"
-      >
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        />
-        
-        {institutions.map((institution) => (
-          <Marker
-            key={`${institution.name}-${institution.city}`}
-            position={new LatLng(institution.coordinates[0], institution.coordinates[1])}
-            icon={getMarkerIcon(institution)}
-            eventHandlers={{
-              click: () => onInstitutionClick(institution),
-            }}
-          >
-            <Popup>
-              <div style={{ width: '200px' }}>
-                <h3 style={{ fontWeight: 'bold', fontSize: '14px' }}>{institution.name}</h3>
-                <p style={{ fontSize: '12px', color: '#666' }}>{institution.city}, {institution.country}</p>
-                <p style={{ fontSize: '12px', marginTop: '8px' }}>
-                  <strong>{institution.publications.length}</strong> publications
-                </p>
-              </div>
-            </Popup>
-          </Marker>
-        ))}
-      </MapContainer>
-    </div>
+      <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      />
+      
+      {institutions.map((institution) => (
+        <Marker
+          key={`${institution.name}-${institution.city}`}
+          position={new LatLng(institution.coordinates[0], institution.coordinates[1])}
+          icon={getMarkerIcon(institution)}
+          eventHandlers={{
+            click: () => onInstitutionClick(institution),
+          }}
+        >
+          <Popup>
+            <div style={{ width: '200px' }}>
+              <h3 style={{ fontWeight: 'bold', fontSize: '14px', margin: '0 0 4px 0' }}>{institution.name}</h3>
+              <p style={{ fontSize: '12px', color: '#666', margin: '0 0 4px 0' }}>{institution.city}, {institution.country}</p>
+              <p style={{ fontSize: '12px', margin: '8px 0 0 0' }}>
+                <strong>{institution.publications.length}</strong> publications
+              </p>
+            </div>
+          </Popup>
+        </Marker>
+      ))}
+    </MapContainer>
   );
 };
 
