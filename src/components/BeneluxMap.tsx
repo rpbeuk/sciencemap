@@ -223,7 +223,7 @@ const BeneluxMap: React.FC<MapProps> = ({
     console.log('DEBUG: Departments before sorting:', departments.map((d: any) => ({ name: d.name, count: d.publications?.length })));
     console.log('DEBUG: Departments after sorting:', sortedDepartments.map((d: any) => ({ name: d.name, count: d.publications?.length })));
     
-    // Add CRM Level 1 label above all departments (north), to the left
+    // Add CRM Level 1 label above all departments (north), aligned with circle left edge
     if (sortedDepartments.length > 0 && sortedDepartments[0].publications && sortedDepartments[0].publications.length > 0) {
       const crmLevel1 = sortedDepartments[0].publications[0].crm_level_1;
       console.log('DEBUG: CRM Level 1:', crmLevel1);
@@ -234,7 +234,7 @@ const BeneluxMap: React.FC<MapProps> = ({
         // Position above the first department (north = decrease latitude)
         const firstDeptLat = instLat - (verticalSpacing * (count - 1) / 2);
         const labelLat = firstDeptLat - verticalSpacing; // Subtract to go north (above)
-        const labelLng = instLng; // Completely to the left (no horizontal offset)
+        const labelLng = instLng + 0.025; // Align with left edge of circle (circles at instLng + 0.04)
         
         const crmLabel = L.divIcon({
           html: `
