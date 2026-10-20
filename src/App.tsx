@@ -119,30 +119,31 @@ function AppContent() {
       </header>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-6 h-[calc(100vh-120px)]">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-full">
-          {/* Map */}
-          <div className="lg:col-span-2 h-full">
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full">
-              <BeneluxMap
-                institutions={displayInstitutions}
-                selectedInstitution={selectedInstitution}
-                onInstitutionClick={handleInstitutionClick}
+      <div style={{ height: 'calc(100vh - 120px)', overflow: 'auto' }}>
+        <div className="max-w-7xl mx-auto px-4 py-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* Map */}
+            <div className="lg:col-span-2" style={{ height: '600px' }}>
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full">
+                <BeneluxMap
+                  institutions={displayInstitutions}
+                  selectedInstitution={selectedInstitution}
+                  onInstitutionClick={handleInstitutionClick}
+                />
+              </div>
+            </div>
+
+            {/* Publication Browser */}
+            <div className="bg-white rounded-lg shadow-lg overflow-y-auto" style={{ height: '600px' }}>
+              <PublicationBrowser
+                publications={selectedPublications}
+                selectedPublication={selectedPublication}
+                onPublicationClick={handlePublicationClick}
               />
             </div>
           </div>
 
-          {/* Publication Browser */}
-          <div className="h-96 lg:h-full overflow-y-auto">
-            <PublicationBrowser
-              publications={selectedPublications}
-              selectedPublication={selectedPublication}
-              onPublicationClick={handlePublicationClick}
-            />
-          </div>
-        </div>
-
-        {/* Statistics */}
+          {/* Statistics */}
         {selectedInstitution && (
           <div className="mt-6 bg-white rounded-lg shadow-lg p-6">
             <h2 className="text-lg font-bold mb-4">{selectedInstitution.name}</h2>
@@ -208,6 +209,7 @@ function AppContent() {
               <div className="text-sm text-gray-600">Countries</div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </div>
