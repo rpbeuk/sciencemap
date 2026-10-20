@@ -80,8 +80,34 @@ const BeneluxMap: React.FC<MapProps> = ({
     });
     markersRef.current = {};
 
-    // Add new markers
-    institutions.forEach((institution) => {
+    // Add test institutions for LUMC and RadboudUMC
+    const testInstitutions = [
+      {
+        name: 'LUMC',
+        city: 'Leiden',
+        country: 'Netherlands',
+        coordinates: [52.1667, 4.4833] as [number, number], // Leiden coordinates
+        publications: [
+          { title: 'Test publication 1', keywords: ['tissue', 'sample'] },
+          { title: 'Test publication 2', keywords: ['analysis', 'data'] },
+        ],
+      },
+      {
+        name: 'RadboudUMC',
+        city: 'Nijmegen',
+        country: 'Netherlands',
+        coordinates: [51.8425, 5.8520] as [number, number], // Nijmegen coordinates
+        publications: [
+          { title: 'Test publication 1', keywords: ['research', 'study'] },
+          { title: 'Test publication 2', keywords: ['medical', 'data'] },
+          { title: 'Test publication 3', keywords: ['analysis', 'results'] },
+        ],
+      },
+      ...institutions,
+    ];
+
+    // Add markers
+    testInstitutions.forEach((institution) => {
       const count = institution.publications.length;
       const color = count > 50 ? '#dc2626' : count > 20 ? '#ea580c' : count > 10 ? '#eab308' : '#3b82f6';
 
@@ -100,7 +126,7 @@ const BeneluxMap: React.FC<MapProps> = ({
             <p style="margin: 8px 0 0 0;"><strong>${count}</strong> publications</p>
           </div>
         `)
-        .on('click', () => onInstitutionClick(institution))
+        .on('click', () => onInstitutionClick(institution as any))
         .addTo(map);
 
       markersRef.current[`${institution.name}-${institution.city}`] = marker;
