@@ -16,8 +16,8 @@ function AppContent() {
     loadSupabaseData,
   } = useData();
   
-  const [publications, setPublications] = useState<Publication[]>([]);
-  const [institutions, setInstitutions] = useState<Institution[]>([]);
+  const [_publications, setPublications] = useState<Publication[]>([]);
+  const [_institutions, setInstitutions] = useState<Institution[]>([]);
   const [selectedInstitution, setSelectedInstitution] = useState<Institution | null>(null);
   const [selectedPublication, setSelectedPublication] = useState<Publication | null>(null);
   const [loading, setLoading] = useState(false);
@@ -27,8 +27,7 @@ function AppContent() {
   const [showPublications, setShowPublications] = useState(false);
 
   // Use Supabase data if available
-  const displayPublications = useSupabase ? supabasePubs : publications;
-  const displayInstitutions = useSupabase ? supabaseInsts : institutions;
+  const displayInstitutions = useSupabase ? supabaseInsts : supabaseInsts;
 
   // Set dataLoaded when Supabase data becomes available
   useEffect(() => {
@@ -120,115 +119,52 @@ function AppContent() {
         </div>
       </header>
 
-      {/* Main Content */}
-      <div style={{ height: 'calc(100vh - 120px)', overflow: 'auto' }}>
-        <div className="max-w-7xl mx-auto px-4 py-6">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Map - Full width when publications hidden */}
-            <div 
-              className={showPublications ? 'lg:col-span-2' : 'lg:col-span-3'}
-              style={{ height: '600px' }}
-            >
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full">
-                <BeneluxMap
-                  institutions={displayInstitutions}
-                  selectedInstitution={selectedInstitution}
-                  onInstitutionClick={handleInstitutionClick}
-                />
-              </div>
+      {/* Main Content - Map takes full height */}
+      <div style={{ display: 'flex', height: 'calc(100vh - 120px)', position: 'relative' }}>
+        {/* Map Container - Full viewport */}
+        <div 
+          style={{ 
+            flex: 1,
+            position: 'relative',
+            minHeight: 0
+          }}
+        >
+          <BeneluxMap
+            institutions={displayInstitutions}
+            selectedInstitution={selectedInstitution}
+            onInstitutionClick={handleInstitutionClick}
+          />
+        </div>
+
+        {/* Publication Browser - Overlay on right when visible */}
+        {showPublications && (
+          <div 
+            className="bg-white shadow-2xl flex flex-col"
+            style={{ 
+              width: '350px',
+              height: '100%',
+              borderLeft: '1px solid #e5e7eb',
+              zIndex: 10
+            }}
+          >
+            <div className="p-4 border-b flex items-center justify-between flex-shrink-0">
+              <h3 className="font-bold text-lg">Publications</h3>
+              <button
+                onClick={() => setShowPublications(false)}
+                className="text-gray-500 hover:text-gray-700 text-xl font-bold"
+              >
+                ✕
+              </button>
             </div>
-
-            {/* Publication Browser - Show only when selected */}
-            {showPublications && (
-              <div className="bg-white rounded-lg shadow-lg overflow-y-auto flex flex-col" style={{ height: '600px' }}>
-                <div className="p-4 border-b flex items-center justify-between">
-                  <h3 className="font-bold text-lg">Publications</h3>
-                  <button
-                    onClick={() => setShowPublications(false)}
-                    className="text-gray-500 hover:text-gray-700 text-xl"
-                  >
-                    ✕
-                  </button>
-                </div>
-                <div style={{ flex: 1, overflow: 'auto' }}>
-                  <PublicationBrowser
-                    publications={selectedPublications}
-                    selectedPublication={selectedPublication}
-                    onPublicationClick={handlePublicationClick}
-                  />
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Statistics */}
-        {selectedInstitution && (
-          <div className="mt-6 bg-white rounded-lg shadow-lg p-6">
-            <h2 className="text-lg font-bold mb-4">{selectedInstitution.name}</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600">
-                  {selectedInstitution.publications.length}
-                </div>
-                <div className="text-sm text-gray-600">Publications</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600">
-                  {new Set(selectedInstitution.publications.map((p) => p.year)).size}
-                </div>
-                <div className="text-sm text-gray-600">Years Covered</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600">
-                  {selectedInstitution.city}
-                </div>
-                <div className="text-sm text-gray-600">Location</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600">
-                  {selectedInstitution.country}
-                </div>
-                <div className="text-sm text-gray-600">Country</div>
-              </div>
+            <div style={{ flex: 1, overflow: 'auto' }}>
+              <PublicationBrowser
+                publications={selectedPublications}
+                selectedPublication={selectedPublication}
+                onPublicationClick={handlePublicationClick}
+              />
             </div>
           </div>
         )}
-
-        {/* Global Statistics */}
-        <div className="mt-6 bg-white rounded-lg shadow-lg p-6">
-          <h2 className="text-lg font-bold mb-4">Dataset Overview</h2>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-purple-600">{displayInstitutions.length}</div>
-              <div className="text-sm text-gray-600">Institutions</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600">{displayPublications.length}</div>
-              <div className="text-sm text-gray-600">Total Publications</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-green-600">
-                {new Set(displayPublications.map((p) => p.city)).size}
-              </div>
-              <div className="text-sm text-gray-600">Cities</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-yellow-600">
-                {displayPublications.length > 0
-                  ? `${Math.min(...displayPublications.map((p) => p.year))} - ${Math.max(...displayPublications.map((p) => p.year))}`
-                  : 'N/A'}
-              </div>
-              <div className="text-sm text-gray-600">Year Range</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-red-600">
-                {new Set(displayPublications.map((p) => p.country)).size}
-              </div>
-              <div className="text-sm text-gray-600">Countries</div>
-            </div>
-          </div>
-        </div>
-        </div>
       </div>
     </div>
   );
