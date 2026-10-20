@@ -204,12 +204,15 @@ const BeneluxMap: React.FC<MapProps> = ({
             align-items: center;
             gap: 8px;
             white-space: nowrap;
+            padding: 0;
+            margin: 0;
           ">
             <!-- Publication count circle -->
             <div style="
               background-color: #ea580c;
               width: 40px;
               height: 40px;
+              min-width: 40px;
               border-radius: 50%;
               display: flex;
               align-items: center;
@@ -235,14 +238,15 @@ const BeneluxMap: React.FC<MapProps> = ({
               box-shadow: 0 2px 4px rgba(0,0,0,0.2);
               font-family: Arial, sans-serif;
               line-height: 1.3;
+              white-space: nowrap;
             ">
               ${deptName}
             </div>
           </div>
         `,
-        className: '',
-        iconSize: [0, 0], // Will be auto-sized
-        iconAnchor: [0, 20], // Center vertically
+        className: 'dept-node-marker',
+        iconSize: [240, 48],
+        iconAnchor: [20, 24], // Anchor on circle
       });
       
       const deptMarker = L.marker([deptLat, deptLng], {
