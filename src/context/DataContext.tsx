@@ -82,6 +82,16 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       const data = await getPublications();
       
       if (data.length > 0) {
+        // Load CRM mappings from JSON file
+        let crmMappings: Record<number, string> = {};
+        try {
+          const response = await fetch('/sciencemap/crm_mappings.json');
+          const mappings: Array<{ pmid: number; crm_level_3: string }> = await response.json();
+          crmMappings = Object.fromEntries(mappings.map(m => [m.pmid, m.crm_level_3]));
+        } catch (err) {
+          console.warn('Could not load CRM mappings from JSON:', err);
+        }
+
         // Transform Supabase publications to app format
         const transformed: Publication[] = data.map((pub: SupabasePublication) => ({
           pmid: pub.pmid,
@@ -93,7 +103,7 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
           city: pub.lastauthorcity || '',
           institute: '',
           country: pub.lastauthorcountry || '',
-          department: pub.department || 'General',
+          department: crmMappings[pub.pmid] || pub.department || 'General',
           sampleType: pub.sampletype,
           enzymes: pub.enzymes,
           instrument: pub.instrument,
