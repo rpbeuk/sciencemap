@@ -57,6 +57,7 @@ export interface Publication {
   city: string;
   institute: string;
   country: string;
+  territory?: string;
   department?: string;
   sampleType?: string;
   enzymes?: string;
@@ -177,6 +178,7 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             city: city,
             institute: instName,
             country: country,
+            territory: pub.territory || '',
             department: pub.crm_level_3 || crmMappings[pub.pmid] || 'General',
           };
           location.publications.push(publication);

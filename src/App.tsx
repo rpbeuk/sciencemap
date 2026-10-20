@@ -12,7 +12,7 @@ function AppContent() {
   } = useData();
 
   const [filters, setFilters] = useState<FilterOptions>({
-    regions: ['Belgium', 'Luxembourg', 'Netherlands'],
+    territories: ['N101', 'N102', 'N106', 'N109', 'N101', 'N103', 'N104', 'N108', 'N110'],
     portfolios: ['Sample Prep', 'Cell Separation', 'Cell Culture', 'Cell Analysis', 'Imaging', 'Clinical'],
   });
 
@@ -21,20 +21,13 @@ function AppContent() {
     console.log('Total publications:', supabaseInsts.length);
   }, [useSupabase, supabaseInsts]);
 
-  // Filter by country only - simple!
+  // Filter by territory
   const filteredInstitutions = supabaseInsts.filter(inst => {
-    const countryLower = (inst.country || '').toLowerCase().trim();
+    const pubsWithTerritory = inst.publications.filter((pub: any) => 
+      filters.territories.includes(pub.territory)
+    );
     
-    // Normalize country names
-    if (countryLower === 'the netherlands' || countryLower === 'nl') {
-      return filters.regions.includes('Netherlands');
-    } else if (countryLower === 'belgium' || countryLower === 'be') {
-      return filters.regions.includes('Belgium');
-    } else if (countryLower === 'luxembourg' || countryLower === 'lu') {
-      return filters.regions.includes('Luxembourg');
-    }
-    
-    return false;
+    return pubsWithTerritory.length > 0;
   });
 
   return (

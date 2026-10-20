@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 export interface FilterOptions {
-  regions: string[];
+  territories: string[];
   portfolios: string[];
 }
 
@@ -9,7 +9,11 @@ interface FilterPanelProps {
   onFiltersChange: (filters: FilterOptions) => void;
 }
 
-const COUNTRIES = ['Belgium', 'Luxembourg', 'Netherlands'];
+const TERRITORY_STRUCTURE: Record<string, string[]> = {
+  'Belgium': ['N101', 'N102', 'N106', 'N109'],
+  'Luxembourg': ['N101'],
+  'the Netherlands': ['N103', 'N104', 'N108', 'N110'],
+};
 
 const PORTFOLIOS = [
   'Sample Prep',
@@ -21,32 +25,30 @@ const PORTFOLIOS = [
 ];
 
 const FilterPanel: React.FC<FilterPanelProps> = ({ onFiltersChange }) => {
-  const [selectedRegions, setSelectedRegions] = useState<string[]>(COUNTRIES);
+  const [expandedCountry, setExpandedCountry] = useState<string | null>('Belgium');
+  const [selectedTerritories, setSelectedTerritories] = useState<string[]>(['N101', 'N102', 'N106', 'N109', 'N101', 'N103', 'N104', 'N108', 'N110']);
   const [selectedPortfolios, setSelectedPortfolios] = useState<string[]>(PORTFOLIOS);
 
-  const handleRegionChange = (region: string) => {
-    const newRegions = selectedRegions.includes(region)
-      ? selectedRegions.filter(r => r !== region)
-      : [...selectedRegions, region];
-    setSelectedRegions(newRegions);
-    onFiltersChange({ regions: newRegions, portfolios: selectedPortfolios });
+  const handleTerritoryChange = (territory: string) => {
+    const newTerritories = selectedTerritories.includes(territory)
+      ? selectedTerritories.filter(t => t !== territory)
+      : [...selectedTerritories, territory];
+    setSelectedTerritories(newTerritories);
+    onFiltersChange({ territories: newTerritories, portfolios: selectedPortfolios });
   };
 
-  const handlePortfolioChange = (portfolio: string) => {
-    const newPortfolios = selectedPortfolios.includes(portfolio)
-      ? selectedPortfolios.filter(p => p !== portfolio)
-      : [...selectedPortfolios, portfolio];
-    setSelectedPortfolios(newPortfolios);
-    onFiltersChange({ regions: selectedRegions, portfolios: newPortfolios });
-  };
-
-  const handleSelectAllRegions = () => {
-    if (selectedRegions.length === COUNTRIES.length) {
-      setSelectedRegions([]);
-      onFiltersChange({ regions: [], portfolios: selectedPortfolios });
+  const handleSelectAllTerritories = (country: string) => {
+    const countryTerritories = TERRITORY_STRUCTURE[country];
+    const allSelected = countryTerritories.every(t => selectedTerritories.includes(t));
+    
+    if (allSelected) {
+      const newTerritories = selectedTerritories.filter(t => !countryTerritories.includes(t));
+      setSelectedTerritories(newTerritories);
+      onFiltersChange({ territories: newTerritories, portfolios: selectedPortfolios });
     } else {
-      setSelectedRegions(COUNTRIES);
-      onFiltersChange({ regions: COUNTRIES, portfolios: selectedPortfolios });
+      const newTerritories = [...selectedTerritories, ...countryTerritories.filter(t => !selectedTerritories.includes(t))];
+      setSelectedTerritories(newTerritories);
+      onFiltersChange({ territories: newTerritories, portfolios: selectedPortfolios });
     }
   };
 
@@ -83,7 +85,7 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ onFiltersChange }) => {
         ScienceMap
       </h1>
 
-      {/* Countries Section */}
+      {/* Territory Section */}
       <div style={{ marginBottom: '32px' }}>
         <h3 style={{ 
           margin: '0 0 14px 0', 
@@ -93,43 +95,82 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ onFiltersChange }) => {
           textTransform: 'uppercase',
           letterSpacing: '0.5px'
         }}>
-          🌍 Countries
+          🗺️ Territory
         </h3>
-        <div style={{ marginBottom: '10px' }}>
-          <label style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', gap: '10px' }}>
-            <input
-              type="checkbox"
-              checked={selectedRegions.length === COUNTRIES.length}
-              onChange={handleSelectAllRegions}
-              style={{ 
-                cursor: 'pointer',
-                width: '16px',
-                height: '16px',
-                accentColor: '#ea580c'
-              }}
-            />
-            <span style={{ fontSize: '13px', fontWeight: '500', color: '#1f2937' }}>Select All</span>
-          </label>
-        </div>
-        {COUNTRIES.map((country: string) => (
-          <label
-            key={country}
-            style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', gap: '10px', marginBottom: '10px' }}
-          >
-            <input
-              type="checkbox"
-              checked={selectedRegions.includes(country)}
-              onChange={() => handleRegionChange(country)}
-              style={{ 
-                cursor: 'pointer',
-                width: '16px',
-                height: '16px',
-                accentColor: '#ea580c'
-              }}
-            />
-            <span style={{ fontSize: '13px', color: '#4b5563' }}>{country}</span>
-          </label>
-        ))}
+        
+        {Object.entries(TERRITORY_STRUCTURE).map(([country, territories]) => {
+          const isExpanded = expandedCountry === country;
+          const allSelected = territories.every(t => selectedTerritories.includes(t));
+          
+          return (
+            <div key={country} style={{ marginBottom: '12px' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '8px',
+                  cursor: 'pointer',
+                  borderRadius: '6px',
+                  backgroundColor: isExpanded ? '#f3f4f6' : 'transparent',
+                  transition: 'background-color 0.2s'
+                }}
+                onClick={() => setExpandedCountry(isExpanded ? null : country)}
+              >
+                <span style={{ fontSize: '14px', color: '#666' }}>
+                  {isExpanded ? '▼' : '▶'}
+                </span>
+                <label
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    cursor: 'pointer',
+                    gap: '8px',
+                    flex: 1,
+                  }}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <input
+                    type="checkbox"
+                    checked={allSelected}
+                    onChange={() => handleSelectAllTerritories(country)}
+                    style={{ 
+                      cursor: 'pointer',
+                      width: '16px',
+                      height: '16px',
+                      accentColor: '#ea580c'
+                    }}
+                  />
+                  <span style={{ fontSize: '13px', fontWeight: '500', color: '#1f2937' }}>{country}</span>
+                </label>
+              </div>
+              
+              {isExpanded && (
+                <div style={{ paddingLeft: '24px', marginTop: '8px' }}>
+                  {territories.map((territory) => (
+                    <label
+                      key={territory}
+                      style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', gap: '8px', marginBottom: '8px' }}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={selectedTerritories.includes(territory)}
+                        onChange={() => handleTerritoryChange(territory)}
+                        style={{ 
+                          cursor: 'pointer',
+                          width: '16px',
+                          height: '16px',
+                          accentColor: '#ea580c'
+                        }}
+                      />
+                      <span style={{ fontSize: '13px', color: '#4b5563' }}>{territory}</span>
+                    </label>
+                  ))}
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
 
       {/* Portfolios Section */}
