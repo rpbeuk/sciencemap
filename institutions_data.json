@@ -1,0 +1,1618 @@
+[
+  {
+    "name": "Vrije Universiteit Amsterdam",
+    "city": "Amsterdam",
+    "postal": "1081 HV",
+    "country": "NL",
+    "coordinates": [
+      52.3676,
+      4.9041
+    ],
+    "publications": [
+      {
+        "pmid": 40669684,
+        "crm_level_1": "Amsterdam UMC, University of Amsterdam and Vrije Universiteit Amsterdam",
+        "crm_level_3": "Medicine",
+        "account": "Vrije Universiteit Amsterdam",
+        "city": "Amsterdam",
+        "postal": "1081 HV",
+        "country": "NL",
+        "coordinates": [
+          52.3676,
+          4.9041
+        ]
+      },
+      {
+        "pmid": 41069688,
+        "crm_level_1": "Vrije Universiteit Amsterdam",
+        "crm_level_3": "Not specified",
+        "account": "Vrije Universiteit Amsterdam",
+        "city": "Amsterdam",
+        "postal": "1081 HV",
+        "country": "NL",
+        "coordinates": [
+          52.3676,
+          4.9041
+        ]
+      },
+      {
+        "pmid": 40210900,
+        "crm_level_1": "Amsterdam UMC Location Vrije Universiteit Amsterdam",
+        "crm_level_3": "Unknown department",
+        "account": "Vrije Universiteit Amsterdam",
+        "city": "Amsterdam",
+        "postal": "1081 HV",
+        "country": "NL",
+        "coordinates": [
+          52.3676,
+          4.9041
+        ]
+      },
+      {
+        "pmid": 41211809,
+        "crm_level_1": "Vrije Universiteit Amsterdam",
+        "crm_level_3": "Unknown department",
+        "account": "Vrije Universiteit Amsterdam",
+        "city": "Amsterdam",
+        "postal": "1081 HV",
+        "country": "NL",
+        "coordinates": [
+          52.3676,
+          4.9041
+        ]
+      },
+      {
+        "pmid": 40281034,
+        "crm_level_1": "Amsterdam UMC location Vrije Universiteit Amsterdam",
+        "crm_level_3": "Unknown department",
+        "account": "Vrije Universiteit Amsterdam",
+        "city": "Amsterdam",
+        "postal": "1081 HV",
+        "country": "NL",
+        "coordinates": [
+          52.3676,
+          4.9041
+        ]
+      },
+      {
+        "pmid": 42437975,
+        "crm_level_1": "Vrije Universiteit Amsterdam",
+        "crm_level_3": "Molecular and Cellular Neurobiology",
+        "account": "Vrije Universiteit Amsterdam",
+        "city": "Amsterdam",
+        "postal": "1081 HV",
+        "country": "NL",
+        "coordinates": [
+          52.3676,
+          4.9041
+        ]
+      },
+      {
+        "pmid": 42409797,
+        "crm_level_1": "Amsterdam UMC, Vrije Universiteit Amsterdam",
+        "crm_level_3": "Pathology",
+        "account": "Vrije Universiteit Amsterdam",
+        "city": "Amsterdam",
+        "postal": "1081 HV",
+        "country": "NL",
+        "coordinates": [
+          52.3676,
+          4.9041
+        ]
+      },
+      {
+        "pmid": 41798065,
+        "crm_level_1": "Vrije Universiteit Amsterdam",
+        "crm_level_3": "Chemistry and Pharmaceutical Sciences",
+        "account": "Vrije Universiteit Amsterdam",
+        "city": "Amsterdam",
+        "postal": "1081 HV",
+        "country": "NL",
+        "coordinates": [
+          52.3676,
+          4.9041
+        ]
+      },
+      {
+        "pmid": 41798951,
+        "crm_level_1": "Vrije Universiteit Amsterdam",
+        "crm_level_3": "Amsterdam University Medical Centers (UMC) location Vrije Universiteit Amsterdam",
+        "account": "Vrije Universiteit Amsterdam",
+        "city": "Amsterdam",
+        "postal": "1081 HV",
+        "country": "NL",
+        "coordinates": [
+          52.3676,
+          4.9041
+        ]
+      },
+      {
+        "pmid": 40681493,
+        "crm_level_1": "Vrije Universiteit Amsterdam",
+        "crm_level_3": "Anatomy and Neurosciences",
+        "account": "Vrije Universiteit Amsterdam",
+        "city": "Amsterdam",
+        "postal": "1081 HV",
+        "country": "NL",
+        "coordinates": [
+          52.3676,
+          4.9041
+        ]
+      },
+      {
+        "pmid": 40983680,
+        "crm_level_1": "Vrije Universiteit Amsterdam",
+        "crm_level_3": "Neurogenomics and Cognitive Research",
+        "account": "Vrije Universiteit Amsterdam",
+        "city": "Amsterdam",
+        "postal": "1081 HV",
+        "country": "NL",
+        "coordinates": [
+          52.3676,
+          4.9041
+        ]
+      },
+      {
+        "pmid": 40172954,
+        "crm_level_1": "Vrije Universiteit Amsterdam",
+        "crm_level_3": "Functional Genomics",
+        "account": "Vrije Universiteit Amsterdam",
+        "city": "Amsterdam",
+        "postal": "1081 HV",
+        "country": "NL",
+        "coordinates": [
+          52.3676,
+          4.9041
+        ]
+      },
+      {
+        "pmid": 41601407,
+        "crm_level_1": "Vrije Universiteit Amsterdam",
+        "crm_level_3": "Molecular Cell Biology and Immunology",
+        "account": "Vrije Universiteit Amsterdam",
+        "city": "Amsterdam",
+        "postal": "1081 HV",
+        "country": "NL",
+        "coordinates": [
+          52.3676,
+          4.9041
+        ]
+      },
+      {
+        "pmid": 41611717,
+        "crm_level_1": "Vrije Universiteit Amsterdam",
+        "crm_level_3": "Unknown department",
+        "account": "Vrije Universiteit Amsterdam",
+        "city": "Amsterdam",
+        "postal": "1081 HV",
+        "country": "NL",
+        "coordinates": [
+          52.3676,
+          4.9041
+        ]
+      },
+      {
+        "pmid": 40690428,
+        "crm_level_1": "University of Amsterdam and Vrije Universiteit Amsterdam",
+        "crm_level_3": "Oral Cell Biology",
+        "account": "Vrije Universiteit Amsterdam",
+        "city": "Amsterdam",
+        "postal": "1081 HV",
+        "country": "NL",
+        "coordinates": [
+          52.3676,
+          4.9041
+        ]
+      }
+    ]
+  },
+  {
+    "name": "CHU Saint Pierre",
+    "city": "Bruxelles",
+    "postal": "1000",
+    "country": "BE",
+    "coordinates": [
+      50.8503,
+      4.3517
+    ],
+    "publications": [
+      {
+        "pmid": 40317959,
+        "crm_level_1": "CHU Saint Pierre",
+        "crm_level_3": "Otolaryngology-Head and Neck Surgery",
+        "account": "CHU Saint Pierre",
+        "city": "Bruxelles",
+        "postal": "1000",
+        "country": "BE",
+        "coordinates": [
+          50.8503,
+          4.3517
+        ]
+      },
+      {
+        "pmid": 40833239,
+        "crm_level_1": "CHU Saint Pierre",
+        "crm_level_3": "Not specified",
+        "account": "CHU Saint Pierre",
+        "city": "Bruxelles",
+        "postal": "1000",
+        "country": "BE",
+        "coordinates": [
+          50.8503,
+          4.3517
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Université de Namur (University of Namur)",
+    "city": "Namur",
+    "postal": "5000",
+    "country": "BE",
+    "coordinates": [
+      50.4657,
+      4.8637
+    ],
+    "publications": [
+      {
+        "pmid": 42053865,
+        "crm_level_1": "Université de Namur",
+        "crm_level_3": "Unknown department",
+        "account": "Université de Namur (University of Namur)",
+        "city": "Namur",
+        "postal": "5000",
+        "country": "BE",
+        "coordinates": [
+          50.4657,
+          4.8637
+        ]
+      },
+      {
+        "pmid": 40727948,
+        "crm_level_1": "University of Namur",
+        "crm_level_3": "Life Sciences",
+        "account": "Université de Namur (University of Namur)",
+        "city": "Namur",
+        "postal": "5000",
+        "country": "BE",
+        "coordinates": [
+          50.4657,
+          4.8637
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Universitair Medisch Centrum Groningen (UMCG)",
+    "city": "Groningen",
+    "postal": "9700 RB",
+    "country": "NL",
+    "coordinates": [
+      53.2129,
+      6.5626
+    ],
+    "publications": [
+      {
+        "pmid": 42380097,
+        "crm_level_1": "Universitair Medisch Centrum Groningen (UMCG)",
+        "crm_level_3": "Biomedical Sciences",
+        "account": "Universitair Medisch Centrum Groningen (UMCG)",
+        "city": "Groningen",
+        "postal": "9700 RB",
+        "country": "NL",
+        "coordinates": [
+          53.2129,
+          6.5626
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Universitair Medisch Centrum Utrecht (UMCU)",
+    "city": "Utrecht",
+    "postal": "3565 AV",
+    "country": "NL",
+    "coordinates": [
+      52.0907,
+      5.1214
+    ],
+    "publications": [
+      {
+        "pmid": 41280668,
+        "crm_level_1": "Universitair Medisch Centrum Utrecht (UMCU)",
+        "crm_level_3": "Medical Oncology",
+        "account": "Universitair Medisch Centrum Utrecht (UMCU)",
+        "city": "Utrecht",
+        "postal": "3565 AV",
+        "country": "NL",
+        "coordinates": [
+          52.0907,
+          5.1214
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Rijksuniversiteit Groningen (RUG)",
+    "city": "Groningen",
+    "postal": "9713 GZ",
+    "country": "NL",
+    "coordinates": [
+      53.2129,
+      6.5626
+    ],
+    "publications": [
+      {
+        "pmid": 42133347,
+        "crm_level_1": "Rijksuniversiteit Groningen (RUG)",
+        "crm_level_3": "Cell Biochemistry",
+        "account": "Rijksuniversiteit Groningen (RUG)",
+        "city": "Groningen",
+        "postal": "9713 GZ",
+        "country": "NL",
+        "coordinates": [
+          53.2129,
+          6.5626
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Hubrecht Institute",
+    "city": "Utrecht",
+    "postal": "3584 CT",
+    "country": "NL",
+    "coordinates": [
+      52.0907,
+      5.1214
+    ],
+    "publications": [
+      {
+        "pmid": 41372409,
+        "crm_level_1": "Hubrecht Institute",
+        "crm_level_3": "Hubrecht Institute",
+        "account": "Hubrecht Institute",
+        "city": "Utrecht",
+        "postal": "3584 CT",
+        "country": "NL",
+        "coordinates": [
+          52.0907,
+          5.1214
+        ]
+      },
+      {
+        "pmid": 41387429,
+        "crm_level_1": "Hubrecht Institute",
+        "crm_level_3": "Developmental Biology and Stem Cell Research",
+        "account": "Hubrecht Institute",
+        "city": "Utrecht",
+        "postal": "3584 CT",
+        "country": "NL",
+        "coordinates": [
+          52.0907,
+          5.1214
+        ]
+      },
+      {
+        "pmid": 41986725,
+        "crm_level_1": "Hubrecht Institute",
+        "crm_level_3": "Unknown department",
+        "account": "Hubrecht Institute",
+        "city": "Utrecht",
+        "postal": "3584 CT",
+        "country": "NL",
+        "coordinates": [
+          52.0907,
+          5.1214
+        ]
+      }
+    ]
+  },
+  {
+    "name": "VIB Conferences",
+    "city": "Gent",
+    "postal": "9052",
+    "country": "BE",
+    "coordinates": [
+      51.5,
+      4.75
+    ],
+    "publications": [
+      {
+        "pmid": 42225894,
+        "crm_level_1": "VIB",
+        "crm_level_3": "Unknown department",
+        "account": "VIB Conferences",
+        "city": "Gent",
+        "postal": "9052",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 40094380,
+        "crm_level_1": "VIB",
+        "crm_level_3": "Unknown department",
+        "account": "VIB Conferences",
+        "city": "Gent",
+        "postal": "9052",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 40065102,
+        "crm_level_1": "VIB",
+        "crm_level_3": "Tumor Inflammation and Angiogenesis",
+        "account": "VIB Conferences",
+        "city": "Gent",
+        "postal": "9052",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 41124261,
+        "crm_level_1": "VIB",
+        "crm_level_3": "Unknown department",
+        "account": "VIB Conferences",
+        "city": "Gent",
+        "postal": "9052",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 40269985,
+        "crm_level_1": "VIB",
+        "crm_level_3": "Molecular Neurology",
+        "account": "VIB Conferences",
+        "city": "Gent",
+        "postal": "9052",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 40307618,
+        "crm_level_1": "VIB",
+        "crm_level_3": "Unknown department",
+        "account": "VIB Conferences",
+        "city": "Gent",
+        "postal": "9052",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 41871085,
+        "crm_level_1": "VIB",
+        "crm_level_3": "Unknown department",
+        "account": "VIB Conferences",
+        "city": "Gent",
+        "postal": "9052",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 42253992,
+        "crm_level_1": "VIB",
+        "crm_level_3": "Myeloid Cell Biology in Tissue Damage and Inflammation",
+        "account": "VIB Conferences",
+        "city": "Gent",
+        "postal": "9052",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 41778850,
+        "crm_level_1": "VIB",
+        "crm_level_3": "Cellular Metabolism and Metabolic Regulation",
+        "account": "VIB Conferences",
+        "city": "Gent",
+        "postal": "9052",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 40447603,
+        "crm_level_1": "VIB",
+        "crm_level_3": "Unknown department",
+        "account": "VIB Conferences",
+        "city": "Gent",
+        "postal": "9052",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 41131424,
+        "crm_level_1": "VIB",
+        "crm_level_3": "Unknown department",
+        "account": "VIB Conferences",
+        "city": "Gent",
+        "postal": "9052",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 39747884,
+        "crm_level_1": "VIB",
+        "crm_level_3": "Unknown department",
+        "account": "VIB Conferences",
+        "city": "Gent",
+        "postal": "9052",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Kling Biotherapeutics BV",
+    "city": "Amsterdam",
+    "postal": "1105BA",
+    "country": "NL",
+    "coordinates": [
+      52.3676,
+      4.9041
+    ],
+    "publications": [
+      {
+        "pmid": 40901470,
+        "crm_level_1": "Kling Biotherapeutics BV",
+        "crm_level_3": "Not specified",
+        "account": "Kling Biotherapeutics BV",
+        "city": "Amsterdam",
+        "postal": "1105BA",
+        "country": "NL",
+        "coordinates": [
+          52.3676,
+          4.9041
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Erasmus MC",
+    "city": "Rotterdam",
+    "postal": "3015 GE",
+    "country": "NL",
+    "coordinates": [
+      51.5,
+      4.75
+    ],
+    "publications": [
+      {
+        "pmid": 42111195,
+        "crm_level_1": "Erasmus MC, University Medical Center Rotterdam",
+        "crm_level_3": "Immunology",
+        "account": "Erasmus MC",
+        "city": "Rotterdam",
+        "postal": "3015 GE",
+        "country": "NL",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 41698162,
+        "crm_level_1": "Erasmus MC, University Medical Center",
+        "crm_level_3": "Unknown department",
+        "account": "Erasmus MC",
+        "city": "Rotterdam",
+        "postal": "3015 GE",
+        "country": "NL",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 41338242,
+        "crm_level_1": "Erasmus MC, University Medical Center",
+        "crm_level_3": "Clinical Genetics",
+        "account": "Erasmus MC",
+        "city": "Rotterdam",
+        "postal": "3015 GE",
+        "country": "NL",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 40631571,
+        "crm_level_1": "Erasmus MC",
+        "crm_level_3": "Biomedical Engineering",
+        "account": "Erasmus MC",
+        "city": "Rotterdam",
+        "postal": "3015 GE",
+        "country": "NL",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 39880824,
+        "crm_level_1": "Erasmus MC Cancer Institute",
+        "crm_level_3": "Medical Oncology",
+        "account": "Erasmus MC",
+        "city": "Rotterdam",
+        "postal": "3015 GE",
+        "country": "NL",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 41884152,
+        "crm_level_1": "Erasmus MC, University Medical Center Rotterdam",
+        "crm_level_3": "Internal Medicine",
+        "account": "Erasmus MC",
+        "city": "Rotterdam",
+        "postal": "3015 GE",
+        "country": "NL",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 40912913,
+        "crm_level_1": "Erasmus MC",
+        "crm_level_3": "Unknown department",
+        "account": "Erasmus MC",
+        "city": "Rotterdam",
+        "postal": "3015 GE",
+        "country": "NL",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 40909677,
+        "crm_level_1": "Erasmus MC University Medical Center",
+        "crm_level_3": "Unknown department",
+        "account": "Erasmus MC",
+        "city": "Rotterdam",
+        "postal": "3015 GE",
+        "country": "NL",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 40104050,
+        "crm_level_1": "Erasmus MC",
+        "crm_level_3": "Cell Biology",
+        "account": "Erasmus MC",
+        "city": "Rotterdam",
+        "postal": "3015 GE",
+        "country": "NL",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 40368896,
+        "crm_level_1": "Erasmus MC-University Medical Center",
+        "crm_level_3": "Gastroenterology and Hepatology",
+        "account": "Erasmus MC",
+        "city": "Rotterdam",
+        "postal": "3015 GE",
+        "country": "NL",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Ncardia Services BV",
+    "city": "Leiden",
+    "postal": "2333 BD",
+    "country": "NL",
+    "coordinates": [
+      52.1601,
+      4.4818
+    ],
+    "publications": [
+      {
+        "pmid": 41868610,
+        "crm_level_1": "Ncardia Services BV",
+        "crm_level_3": "Not specified",
+        "account": "Ncardia Services BV",
+        "city": "Leiden",
+        "postal": "2333 BD",
+        "country": "NL",
+        "coordinates": [
+          52.1601,
+          4.4818
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Medisch Spectrum Twente",
+    "city": "AV",
+    "postal": "7512",
+    "country": "NL",
+    "coordinates": [
+      51.5,
+      4.75
+    ],
+    "publications": [
+      {
+        "pmid": 41015217,
+        "crm_level_1": "Medisch Spectrum Twente",
+        "crm_level_3": "Not specified",
+        "account": "Medisch Spectrum Twente",
+        "city": "AV",
+        "postal": "7512",
+        "country": "NL",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Université Catholique de Louvain (UCL)",
+    "city": "Louvain la Neuve",
+    "postal": "1348",
+    "country": "BE",
+    "coordinates": [
+      51.5,
+      4.75
+    ],
+    "publications": [
+      {
+        "pmid": 41757047,
+        "crm_level_1": "Université Catholique de Louvain (UCL)",
+        "crm_level_3": "Biomolecular Science and Technology",
+        "account": "Université Catholique de Louvain (UCL)",
+        "city": "Louvain la Neuve",
+        "postal": "1348",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 41698873,
+        "crm_level_1": "Université catholique de Louvain",
+        "crm_level_3": "Unknown department",
+        "account": "Université Catholique de Louvain (UCL)",
+        "city": "Louvain la Neuve",
+        "postal": "1348",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 41872154,
+        "crm_level_1": "Université catholique de Louvain",
+        "crm_level_3": "Neuroscience",
+        "account": "Université Catholique de Louvain (UCL)",
+        "city": "Louvain la Neuve",
+        "postal": "1348",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      }
+    ]
+  },
+  {
+    "name": "University of Luxembourg",
+    "city": "Belvaux",
+    "postal": "4367",
+    "country": "LU",
+    "coordinates": [
+      51.5,
+      4.75
+    ],
+    "publications": [
+      {
+        "pmid": 39979287,
+        "crm_level_1": "University of Luxembourg",
+        "crm_level_3": "Life Sciences and Medicine",
+        "account": "University of Luxembourg",
+        "city": "Belvaux",
+        "postal": "4367",
+        "country": "LU",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 39755720,
+        "crm_level_1": "University of Luxembourg",
+        "crm_level_3": "Life Sciences and Medicine (DLSM)",
+        "account": "University of Luxembourg",
+        "city": "Belvaux",
+        "postal": "4367",
+        "country": "LU",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 40164620,
+        "crm_level_1": "University of Luxembourg",
+        "crm_level_3": "Systems Biomedicine (LCSB)",
+        "account": "University of Luxembourg",
+        "city": "Belvaux",
+        "postal": "4367",
+        "country": "LU",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 40246848,
+        "crm_level_1": "University of Luxembourg",
+        "crm_level_3": "Unknown department",
+        "account": "University of Luxembourg",
+        "city": "Belvaux",
+        "postal": "4367",
+        "country": "LU",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Katholieke Universiteit Leuven (KUL)",
+    "city": "Leuven",
+    "postal": "3000",
+    "country": "BE",
+    "coordinates": [
+      50.8798,
+      4.7005
+    ],
+    "publications": [
+      {
+        "pmid": 40650745,
+        "crm_level_1": "Katholieke Universiteit Leuven (KUL)",
+        "crm_level_3": "Not specified",
+        "account": "Katholieke Universiteit Leuven (KUL)",
+        "city": "Leuven",
+        "postal": "3000",
+        "country": "BE",
+        "coordinates": [
+          50.8798,
+          4.7005
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Laboratoire Hospitalier Universitaire de Bruxelles-Université libre de Bruxelles (LHUB-ULB)",
+    "city": "Bruxelles",
+    "postal": "1000",
+    "country": "BE",
+    "coordinates": [
+      50.8503,
+      4.3517
+    ],
+    "publications": [
+      {
+        "pmid": 41862497,
+        "crm_level_1": "Université Libre de Bruxelles",
+        "crm_level_3": "Unknown department",
+        "account": "Laboratoire Hospitalier Universitaire de Bruxelles-Université libre de Bruxelles (LHUB-ULB)",
+        "city": "Bruxelles",
+        "postal": "1000",
+        "country": "BE",
+        "coordinates": [
+          50.8503,
+          4.3517
+        ]
+      },
+      {
+        "pmid": 41917327,
+        "crm_level_1": "Université Libre de Bruxelles",
+        "crm_level_3": "Unknown department",
+        "account": "Laboratoire Hospitalier Universitaire de Bruxelles-Université libre de Bruxelles (LHUB-ULB)",
+        "city": "Bruxelles",
+        "postal": "1000",
+        "country": "BE",
+        "coordinates": [
+          50.8503,
+          4.3517
+        ]
+      },
+      {
+        "pmid": 41024433,
+        "crm_level_1": "Université libre de Bruxelles",
+        "crm_level_3": "Signal Transduction and Metabolism Laboratory",
+        "account": "Laboratoire Hospitalier Universitaire de Bruxelles-Université libre de Bruxelles (LHUB-ULB)",
+        "city": "Bruxelles",
+        "postal": "1000",
+        "country": "BE",
+        "coordinates": [
+          50.8503,
+          4.3517
+        ]
+      },
+      {
+        "pmid": 40565289,
+        "crm_level_1": "Université Libre de Bruxelles",
+        "crm_level_3": "Diabetes Research (UCDR)",
+        "account": "Laboratoire Hospitalier Universitaire de Bruxelles-Université libre de Bruxelles (LHUB-ULB)",
+        "city": "Bruxelles",
+        "postal": "1000",
+        "country": "BE",
+        "coordinates": [
+          50.8503,
+          4.3517
+        ]
+      },
+      {
+        "pmid": 40541527,
+        "crm_level_1": "Université Libre de Bruxelles",
+        "crm_level_3": "Molecular Biology and ULB Neuroscience Institute (UNI)",
+        "account": "Laboratoire Hospitalier Universitaire de Bruxelles-Université libre de Bruxelles (LHUB-ULB)",
+        "city": "Bruxelles",
+        "postal": "1000",
+        "country": "BE",
+        "coordinates": [
+          50.8503,
+          4.3517
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Technische Universiteit Delft (TU Delft)",
+    "city": "Delft",
+    "postal": "2628 BC",
+    "country": "NL",
+    "coordinates": [
+      51.5,
+      4.75
+    ],
+    "publications": [
+      {
+        "pmid": 41440628,
+        "crm_level_1": "Technische Universiteit Delft (TU Delft)",
+        "crm_level_3": "Biomechanical Engineering",
+        "account": "Technische Universiteit Delft (TU Delft)",
+        "city": "Delft",
+        "postal": "2628 BC",
+        "country": "NL",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Universiteit van Amsterdam (UVA)",
+    "city": "Amsterdam",
+    "postal": "1105 AZ",
+    "country": "NL",
+    "coordinates": [
+      52.3676,
+      4.9041
+    ],
+    "publications": [
+      {
+        "pmid": 40217270,
+        "crm_level_1": "Universiteit van Amsterdam (UVA)",
+        "crm_level_3": "Experimental Vascular Medicine",
+        "account": "Universiteit van Amsterdam (UVA)",
+        "city": "Amsterdam",
+        "postal": "1105 AZ",
+        "country": "NL",
+        "coordinates": [
+          52.3676,
+          4.9041
+        ]
+      },
+      {
+        "pmid": 41152331,
+        "crm_level_1": "Universiteit van Amsterdam (UVA)",
+        "crm_level_3": "Not specified",
+        "account": "Universiteit van Amsterdam (UVA)",
+        "city": "Amsterdam",
+        "postal": "1105 AZ",
+        "country": "NL",
+        "coordinates": [
+          52.3676,
+          4.9041
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Vrije Universiteit Brussel (VUB)",
+    "city": "Brussel",
+    "postal": "1050",
+    "country": "BE",
+    "coordinates": [
+      51.5,
+      4.75
+    ],
+    "publications": [
+      {
+        "pmid": 40896146,
+        "crm_level_1": "Vrije Universiteit Brussel",
+        "crm_level_3": "Biology of the Testis (BITE) Laboratory",
+        "account": "Vrije Universiteit Brussel (VUB)",
+        "city": "Brussel",
+        "postal": "1050",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 40673161,
+        "crm_level_1": "Vrije Universiteit Brussel",
+        "crm_level_3": "Translational Oncology Research Centre",
+        "account": "Vrije Universiteit Brussel (VUB)",
+        "city": "Brussel",
+        "postal": "1050",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 41537777,
+        "crm_level_1": "Vrije Universiteit Brussel",
+        "crm_level_3": "Unknown department",
+        "account": "Vrije Universiteit Brussel (VUB)",
+        "city": "Brussel",
+        "postal": "1050",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 41698932,
+        "crm_level_1": "Vrije Universiteit Brussel",
+        "crm_level_3": "Unknown department",
+        "account": "Vrije Universiteit Brussel (VUB)",
+        "city": "Brussel",
+        "postal": "1050",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Life Science Methods BV",
+    "city": "Leiden",
+    "postal": "2333CH",
+    "country": "NL",
+    "coordinates": [
+      52.1601,
+      4.4818
+    ],
+    "publications": [
+      {
+        "pmid": 42032221,
+        "crm_level_1": "Life Science Methods BV",
+        "crm_level_3": "Not specified",
+        "account": "Life Science Methods BV",
+        "city": "Leiden",
+        "postal": "2333CH",
+        "country": "NL",
+        "coordinates": [
+          52.1601,
+          4.4818
+        ]
+      }
+    ]
+  },
+  {
+    "name": "VU Medisch Centrum (VUMC)",
+    "city": "Amsterdam",
+    "postal": "1081 BT",
+    "country": "NL",
+    "coordinates": [
+      52.3676,
+      4.9041
+    ],
+    "publications": [
+      {
+        "pmid": 40835856,
+        "crm_level_1": "VU Medisch Centrum (VUMC)",
+        "crm_level_3": "Gynaecology",
+        "account": "VU Medisch Centrum (VUMC)",
+        "city": "Amsterdam",
+        "postal": "1081 BT",
+        "country": "NL",
+        "coordinates": [
+          52.3676,
+          4.9041
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Vlaams Instituut voor Biotechnologie (VIB)",
+    "city": "Gent",
+    "postal": "9052",
+    "country": "BE",
+    "coordinates": [
+      51.5,
+      4.75
+    ],
+    "publications": [
+      {
+        "pmid": 42274561,
+        "crm_level_1": "Vlaams Instituut voor Biotechnologie (VIB)",
+        "crm_level_3": "Unknown department",
+        "account": "Vlaams Instituut voor Biotechnologie (VIB)",
+        "city": "Gent",
+        "postal": "9052",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 41132685,
+        "crm_level_1": "Vlaams Instituut Voor Biotechnologie (VIB)",
+        "crm_level_3": "Unknown department",
+        "account": "Vlaams Instituut voor Biotechnologie (VIB)",
+        "city": "Gent",
+        "postal": "9052",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 42243549,
+        "crm_level_1": "Vlaams Instituut voor Biotechnologie (VIB)",
+        "crm_level_3": "Brain & Disease Research",
+        "account": "Vlaams Instituut voor Biotechnologie (VIB)",
+        "city": "Gent",
+        "postal": "9052",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 39981239,
+        "crm_level_1": "Vlaams Instituut voor Biotechnologie (VIB)",
+        "crm_level_3": "Inflammation Research",
+        "account": "Vlaams Instituut voor Biotechnologie (VIB)",
+        "city": "Gent",
+        "postal": "9052",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 42034643,
+        "crm_level_1": "Vlaams Instituut voor Biotechnologie (VIB)",
+        "crm_level_3": "Not specified",
+        "account": "Vlaams Instituut voor Biotechnologie (VIB)",
+        "city": "Gent",
+        "postal": "9052",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      }
+    ]
+  },
+  {
+    "name": "HUB Organoids (HUB4)",
+    "city": "Utrecht",
+    "postal": "3584 CM",
+    "country": "NL",
+    "coordinates": [
+      52.0907,
+      5.1214
+    ],
+    "publications": [
+      {
+        "pmid": 42031998,
+        "crm_level_1": "HUB Organoids (HUB4)",
+        "crm_level_3": "Not specified",
+        "account": "HUB Organoids (HUB4)",
+        "city": "Utrecht",
+        "postal": "3584 CM",
+        "country": "NL",
+        "coordinates": [
+          52.0907,
+          5.1214
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Dendrogenix",
+    "city": "Liege",
+    "postal": "4000",
+    "country": "BE",
+    "coordinates": [
+      50.6326,
+      5.5673
+    ],
+    "publications": [
+      {
+        "pmid": 42403921,
+        "crm_level_1": "Dendrogenix",
+        "crm_level_3": "Not specified",
+        "account": "Dendrogenix",
+        "city": "Liege",
+        "postal": "4000",
+        "country": "BE",
+        "coordinates": [
+          50.6326,
+          5.5673
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Academisch Medisch Centrum (AMC)",
+    "city": "Amsterdam",
+    "postal": "1105 AZ",
+    "country": "NL",
+    "coordinates": [
+      52.3676,
+      4.9041
+    ],
+    "publications": [
+      {
+        "pmid": 40541269,
+        "crm_level_1": "Academisch Medisch Centrum (AMC)",
+        "crm_level_3": "Not specified",
+        "account": "Academisch Medisch Centrum (AMC)",
+        "city": "Amsterdam",
+        "postal": "1105 AZ",
+        "country": "NL",
+        "coordinates": [
+          52.3676,
+          4.9041
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Radboud Universiteit Nijmegen",
+    "city": "Nijmegen",
+    "postal": "6525 ED",
+    "country": "NL",
+    "coordinates": [
+      51.8433,
+      5.8519
+    ],
+    "publications": [
+      {
+        "pmid": 41079206,
+        "crm_level_1": "Radboud Universiteit Nijmegen",
+        "crm_level_3": "Management",
+        "account": "Radboud Universiteit Nijmegen",
+        "city": "Nijmegen",
+        "postal": "6525 ED",
+        "country": "NL",
+        "coordinates": [
+          51.8433,
+          5.8519
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Radboudumc",
+    "city": "Nijmegen",
+    "postal": "6525 AJ",
+    "country": "NL",
+    "coordinates": [
+      51.8433,
+      5.8519
+    ],
+    "publications": [
+      {
+        "pmid": 40789452,
+        "crm_level_1": "Radboudumc",
+        "crm_level_3": "Chemical Immunology",
+        "account": "Radboudumc",
+        "city": "Nijmegen",
+        "postal": "6525 AJ",
+        "country": "NL",
+        "coordinates": [
+          51.8433,
+          5.8519
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Universiteit Hasselt",
+    "city": "Diepenbeek",
+    "postal": "3590",
+    "country": "BE",
+    "coordinates": [
+      51.5,
+      4.75
+    ],
+    "publications": [
+      {
+        "pmid": 40880479,
+        "crm_level_1": "Universiteit Hasselt",
+        "crm_level_3": "Biomedical Research Institute",
+        "account": "Universiteit Hasselt",
+        "city": "Diepenbeek",
+        "postal": "3590",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Luxembourg Institute of Health (LIH)",
+    "city": "Luxembourg",
+    "postal": "1210",
+    "country": "LU",
+    "coordinates": [
+      51.5,
+      4.75
+    ],
+    "publications": [
+      {
+        "pmid": 41878824,
+        "crm_level_1": "Luxembourg Institute of Health",
+        "crm_level_3": "Precision Health",
+        "account": "Luxembourg Institute of Health (LIH)",
+        "city": "Luxembourg",
+        "postal": "1210",
+        "country": "LU",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      },
+      {
+        "pmid": 41857173,
+        "crm_level_1": "Luxembourg Institute of Health",
+        "crm_level_3": "Unknown department",
+        "account": "Luxembourg Institute of Health (LIH)",
+        "city": "Luxembourg",
+        "postal": "1210",
+        "country": "LU",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Universiteit Maastricht",
+    "city": "Maastricht",
+    "postal": "6229 HX",
+    "country": "NL",
+    "coordinates": [
+      50.8503,
+      5.688
+    ],
+    "publications": [
+      {
+        "pmid": 40885721,
+        "crm_level_1": "Universiteit Maastricht",
+        "crm_level_3": "Not specified",
+        "account": "Universiteit Maastricht",
+        "city": "Maastricht",
+        "postal": "6229 HX",
+        "country": "NL",
+        "coordinates": [
+          50.8503,
+          5.688
+        ]
+      },
+      {
+        "pmid": 40188073,
+        "crm_level_1": "Universiteit Maastricht",
+        "crm_level_3": "Cell Biology-Inspired Tissue Engineering",
+        "account": "Universiteit Maastricht",
+        "city": "Maastricht",
+        "postal": "6229 HX",
+        "country": "NL",
+        "coordinates": [
+          50.8503,
+          5.688
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Université Libre de Bruxelles (ULB)",
+    "city": "Bruxelles",
+    "postal": "1050",
+    "country": "BE",
+    "coordinates": [
+      50.8503,
+      4.3517
+    ],
+    "publications": [
+      {
+        "pmid": 41993274,
+        "crm_level_1": "Université Libre de Bruxelles (ULB)",
+        "crm_level_3": "Diabetes Research",
+        "account": "Université Libre de Bruxelles (ULB)",
+        "city": "Bruxelles",
+        "postal": "1050",
+        "country": "BE",
+        "coordinates": [
+          50.8503,
+          4.3517
+        ]
+      }
+    ]
+  },
+  {
+    "name": "AstraZeneca (EsoBiotec)",
+    "city": "Mont-Saint-Guibert",
+    "postal": "1435",
+    "country": "BE",
+    "coordinates": [
+      51.5,
+      4.75
+    ],
+    "publications": [
+      {
+        "pmid": 39809767,
+        "crm_level_1": "AstraZeneca (EsoBiotec)",
+        "crm_level_3": "Not specified",
+        "account": "AstraZeneca (EsoBiotec)",
+        "city": "Mont-Saint-Guibert",
+        "postal": "1435",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Leids Universitair Medisch Centrum (LUMC)",
+    "city": "Leiden",
+    "postal": "2335 ZA",
+    "country": "NL",
+    "coordinates": [
+      52.1601,
+      4.4818
+    ],
+    "publications": [
+      {
+        "pmid": 40926231,
+        "crm_level_1": "LUMC",
+        "crm_level_3": "Unknown department",
+        "account": "Leids Universitair Medisch Centrum (LUMC)",
+        "city": "Leiden",
+        "postal": "2335 ZA",
+        "country": "NL",
+        "coordinates": [
+          52.1601,
+          4.4818
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Janssen Pharmaceutica NV",
+    "city": "Beerse",
+    "postal": "2340",
+    "country": "BE",
+    "coordinates": [
+      51.5,
+      4.75
+    ],
+    "publications": [
+      {
+        "pmid": 39761259,
+        "crm_level_1": "Janssen Pharmaceutica NV",
+        "crm_level_3": "Not specified",
+        "account": "Janssen Pharmaceutica NV",
+        "city": "Beerse",
+        "postal": "2340",
+        "country": "BE",
+        "coordinates": [
+          51.5,
+          4.75
+        ]
+      }
+    ]
+  },
+  {
+    "name": "NKI - AvL",
+    "city": "Amsterdam",
+    "postal": "1066 CX",
+    "country": "NL",
+    "coordinates": [
+      52.3676,
+      4.9041
+    ],
+    "publications": [
+      {
+        "pmid": 41115454,
+        "crm_level_1": "NKI - AvL",
+        "crm_level_3": "Gastrointestinal Oncology",
+        "account": "NKI - AvL",
+        "city": "Amsterdam",
+        "postal": "1066 CX",
+        "country": "NL",
+        "coordinates": [
+          52.3676,
+          4.9041
+        ]
+      }
+    ]
+  }
+]
