@@ -1,45 +1,10 @@
 /* Application specific styles */
 
-/* Ensure full height layout */
 html,
 body,
 #root {
+  width: 100%;
   height: 100%;
-}
-
-/* Smooth animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Apply animations to key elements */
-header {
-  animation: fadeIn 0.3s ease-out;
-}
-
-.rounded-lg {
-  animation: fadeIn 0.3s ease-out;
-}
-
-/* Leaflet map adjustments */
-.leaflet-control-attribution {
-  font-size: 11px;
-}
-
-.leaflet-popup {
-  animation: fadeIn 0.2s ease-out;
-}
-
-/* Responsive grid layout */
-@media (max-width: 1024px) {
-  .grid-cols-1 {
-    gap: 0.5rem;
-  }
+  margin: 0;
+  padding: 0;
 }
