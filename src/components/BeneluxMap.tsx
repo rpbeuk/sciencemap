@@ -87,21 +87,14 @@ const BeneluxMap: React.FC<MapProps> = ({
         city: 'Leiden',
         country: 'Netherlands',
         coordinates: [52.1667, 4.4833] as [number, number], // Leiden coordinates
-        publications: [
-          { title: 'Test publication 1', keywords: ['tissue', 'sample'] },
-          { title: 'Test publication 2', keywords: ['analysis', 'data'] },
-        ],
+        publications: Array(25).fill({ title: 'Test publication', keywords: ['tissue', 'sample'] }),
       },
       {
         name: 'RadboudUMC',
         city: 'Nijmegen',
         country: 'Netherlands',
         coordinates: [51.8425, 5.8520] as [number, number], // Nijmegen coordinates
-        publications: [
-          { title: 'Test publication 1', keywords: ['research', 'study'] },
-          { title: 'Test publication 2', keywords: ['medical', 'data'] },
-          { title: 'Test publication 3', keywords: ['analysis', 'results'] },
-        ],
+        publications: Array(25).fill({ title: 'Test publication', keywords: ['research', 'study'] }),
       },
       ...institutions,
     ];
