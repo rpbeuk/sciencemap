@@ -52,6 +52,15 @@ const BeneluxMap: React.FC<MapProps> = ({
     
     map.setMaxBounds(beneluxBounds);
 
+    // Add event listener to clear selection when map is moved or zoomed
+    map.on('zoom', () => {
+      onInstitutionClick(null as any);
+    });
+    
+    map.on('move', () => {
+      onInstitutionClick(null as any);
+    });
+
     mapRef.current = map;
 
     // Ensure map size is correct after initialization
@@ -69,7 +78,7 @@ const BeneluxMap: React.FC<MapProps> = ({
         mapRef.current = null;
       }
     };
-  }, []);
+  }, [onInstitutionClick]);
 
   // Load institutions from matched publications JSON
   useEffect(() => {
@@ -153,7 +162,7 @@ const BeneluxMap: React.FC<MapProps> = ({
     });
   }, [institutions, onInstitutionClick]);
 
-  // Render department nodes around selected institution
+  // Render department nodes vertically stacked to the right of selected institution
   useEffect(() => {
     if (!mapRef.current) return;
     const map = mapRef.current;
@@ -174,89 +183,79 @@ const BeneluxMap: React.FC<MapProps> = ({
     const instLng = selectedInstitution.coordinates[1];
     const departments = selectedInstitution.departments;
     
-    // Calculate positions in a circle around the main marker
-    const radius = 0.05; // degrees, approximately 5km at the equator
+    // Stack departments vertically to the right
+    const horizontalOffset = 0.04; // degrees, moves nodes to the right
+    const verticalSpacing = 0.015; // degrees between each department row
     const count = departments.length;
     
     departments.forEach((dept: any, idx: number) => {
-      const angle = (idx / count) * (2 * Math.PI);
-      const deptLat = instLat + radius * Math.sin(angle);
-      const deptLng = instLng + radius * Math.cos(angle);
+      // Position vertically stacked, offset to the right
+      const deptLat = instLat - (verticalSpacing * (count - 1) / 2) + (verticalSpacing * idx);
+      const deptLng = instLng + horizontalOffset;
       
-      // Create department marker (smaller than main marker)
+      const pubCount = dept.publications.length;
+      const deptName = dept.name;
+      
+      // Create a container with circle and rectangle side by side
       const deptIcon = L.divIcon({
         html: `
           <div style="
-            background-color: #ea580c;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
             display: flex;
             align-items: center;
-            justify-content: center;
-            border: 2px solid #fff;
-            color: white;
-            font-weight: bold;
-            font-size: 12px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            font-family: Arial, sans-serif;
+            gap: 8px;
+            white-space: nowrap;
           ">
-            ${dept.publications.length}
+            <!-- Publication count circle -->
+            <div style="
+              background-color: #ea580c;
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: 2px solid #000;
+              color: white;
+              font-weight: bold;
+              font-size: 14px;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+              font-family: Arial, sans-serif;
+              flex-shrink: 0;
+            ">
+              ${pubCount}
+            </div>
+            <!-- Department name rectangle -->
+            <div style="
+              background-color: white;
+              padding: 6px 12px;
+              border-radius: 8px;
+              color: black;
+              font-weight: normal;
+              font-size: 12px;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+              font-family: Arial, sans-serif;
+              line-height: 1.3;
+            ">
+              ${deptName}
+            </div>
           </div>
         `,
         className: '',
-        iconSize: [32, 32],
-        iconAnchor: [16, 16],
+        iconSize: [0, 0], // Will be auto-sized
+        iconAnchor: [0, 20], // Center vertically
       });
       
       const deptMarker = L.marker([deptLat, deptLng], {
         icon: deptIcon,
       }).addTo(map);
       
-      deptMarker.bindTooltip(`${dept.name}: ${dept.publications.length} publications`, {
+      deptMarker.bindTooltip(`${dept.name}: ${pubCount} publications`, {
         permanent: false,
-        direction: 'top',
-        offset: [0, -10],
+        direction: 'right',
+        offset: [10, 0],
       });
       
       departmentMarkersRef.current.push(deptMarker as any);
-      
-      // Add department name label
-      const labelIcon = L.divIcon({
-        html: `
-          <div style="
-            font-size: 10px;
-            font-weight: 700;
-            color: #333;
-            text-align: center;
-            max-width: 65px;
-            word-break: break-word;
-            font-family: Arial, sans-serif;
-            white-space: normal;
-            line-height: 1.3;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 4px 6px;
-            border-radius: 3px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-          ">
-            ${dept.name.substring(0, 22)}${dept.name.length > 22 ? '...' : ''}
-          </div>
-        `,
-        className: '',
-        iconSize: [75, 50],
-        iconAnchor: [37, 25],
-      });
-      
-      const labelOffset = 0.065;
-      const labelLat = instLat + (labelOffset * 1.15) * Math.sin(angle);
-      const labelLng = instLng + (labelOffset * 1.15) * Math.cos(angle);
-      
-      const labelMarker = L.marker([labelLat, labelLng], {
-        icon: labelIcon,
-        interactive: false,
-      }).addTo(map);
-      
-      departmentLabelsRef.current.push(labelMarker);
     });
   }, [selectedInstitution]);
 
