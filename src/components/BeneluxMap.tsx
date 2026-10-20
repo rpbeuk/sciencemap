@@ -215,12 +215,16 @@ const BeneluxMap: React.FC<MapProps> = ({
     const instLat = selectedInstitution.coordinates[0];
     const instLng = selectedInstitution.coordinates[1];
     const departments = selectedInstitution.departments;
+    // Sort departments by publication count (descending) - do this early
+    const sortedDepartments = [...departments].sort((a: any, b: any) => {
+      return (b.publications?.length || 0) - (a.publications?.length || 0);
+    });
     
     // Add CRM Level 1 label above all departments
-    if (departments.length > 0 && departments[0].publications && departments[0].publications.length > 0) {
-      const crmLevel1 = departments[0].publications[0].crm_level_1;
+    if (sortedDepartments.length > 0 && sortedDepartments[0].publications && sortedDepartments[0].publications.length > 0) {
+      const crmLevel1 = sortedDepartments[0].publications[0].crm_level_1;
       if (crmLevel1) {
-        const labelLat = instLat + 0.035; // Above the department nodes
+        const labelLat = instLat + 0.04; // Above the department nodes
         const labelLng = instLng + 0.04;
         
         const crmLabel = L.divIcon({
@@ -228,25 +232,27 @@ const BeneluxMap: React.FC<MapProps> = ({
             <div style="
               background-color: #1f2937;
               color: white;
-              padding: 6px 12px;
+              padding: 8px 14px;
               border-radius: 6px;
               font-size: 12px;
               font-weight: 700;
               white-space: nowrap;
               font-family: Arial, sans-serif;
-              box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+              box-shadow: 0 4px 12px rgba(0,0,0,0.5);
               border: 1px solid rgba(255,255,255,0.2);
+              z-index: 1000;
             ">
               ${crmLevel1}
             </div>
           `,
           className: 'crm-label',
-          iconSize: [220, 32],
-          iconAnchor: [110, 16],
+          iconSize: [240, 36],
+          iconAnchor: [120, 18],
         });
         
         const crmMarker = L.marker([labelLat, labelLng], {
           icon: crmLabel,
+          zIndexOffset: 1000,
         }).addTo(map);
         
         departmentLabelsRef.current.push(crmMarker as any);
@@ -256,12 +262,8 @@ const BeneluxMap: React.FC<MapProps> = ({
     // Stack departments vertically to the right
     const horizontalOffset = 0.04; // degrees, moves nodes to the right
     const verticalSpacing = 0.015; // degrees between each department row
-    const count = departments.length;
     
-    // Sort departments by publication count (descending)
-    const sortedDepartments = [...departments].sort((a: any, b: any) => {
-      return (b.publications?.length || 0) - (a.publications?.length || 0);
-    });
+    const count = sortedDepartments.length;
     
     sortedDepartments.forEach((dept: any, idx: number) => {
       // Position vertically stacked, offset to the right
