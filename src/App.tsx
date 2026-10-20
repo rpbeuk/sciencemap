@@ -117,12 +117,26 @@ function AppContent() {
                 </button>
               </div>
 
+              {/* CRM Level 1 - Institution Name */}
+              {selectedDepartment.publications && selectedDepartment.publications.length > 0 && (
+                <div style={{ 
+                  marginBottom: '12px', 
+                  fontSize: '12px', 
+                  fontWeight: '600', 
+                  color: '#666',
+                  paddingBottom: '8px',
+                  borderBottom: '1px solid #e5e7eb'
+                }}>
+                  {selectedDepartment.publications[0].crm_level_1}
+                </div>
+              )}
+
               <h3 style={{ margin: '0 0 16px 0', fontSize: '14px', fontWeight: '600' }}>
                 {selectedDepartment.name}
               </h3>
 
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', paddingBottom: '24px' }}>
-                {selectedDepartment.publications.map((pub: any, idx: number) => (
+                {[...selectedDepartment.publications].reverse().map((pub: any, idx: number) => (
                   <div 
                     key={idx}
                     className="publication-card"
