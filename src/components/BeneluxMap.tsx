@@ -30,6 +30,7 @@ const BeneluxMap: React.FC<MapProps> = ({
       zoomControl: true,
       attributionControl: true,
       preferCanvas: true,
+      zoomAnimation: false,
     });
 
     // Add tile layer
@@ -37,23 +38,26 @@ const BeneluxMap: React.FC<MapProps> = ({
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       maxZoom: 19,
       minZoom: 6,
+      zIndex: 1,
     }).addTo(map);
 
-    // Set bounds
+    // Set bounds but don't fit to them - just prevent panning outside
     const beneluxBounds = L.latLngBounds(
       [50.7, 2.3],  // Southwest
       [53.5, 7.2]   // Northeast
     );
     
     map.setMaxBounds(beneluxBounds);
-    map.fitBounds(beneluxBounds, { padding: [50, 50] });
 
     mapRef.current = map;
 
     // Ensure map size is correct after initialization
-    setTimeout(() => {
-      map.invalidateSize(false);
-    }, 100);
+    // Use requestAnimationFrame to wait for next paint
+    requestAnimationFrame(() => {
+      if (mapRef.current) {
+        mapRef.current.invalidateSize(false);
+      }
+    });
 
     return () => {
       // Cleanup on unmount
