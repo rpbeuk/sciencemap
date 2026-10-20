@@ -24,9 +24,17 @@ function AppContent() {
       margin: 0, 
       padding: 0, 
       overflow: 'hidden',
-      backgroundColor: '#f5f5f5'
+      backgroundColor: '#f5f5f5',
+      boxSizing: 'border-box'
     }}>
-      <div style={{ width: '1024px', height: '800px', overflow: 'hidden' }}>
+      <div style={{ 
+        width: '1024px', 
+        height: '800px', 
+        overflow: 'hidden',
+        border: '3px solid red',
+        boxSizing: 'border-box',
+        position: 'relative'
+      }}>
         <BeneluxMap
           institutions={supabaseInsts}
           selectedInstitution={null}

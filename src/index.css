@@ -2,22 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
   height: 100%;
+  width: 100%;
 }
 
 #root {
   height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-/* Leaflet map container - ensure it fills parent */
+/* Leaflet map container - ensure it fills parent completely */
 .leaflet-container {
   font-family: inherit;
   width: 100% !important;
   height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  position: relative !important;
 }
 
 .leaflet-popup-content {
