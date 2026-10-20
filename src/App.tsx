@@ -121,7 +121,8 @@ function AppContent() {
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                 {selectedDepartment.publications.map((pub: any, idx: number) => (
                   <div 
-                    key={idx} 
+                    key={idx}
+                    className="publication-card"
                     style={{
                       flex: '0 0 calc(25% - 9px)',
                       backgroundColor: '#f9fafb',

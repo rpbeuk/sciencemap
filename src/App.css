@@ -55,6 +55,6 @@ input[type="checkbox"]:checked::after {
 }
 
 /* Publication card summary expansion on title hover */
-div:has(h4):hover .card-summary {
-  max-height: 200px;
+.publication-card:hover .card-summary {
+  max-height: 300px !important;
 }
