@@ -1,11 +1,12 @@
 import type { ReactNode } from 'react';
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
+import { getPublications, type Publication as SupabasePublication } from '../utils/supabaseClient';
 
 export interface Publication {
   pmid: number;
   title: string;
   authors: string;
-  lastAuthor: string;
+  lastAuthor?: string;
   year: number;
   journal: string;
   summary: string;
@@ -36,15 +37,83 @@ interface DataContextType {
   setSelectedPublication: (pub: Publication | null) => void;
   loading: boolean;
   error: string | null;
+  useSupabase: boolean;
+  loadSupabaseData: () => Promise<void>;
 }
 
 const DataContext = createContext<DataContextType | undefined>(undefined);
 
 export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [publications] = useState<Publication[]>([]);
-  const [institutions] = useState<Institution[]>([]);
+  const [publications, setPublications] = useState<Publication[]>([]);
+  const [institutions, setInstitutions] = useState<Institution[]>([]);
   const [selectedInstitution, setSelectedInstitution] = useState<Institution | null>(null);
   const [selectedPublication, setSelectedPublication] = useState<Publication | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [useSupabase, setUseSupabase] = useState(false);
+
+  // Check if Supabase is available
+  useEffect(() => {
+    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+    const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
+    if (supabaseUrl && supabaseKey) {
+      setUseSupabase(true);
+      loadSupabaseData();
+    }
+  }, []);
+
+  const loadSupabaseData = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+
+      const data = await getPublications();
+      
+      if (data.length > 0) {
+        // Transform Supabase publications to app format
+        const transformed: Publication[] = data.map((pub: SupabasePublication) => ({
+          pmid: pub.pmid,
+          title: pub.title || '',
+          authors: pub.authors || '',
+          year: pub.year || new Date().getFullYear(),
+          journal: pub.journal || '',
+          summary: pub.summary || '',
+          city: pub.lastAuthorCity || '',
+          institute: '',
+          country: pub.lastAuthorCountry || '',
+          sampleType: pub.sampleType,
+          enzymes: pub.enzymes,
+          instrument: pub.instrument,
+        }));
+
+        setPublications(transformed);
+
+        // Aggregate by institution (city + country)
+        const instMap = new Map<string, Institution>();
+        transformed.forEach((pub) => {
+          const key = `${pub.city}-${pub.country}`;
+          if (!instMap.has(key)) {
+            instMap.set(key, {
+              name: pub.city,
+              city: pub.city,
+              postalCode: '',
+              country: pub.country,
+              coordinates: [50.8, 4.3], // Default center
+              publications: [],
+            });
+          }
+          instMap.get(key)!.publications.push(pub);
+        });
+
+        setInstitutions(Array.from(instMap.values()));
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to load data');
+      console.error('Supabase load error:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const value: DataContextType = {
     publications,
@@ -53,8 +122,10 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     selectedPublication,
     setSelectedInstitution,
     setSelectedPublication,
-    loading: false,
-    error: null,
+    loading,
+    error,
+    useSupabase,
+    loadSupabaseData,
   };
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
