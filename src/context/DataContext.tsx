@@ -63,6 +63,9 @@ export interface Publication {
   enzymes?: string;
   instrument?: string;
   miltenyiProduct?: string;
+  crm_level_1?: string;
+  crm_level_3?: string;
+  zipcode?: number;
 }
 
 export interface Department {

@@ -216,6 +216,42 @@ const BeneluxMap: React.FC<MapProps> = ({
     const instLng = selectedInstitution.coordinates[1];
     const departments = selectedInstitution.departments;
     
+    // Add CRM Level 1 label above all departments
+    if (departments.length > 0 && departments[0].publications && departments[0].publications.length > 0) {
+      const crmLevel1 = departments[0].publications[0].crm_level_1;
+      if (crmLevel1) {
+        const labelLat = instLat + 0.025; // Above the department nodes
+        const labelLng = instLng + 0.04;
+        
+        const crmLabel = L.divIcon({
+          html: `
+            <div style="
+              background-color: #333;
+              color: white;
+              padding: 4px 8px;
+              border-radius: 4px;
+              font-size: 11px;
+              font-weight: 600;
+              white-space: nowrap;
+              font-family: Arial, sans-serif;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            ">
+              ${crmLevel1}
+            </div>
+          `,
+          className: 'crm-label',
+          iconSize: [180, 24],
+          iconAnchor: [90, 12],
+        });
+        
+        const crmMarker = L.marker([labelLat, labelLng], {
+          icon: crmLabel,
+        }).addTo(map);
+        
+        departmentLabelsRef.current.push(crmMarker as any);
+      }
+    }
+    
     // Stack departments vertically to the right
     const horizontalOffset = 0.04; // degrees, moves nodes to the right
     const verticalSpacing = 0.015; // degrees between each department row
