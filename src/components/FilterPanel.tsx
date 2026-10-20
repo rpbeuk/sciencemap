@@ -10,8 +10,7 @@ interface FilterPanelProps {
 }
 
 const TERRITORY_STRUCTURE: Record<string, string[]> = {
-  'Belgium': ['N101', 'N102', 'N106', 'N109'],
-  'Luxembourg': ['N101'],
+  'Belgium/Lux': ['N101', 'N102', 'N106', 'N109'],
   'the Netherlands': ['N103', 'N104', 'N108', 'N110'],
 };
 
@@ -25,7 +24,7 @@ const PORTFOLIOS = [
 ];
 
 const FilterPanel: React.FC<FilterPanelProps> = ({ onFiltersChange }) => {
-  const [expandedCountry, setExpandedCountry] = useState<string | null>('Belgium');
+  const [expandedCountry, setExpandedCountry] = useState<string | null>('Belgium/Lux');
   const [selectedTerritories, setSelectedTerritories] = useState<string[]>(['N101', 'N102', 'N106', 'N109', 'N101', 'N103', 'N104', 'N108', 'N110']);
   const [selectedPortfolios, setSelectedPortfolios] = useState<string[]>(PORTFOLIOS);
 
@@ -52,13 +51,21 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ onFiltersChange }) => {
     }
   };
 
+  const handlePortfolioChange = (portfolio: string) => {
+    const newPortfolios = selectedPortfolios.includes(portfolio)
+      ? selectedPortfolios.filter(p => p !== portfolio)
+      : [...selectedPortfolios, portfolio];
+    setSelectedPortfolios(newPortfolios);
+    onFiltersChange({ territories: selectedTerritories, portfolios: newPortfolios });
+  };
+
   const handleSelectAllPortfolios = () => {
     if (selectedPortfolios.length === PORTFOLIOS.length) {
       setSelectedPortfolios([]);
-      onFiltersChange({ regions: selectedRegions, portfolios: [] });
+      onFiltersChange({ territories: selectedTerritories, portfolios: [] });
     } else {
       setSelectedPortfolios(PORTFOLIOS);
-      onFiltersChange({ regions: selectedRegions, portfolios: PORTFOLIOS });
+      onFiltersChange({ territories: selectedTerritories, portfolios: PORTFOLIOS });
     }
   };
 
