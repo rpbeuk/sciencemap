@@ -2,24 +2,52 @@ import type { ReactNode } from 'react';
 import { createContext, useContext, useState, useEffect } from 'react';
 import { getPublications, type Publication as SupabasePublication } from '../utils/supabaseClient';
 
-// Helper function to get coordinates from Dutch zipcode
-const getCoordinatesForZipcode = (zipcode: string): [number, number] => {
-  const zipNum = parseInt(zipcode);
+// Helper function to get coordinates from zipcode using comprehensive database
+let zipcodeDatabase: Record<string, [number, number]> = {};
+
+const loadZipcodeDatabase = async (): Promise<Record<string, [number, number]>> => {
+  if (Object.keys(zipcodeDatabase).length > 0) return zipcodeDatabase;
   
-  // Approximate mapping of Dutch postcodes to coordinates
-  // Based on postcode regions
-  if (zipNum >= 1000 && zipNum < 2000) return [52.36, 4.90]; // Amsterdam
-  if (zipNum >= 2000 && zipNum < 2300) return [52.16, 4.48]; // Leiden
-  if (zipNum >= 2300 && zipNum < 2400) return [52.24, 4.37]; // Leiden area
-  if (zipNum >= 2400 && zipNum < 3300) return [52.08, 5.12]; // Utrecht
-  if (zipNum >= 3300 && zipNum < 3900) return [51.84, 5.85]; // Nijmegen area
-  if (zipNum >= 3900 && zipNum < 4000) return [51.84, 5.85]; // Nijmegen area
-  if (zipNum >= 4000 && zipNum < 5000) return [50.85, 5.69]; // Maastricht
-  if (zipNum >= 5000 && zipNum < 6000) return [51.56, 5.09]; // Tilburg
-  if (zipNum >= 6000 && zipNum < 7000) return [51.44, 5.47]; // Eindhoven
-  if (zipNum >= 7000 && zipNum < 8000) return [52.13, 6.56]; // Arnhem
-  if (zipNum >= 8000 && zipNum < 9000) return [52.95, 6.13]; // Groningen area
-  if (zipNum >= 9000 && zipNum < 10000) return [53.21, 6.56]; // Groningen
+  try {
+    const response = await fetch('/sciencemap/zipcode_coordinates.json');
+    if (response.ok) {
+      zipcodeDatabase = await response.json();
+      console.log('Loaded zipcode database with', Object.keys(zipcodeDatabase).length, 'entries');
+      return zipcodeDatabase;
+    }
+  } catch (err) {
+    console.warn('Could not load zipcode database:', err);
+  }
+  
+  return {};
+};
+
+const getCoordinatesForZipcode = (zipcode: string, db: Record<string, [number, number]>): [number, number] => {
+  if (!zipcode) return [51.5, 4.75]; // Default to Benelux center
+  
+  const cleanZip = String(zipcode).trim();
+  
+  // Try exact match first
+  if (db[cleanZip]) {
+    return db[cleanZip];
+  }
+  
+  // Try first 4 digits (for postal codes with letters like Dutch ones)
+  const firstFour = cleanZip.substring(0, 4);
+  if (db[firstFour]) {
+    return db[firstFour];
+  }
+  
+  // Try regional fallback (first 2 digits)
+  const firstTwo = cleanZip.substring(0, 2);
+  const regionEntries = Object.entries(db).filter(([k]) => k.startsWith(firstTwo));
+  if (regionEntries.length > 0) {
+    const avg: [number, number] = [
+      regionEntries.reduce((sum, [, coords]) => sum + coords[0], 0) / regionEntries.length,
+      regionEntries.reduce((sum, [, coords]) => sum + coords[1], 0) / regionEntries.length,
+    ];
+    return avg;
+  }
   
   return [51.5, 4.75]; // Default to Benelux center
 };
@@ -87,6 +115,10 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     const loadEnrichedData = async () => {
       try {
         console.log('Loading enriched publications and geographic index...');
+        
+        // Load zipcode database first
+        const zipcodeDb = await loadZipcodeDatabase();
+        
         const [enrichedResponse, geoResponse] = await Promise.all([
           fetch('/sciencemap/enriched_publications.json'),
           fetch('/sciencemap/geo_index.json'),
@@ -164,9 +196,9 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             .map(([name, pubs]) => ({ name, publications: pubs }))
             .sort((a, b) => a.name.localeCompare(b.name));
           
-          // Assign better coordinates if zipcode exists
+          // Assign better coordinates if zipcode exists using loaded database
           const coordinates = inst.postalCode ? 
-            getCoordinatesForZipcode(inst.postalCode) : 
+            getCoordinatesForZipcode(inst.postalCode, zipcodeDb) : 
             [51.5, 4.75];
           
           return {
