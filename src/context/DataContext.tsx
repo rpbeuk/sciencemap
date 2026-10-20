@@ -138,6 +138,37 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
           console.warn('Could not load CRM mappings:', err);
         }
         
+        // City-to-country mapping for validation
+        const cityCountryMap: Record<string, string> = {
+          'amsterdam': 'the Netherlands',
+          'rotterdam': 'the Netherlands',
+          'groningen': 'the Netherlands',
+          'utrecht': 'the Netherlands',
+          'leiden': 'the Netherlands',
+          'wageningen': 'the Netherlands',
+          'nijmegen': 'the Netherlands',
+          'maastricht': 'the Netherlands',
+          'leuven': 'Belgium',
+          'ghent': 'Belgium',
+          'gent': 'Belgium',
+          'brussels': 'Belgium',
+          'antwerp': 'Belgium',
+          'liege': 'Belgium',
+          'sciensano': 'Belgium',
+          'luxembourg': 'Luxembourg',
+        };
+        
+        const validateCountry = (city: string, country: string): string => {
+          if (!city) return country;
+          const cityLower = city.toLowerCase();
+          for (const [cityKeyword, impliedCountry] of Object.entries(cityCountryMap)) {
+            if (cityLower.includes(cityKeyword)) {
+              return impliedCountry;
+            }
+          }
+          return country;
+        };
+        
         // Group publications by ZIPCODE (location-based clustering)
         const locationMap = new Map<string, Institution>();
         
@@ -145,7 +176,10 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
           const zipcode = pub.zipcode ? String(parseInt(pub.zipcode)) : null;
           const instName = pub.crm_level_1 || 'Unknown Institute';
           const city = pub.lastauthorcity || 'Unknown City';
-          const country = pub.lastauthorcountry || 'Unknown';
+          let country = pub.lastauthorcountry || 'Unknown';
+          
+          // Validate country based on city name
+          country = validateCountry(city, country);
           
           if (!zipcode || !country) return; // Skip publications without zipcode or country
           
