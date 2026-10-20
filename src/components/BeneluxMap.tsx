@@ -220,9 +220,13 @@ const BeneluxMap: React.FC<MapProps> = ({
       return (b.publications?.length || 0) - (a.publications?.length || 0);
     });
     
+    console.log('DEBUG: Departments before sorting:', departments.map((d: any) => ({ name: d.name, count: d.publications?.length })));
+    console.log('DEBUG: Departments after sorting:', sortedDepartments.map((d: any) => ({ name: d.name, count: d.publications?.length })));
+    
     // Add CRM Level 1 label above all departments
     if (sortedDepartments.length > 0 && sortedDepartments[0].publications && sortedDepartments[0].publications.length > 0) {
       const crmLevel1 = sortedDepartments[0].publications[0].crm_level_1;
+      console.log('DEBUG: CRM Level 1:', crmLevel1);
       if (crmLevel1) {
         const labelLat = instLat + 0.04; // Above the department nodes
         const labelLng = instLng + 0.04;
