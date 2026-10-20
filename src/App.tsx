@@ -84,62 +84,6 @@ function AppContent() {
               onDepartmentClick={setSelectedDepartment}
             />
           </div>
-          
-          {selectedInstitution && !selectedDepartment && (
-            <div style={{
-              width: '300px',
-              height: '100%',
-              backgroundColor: 'white',
-              borderLeft: '1px solid #e5e7eb',
-              overflowY: 'auto',
-              padding: '16px',
-              fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-              fontSize: '13px',
-            }}>
-              <div style={{ marginBottom: '16px' }}>
-                <button
-                  onClick={() => setSelectedInstitution(null)}
-                  style={{
-                    padding: '6px 12px',
-                    backgroundColor: '#ea580c',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '4px',
-                    cursor: 'pointer',
-                    fontSize: '12px',
-                  }}
-                >
-                  ✕ Close
-                </button>
-              </div>
-
-              <h3 style={{ margin: '0 0 8px 0', fontSize: '14px', fontWeight: '600' }}>
-                {selectedInstitution.name}
-              </h3>
-              <p style={{ margin: '0 0 16px 0', fontSize: '12px', color: '#666' }}>
-                {selectedInstitution.city}, {selectedInstitution.country}
-              </p>
-
-              {selectedInstitution.departments && selectedInstitution.departments.length > 0 ? (
-                selectedInstitution.departments.map((dept: any, idx: number) => (
-                  <div key={idx} style={{ marginBottom: '16px', paddingBottom: '16px', borderBottom: '1px solid #f3f4f6' }}>
-                    <h4 style={{ margin: '0 0 8px 0', fontSize: '13px', fontWeight: '600', color: '#1f2937' }}>
-                      {dept.name}
-                    </h4>
-                    <div style={{ fontSize: '11px', marginTop: '8px', color: '#999', maxHeight: '120px', overflow: 'hidden' }}>
-                      {dept.publications.map((pub: any, pidx: number) => (
-                        <div key={pidx} style={{ marginBottom: '6px', lineHeight: '1.4' }}>
-                          <strong>{pub.title.substring(0, 50)}{pub.title.length > 50 ? '...' : ''}</strong>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))
-              ) : (
-                <p style={{ color: '#999' }}>No departments</p>
-              )}
-            </div>
-          )}
 
           {selectedDepartment && (
             <div style={{
@@ -148,7 +92,7 @@ function AppContent() {
               backgroundColor: 'white',
               borderLeft: '1px solid #e5e7eb',
               overflowY: 'auto',
-              overflowX: 'auto',
+              overflowX: 'hidden',
               padding: '16px',
               fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
               fontSize: '13px',
@@ -176,43 +120,84 @@ function AppContent() {
 
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                 {selectedDepartment.publications.map((pub: any, idx: number) => (
-                  <div key={idx} style={{
-                    flex: '0 0 calc(50% - 6px)',
-                    backgroundColor: '#f9fafb',
-                    border: '1px solid #e5e7eb',
-                    borderRadius: '8px',
-                    padding: '12px',
-                    minHeight: '200px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                  }}>
-                    <h4 style={{ margin: '0 0 8px 0', fontSize: '12px', fontWeight: '600', lineHeight: '1.4' }}>
+                  <div 
+                    key={idx} 
+                    style={{
+                      flex: '0 0 calc(50% - 6px)',
+                      backgroundColor: '#f9fafb',
+                      border: '1px solid #e5e7eb',
+                      borderRadius: '8px',
+                      padding: '12px',
+                      minHeight: '250px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      cursor: 'pointer',
+                      transition: 'all 0.2s ease',
+                      position: 'relative',
+                      overflow: 'hidden',
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLElement).style.backgroundColor = '#ffffff';
+                      (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+                      (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)';
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLElement).style.backgroundColor = '#f9fafb';
+                      (e.currentTarget as HTMLElement).style.boxShadow = 'none';
+                      (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
+                    }}
+                  >
+                    {/* Card Title (shows on hover) */}
+                    <div style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      backgroundColor: '#ea580c',
+                      color: 'white',
+                      padding: '8px 12px',
+                      fontSize: '11px',
+                      fontWeight: '600',
+                      maxHeight: '60px',
+                      overflowY: 'auto',
+                      opacity: 0,
+                      transition: 'opacity 0.2s ease',
+                    }}
+                    className="card-title"
+                    >
                       {pub.title}
-                    </h4>
-                    <div style={{ fontSize: '11px', color: '#666', lineHeight: '1.6', flex: 1 }}>
-                      {pub.sample_type && (
-                        <div style={{ marginBottom: '6px' }}>
-                          <strong>Sample Type:</strong> {pub.sample_type}
+                    </div>
+
+                    {/* Card Content */}
+                    <div style={{ fontSize: '11px', color: '#666', lineHeight: '1.6', flex: 1, paddingTop: '8px' }}>
+                      {pub.crm_level_1 && (
+                        <div style={{ marginBottom: '8px', paddingBottom: '8px', borderBottom: '1px solid #e5e7eb' }}>
+                          <strong style={{ color: '#1f2937' }}>{pub.crm_level_1}</strong>
                         </div>
                       )}
-                      {pub.medium && (
+                      
+                      {pub.territory && (
                         <div style={{ marginBottom: '6px' }}>
-                          <strong>Medium:</strong> {pub.medium}
+                          <strong>Territory:</strong> {pub.territory}
                         </div>
                       )}
-                      {pub.starting_material_keywords && (
+                      
+                      {pub.zipcode && (
                         <div style={{ marginBottom: '6px' }}>
-                          <strong>Starting Material:</strong> {pub.starting_material_keywords}
+                          <strong>Zipcode:</strong> {pub.zipcode}
                         </div>
                       )}
-                      {pub.authors && (
+                      
+                      {pub.lastauthorcountry && (
                         <div style={{ marginBottom: '6px' }}>
-                          <strong>Authors:</strong> {typeof pub.authors === 'string' ? pub.authors.substring(0, 100) : JSON.stringify(pub.authors).substring(0, 100)}...
+                          <strong>Country:</strong> {pub.lastauthorcountry}
                         </div>
                       )}
-                      {pub.year && (
-                        <div>
-                          <strong>Year:</strong> {pub.year}
+                      
+                      {pub.summary && (
+                        <div style={{ marginBottom: '6px', marginTop: '8px', paddingTop: '8px', borderTop: '1px solid #e5e7eb', fontStyle: 'italic' }}>
+                          <strong style={{ display: 'block', marginBottom: '4px' }}>Summary:</strong>
+                          {pub.summary.substring(0, 150)}...
                         </div>
                       )}
                     </div>

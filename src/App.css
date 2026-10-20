@@ -53,3 +53,8 @@ input[type="checkbox"]:checked::after {
   line-height: 14px;
   font-weight: bold;
 }
+
+/* Publication card hover effects */
+div:has(.card-title):hover .card-title {
+  opacity: 1 !important;
+}
