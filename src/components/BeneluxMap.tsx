@@ -27,11 +27,15 @@ const BeneluxMap: React.FC<MapProps> = ({
   const zoom = 8;
 
   useEffect(() => {
-    if (mapRef.current) {
-      // Fit bounds and prevent panning outside
-      mapRef.current.fitBounds(beneluxBounds, { padding: [50, 50] });
-    }
-  }, []);
+    const timer = setTimeout(() => {
+      if (mapRef.current) {
+        mapRef.current.invalidateSize();
+        mapRef.current.fitBounds(beneluxBounds, { padding: [50, 50] });
+      }
+    }, 500);
+    
+    return () => clearTimeout(timer);
+  }, [beneluxBounds]);
 
   const getMarkerColor = (count: number): string => {
     if (count > 50) return '#dc2626';

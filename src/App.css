@@ -1,5 +1,9 @@
 /* Application specific styles */
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body,
 #root {
