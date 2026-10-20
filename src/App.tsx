@@ -119,23 +119,21 @@ function AppContent() {
       </header>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="max-w-7xl mx-auto px-4 py-6 h-[calc(100vh-120px)]">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-full">
           {/* Map */}
-          <div className="lg:col-span-2">
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="h-96 lg:h-full min-h-96">
-                <BeneluxMap
-                  institutions={displayInstitutions}
-                  selectedInstitution={selectedInstitution}
-                  onInstitutionClick={handleInstitutionClick}
-                />
-              </div>
+          <div className="lg:col-span-2 h-full">
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full">
+              <BeneluxMap
+                institutions={displayInstitutions}
+                selectedInstitution={selectedInstitution}
+                onInstitutionClick={handleInstitutionClick}
+              />
             </div>
           </div>
 
           {/* Publication Browser */}
-          <div className="h-96 lg:h-full min-h-96">
+          <div className="h-96 lg:h-full overflow-y-auto">
             <PublicationBrowser
               publications={selectedPublications}
               selectedPublication={selectedPublication}

@@ -42,8 +42,8 @@ const BeneluxMap: React.FC<MapProps> = ({
   };
 
   return (
-    <div className="w-full h-full rounded-lg overflow-hidden shadow-lg">
-      <MapContainer center={center} zoom={zoom} className="w-full h-full">
+    <div className="w-full h-full">
+      <MapContainer center={center} zoom={zoom} className="w-full h-full" style={{ height: '100%' }}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
