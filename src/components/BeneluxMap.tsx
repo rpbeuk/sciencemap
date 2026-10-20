@@ -22,6 +22,7 @@ const BeneluxMap: React.FC<MapProps> = ({
   const markersRef = useRef<{ [key: string]: L.CircleMarker }>({});
   const departmentMarkersRef = useRef<L.CircleMarker[]>([]);
   const departmentLabelsRef = useRef<L.Marker[]>([]);
+  const isAnimatingRef = useRef(false); // Track if we're zooming due to selection
 
   useEffect(() => {
     // Only initialize once
@@ -52,8 +53,8 @@ const BeneluxMap: React.FC<MapProps> = ({
     // Handle zoom changes to hide department nodes when zooming out
     map.on('zoom', () => {
       const currentZoom = map.getZoom();
-      // If zoom is less than 11, clear selection and hide department nodes
-      if (currentZoom < 11) {
+      // Only clear if user is manually zooming out (not during animation)
+      if (currentZoom < 11 && !isAnimatingRef.current) {
         onInstitutionClick(null as any);
         map.setMaxZoom(14); // Reset to default max zoom
       }
@@ -170,15 +171,28 @@ const BeneluxMap: React.FC<MapProps> = ({
     const map = mapRef.current;
     const targetZoom = 11; // Zoom level to show department details perfectly
     
+    // Set flag to prevent zoom event from clearing selection during animation
+    isAnimatingRef.current = true;
+    
     // Zoom to institution coordinates with smooth animation
     map.flyTo(
       [selectedInstitution.coordinates[0], selectedInstitution.coordinates[1]],
       targetZoom,
-      { duration: 1 }
+      { 
+        duration: 1,
+        easeLinearity: 0.25,
+      }
     );
     
     // Set max zoom to 11 when institution is selected (prevent zooming in further)
     map.setMaxZoom(11);
+    
+    // Clear animation flag after zoom completes
+    const onZoomEnd = () => {
+      isAnimatingRef.current = false;
+      map.off('zoomend', onZoomEnd);
+    };
+    map.on('zoomend', onZoomEnd);
   }, [selectedInstitution]);
 
   // Render department nodes vertically stacked to the right of selected institution
