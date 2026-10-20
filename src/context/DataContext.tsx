@@ -2,6 +2,28 @@ import type { ReactNode } from 'react';
 import { createContext, useContext, useState, useEffect } from 'react';
 import { getPublications, type Publication as SupabasePublication } from '../utils/supabaseClient';
 
+// Helper function to get coordinates from Dutch zipcode
+const getCoordinatesForZipcode = (zipcode: string): [number, number] => {
+  const zipNum = parseInt(zipcode);
+  
+  // Approximate mapping of Dutch postcodes to coordinates
+  // Based on postcode regions
+  if (zipNum >= 1000 && zipNum < 2000) return [52.36, 4.90]; // Amsterdam
+  if (zipNum >= 2000 && zipNum < 2300) return [52.16, 4.48]; // Leiden
+  if (zipNum >= 2300 && zipNum < 2400) return [52.24, 4.37]; // Leiden area
+  if (zipNum >= 2400 && zipNum < 3300) return [52.08, 5.12]; // Utrecht
+  if (zipNum >= 3300 && zipNum < 3900) return [51.84, 5.85]; // Nijmegen area
+  if (zipNum >= 3900 && zipNum < 4000) return [51.84, 5.85]; // Nijmegen area
+  if (zipNum >= 4000 && zipNum < 5000) return [50.85, 5.69]; // Maastricht
+  if (zipNum >= 5000 && zipNum < 6000) return [51.56, 5.09]; // Tilburg
+  if (zipNum >= 6000 && zipNum < 7000) return [51.44, 5.47]; // Eindhoven
+  if (zipNum >= 7000 && zipNum < 8000) return [52.13, 6.56]; // Arnhem
+  if (zipNum >= 8000 && zipNum < 9000) return [52.95, 6.13]; // Groningen area
+  if (zipNum >= 9000 && zipNum < 10000) return [53.21, 6.56]; // Groningen
+  
+  return [51.5, 4.75]; // Default to Benelux center
+};
+
 export interface Publication {
   pmid: number;
   title: string;
@@ -61,13 +83,117 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   // Check if Supabase is available
   useEffect(() => {
-    // First try to load institutions from matched publications JSON
-    const loadFromJSON = async () => {
+    // First try to load enriched publications from JSON
+    const loadEnrichedData = async () => {
       try {
+        console.log('Loading enriched publications and geographic index...');
+        const [enrichedResponse, geoResponse] = await Promise.all([
+          fetch('/sciencemap/enriched_publications.json'),
+          fetch('/sciencemap/geo_index.json'),
+        ]);
+        
+        if (!enrichedResponse.ok || !geoResponse.ok) {
+          throw new Error('Failed to load enriched data');
+        }
+        
+        const enrichedPubs = await enrichedResponse.json();
+        const geoIndex = await geoResponse.json();
+        
+        console.log(`Loaded ${enrichedPubs.length} enriched publications with ${Object.keys(geoIndex).length} geographic locations`);
+        
+        // Load CRM mappings for department data
+        let crmMappings: Record<number, string> = {};
+        try {
+          const mappingResponse = await fetch('/sciencemap/crm_mappings.json');
+          const mappings: Array<{ pmid: number; crm_level_3: string }> = await mappingResponse.json();
+          crmMappings = Object.fromEntries(mappings.map(m => [m.pmid, m.crm_level_3]));
+          console.log('Loaded CRM mappings:', Object.keys(crmMappings).length);
+        } catch (err) {
+          console.warn('Could not load CRM mappings:', err);
+        }
+        
+        // Group publications by institution (CRM Level 1)
+        const instMap = new Map<string, Institution>();
+        
+        enrichedPubs.forEach((pub: any) => {
+          const instName = pub.crm_level_1 || 'Unknown Institute';
+          const city = pub.lastauthorcity || 'Unknown City';
+          const key = `${instName}-${city}`;
+          
+          if (!instMap.has(key)) {
+            instMap.set(key, {
+              name: instName,
+              city: city,
+              postalCode: pub.zipcode ? String(pub.zipcode) : '',
+              country: pub.lastauthorcountry || 'Unknown',
+              coordinates: [51.5, 4.75], // Default, will be updated
+              publications: [],
+              departments: [],
+            });
+          }
+          
+          const inst = instMap.get(key)!;
+          const publication: Publication = {
+            pmid: pub.pmid,
+            title: pub.title || '',
+            authors: '',
+            year: new Date().getFullYear(),
+            journal: '',
+            summary: pub.summary || '',
+            city: city,
+            institute: instName,
+            country: pub.lastauthorcountry || '',
+            department: pub.crm_level_3 || crmMappings[pub.pmid] || 'General',
+          };
+          inst.publications.push(publication);
+        });
+        
+        // Create departments for each institution
+        const institutions = Array.from(instMap.values()).map(inst => {
+          const deptMap = new Map<string, Publication[]>();
+          
+          inst.publications.forEach(pub => {
+            const dept = pub.department || 'General';
+            if (!deptMap.has(dept)) {
+              deptMap.set(dept, []);
+            }
+            deptMap.get(dept)!.push(pub);
+          });
+          
+          const departments: Department[] = Array.from(deptMap.entries())
+            .map(([name, pubs]) => ({ name, publications: pubs }))
+            .sort((a, b) => a.name.localeCompare(b.name));
+          
+          // Assign better coordinates if zipcode exists
+          const coordinates = inst.postalCode ? 
+            getCoordinatesForZipcode(inst.postalCode) : 
+            [51.5, 4.75];
+          
+          return {
+            ...inst,
+            coordinates: coordinates as [number, number],
+            departments,
+          };
+        });
+        
+        setInstitutions(institutions);
+        const allPubs = institutions.flatMap(inst => inst.publications);
+        setPublications(allPubs);
+        console.log(`Loaded ${institutions.length} institutions from ${allPubs.length} publications`);
+        setUseSupabase(true);
+        return;
+      } catch (err) {
+        console.warn('Could not load enriched data:', err);
+      }
+      
+      // Fallback: load from institutions_data.json
+      try {
+        console.log('Falling back to institutions_data.json...');
         const response = await fetch('/sciencemap/institutions_data.json');
         if (!response.ok) throw new Error('Failed to load institutions data');
         
         const rawInstitutions = await response.json();
+        console.log('Loaded institutions from JSON:', rawInstitutions.length);
         
         // Load CRM mappings
         let crmMappings: Record<number, string> = {};
@@ -122,6 +248,8 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         setInstitutions(transformed);
         const allPubs = transformed.flatMap(inst => inst.publications);
         setPublications(allPubs);
+        console.log('Successfully loaded institutions:', transformed.length);
+        console.log('Total publications:', allPubs.length);
         setUseSupabase(true);
         return;
       } catch (err) {
@@ -139,7 +267,7 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       }
     };
 
-    loadFromJSON();
+    loadEnrichedData();
   }, []);
 
   const loadSupabaseData = async () => {
