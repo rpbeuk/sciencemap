@@ -54,7 +54,7 @@ input[type="checkbox"]:checked::after {
   font-weight: bold;
 }
 
-/* Publication card hover effects */
-div:has(.card-title):hover .card-title {
-  opacity: 1 !important;
+/* Publication card summary expansion on title hover */
+div:has(h4):hover .card-summary {
+  max-height: 200px;
 }

@@ -123,18 +123,17 @@ function AppContent() {
                   <div 
                     key={idx} 
                     style={{
-                      flex: '0 0 calc(50% - 6px)',
+                      flex: '0 0 calc(25% - 9px)',
                       backgroundColor: '#f9fafb',
                       border: '1px solid #e5e7eb',
                       borderRadius: '8px',
                       padding: '12px',
-                      minHeight: '250px',
+                      minHeight: '200px',
                       display: 'flex',
                       flexDirection: 'column',
                       cursor: 'pointer',
                       transition: 'all 0.2s ease',
                       position: 'relative',
-                      overflow: 'hidden',
                     }}
                     onMouseEnter={(e) => {
                       (e.currentTarget as HTMLElement).style.backgroundColor = '#ffffff';
@@ -147,57 +146,57 @@ function AppContent() {
                       (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
                     }}
                   >
-                    {/* Card Title (shows on hover) */}
-                    <div style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      backgroundColor: '#ea580c',
-                      color: 'white',
-                      padding: '8px 12px',
-                      fontSize: '11px',
-                      fontWeight: '600',
-                      maxHeight: '60px',
-                      overflowY: 'auto',
-                      opacity: 0,
-                      transition: 'opacity 0.2s ease',
-                    }}
-                    className="card-title"
-                    >
+                    {/* Paper Title - Always Visible */}
+                    <h4 style={{ 
+                      margin: '0 0 12px 0', 
+                      fontSize: '11px', 
+                      fontWeight: '600', 
+                      lineHeight: '1.4',
+                      color: '#1f2937',
+                    }}>
                       {pub.title}
+                    </h4>
+
+                    {/* Properties - Always Visible */}
+                    <div style={{ fontSize: '10px', color: '#666', lineHeight: '1.6', flex: 1 }}>
+                      {pub.sampleType && (
+                        <div style={{ marginBottom: '6px' }}>
+                          <strong>Sample Type:</strong> {pub.sampleType}
+                        </div>
+                      )}
+                      
+                      {pub.instrument && (
+                        <div style={{ marginBottom: '6px' }}>
+                          <strong>Instruments:</strong> {pub.instrument}
+                        </div>
+                      )}
+                      
+                      {pub.miltenyiProduct && (
+                        <div style={{ marginBottom: '6px' }}>
+                          <strong>Miltenyi Product:</strong> {pub.miltenyiProduct}
+                        </div>
+                      )}
                     </div>
 
-                    {/* Card Content */}
-                    <div style={{ fontSize: '11px', color: '#666', lineHeight: '1.6', flex: 1, paddingTop: '8px' }}>
-                      {pub.crm_level_1 && (
-                        <div style={{ marginBottom: '8px', paddingBottom: '8px', borderBottom: '1px solid #e5e7eb' }}>
-                          <strong style={{ color: '#1f2937' }}>{pub.crm_level_1}</strong>
-                        </div>
-                      )}
-                      
-                      {pub.territory && (
-                        <div style={{ marginBottom: '6px' }}>
-                          <strong>Territory:</strong> {pub.territory}
-                        </div>
-                      )}
-                      
-                      {pub.zipcode && (
-                        <div style={{ marginBottom: '6px' }}>
-                          <strong>Zipcode:</strong> {pub.zipcode}
-                        </div>
-                      )}
-                      
-                      {pub.lastauthorcountry && (
-                        <div style={{ marginBottom: '6px' }}>
-                          <strong>Country:</strong> {pub.lastauthorcountry}
-                        </div>
-                      )}
-                      
+                    {/* Summary - Shows on Title Hover */}
+                    <div 
+                      style={{ 
+                        fontSize: '9px', 
+                        color: '#666', 
+                        lineHeight: '1.4',
+                        marginTop: '8px',
+                        paddingTop: '8px',
+                        borderTop: '1px solid #e5e7eb',
+                        maxHeight: 0,
+                        overflow: 'hidden',
+                        transition: 'max-height 0.3s ease',
+                      }}
+                      className="card-summary"
+                    >
                       {pub.summary && (
-                        <div style={{ marginBottom: '6px', marginTop: '8px', paddingTop: '8px', borderTop: '1px solid #e5e7eb', fontStyle: 'italic' }}>
-                          <strong style={{ display: 'block', marginBottom: '4px' }}>Summary:</strong>
-                          {pub.summary.substring(0, 150)}...
+                        <div style={{ marginBottom: '6px' }}>
+                          <strong style={{ display: 'block', marginBottom: '3px' }}>Summary:</strong>
+                          {pub.summary.substring(0, 200)}...
                         </div>
                       )}
                     </div>
