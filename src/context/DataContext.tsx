@@ -183,6 +183,8 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             country: country,
             territory: pub.territory || '',
             department: pub.crm_level_3 || crmMappings[pub.pmid] || 'General',
+            crm_level_1: instName,
+            crm_level_3: pub.crm_level_3 || crmMappings[pub.pmid] || 'General',
           };
           location.publications.push(publication);
         });
@@ -250,6 +252,8 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             institute: inst.name,
             country: inst.country,
             department: crmMappings[pub.pmid] || pub.crm_level_3 || 'General',
+            crm_level_1: inst.name,
+            crm_level_3: crmMappings[pub.pmid] || pub.crm_level_3 || 'General',
           }));
 
           // Aggregate by department
