@@ -200,8 +200,7 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
           });
           
           const departments: Department[] = Array.from(deptMap.entries())
-            .map(([name, pubs]) => ({ name, publications: pubs }))
-            .sort((a, b) => a.name.localeCompare(b.name));
+            .map(([name, pubs]) => ({ name, publications: pubs }));
           
           return {
             ...location,
@@ -264,8 +263,7 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
           });
 
           const departments: Department[] = Array.from(deptMap.entries())
-            .map(([name, pubs]) => ({ name, publications: pubs }))
-            .sort((a, b) => a.name.localeCompare(b.name));
+            .map(([name, pubs]) => ({ name, publications: pubs }));
 
           return {
             name: inst.name,
