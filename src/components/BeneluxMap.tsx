@@ -223,7 +223,7 @@ const BeneluxMap: React.FC<MapProps> = ({
     console.log('DEBUG: Departments before sorting:', departments.map((d: any) => ({ name: d.name, count: d.publications?.length })));
     console.log('DEBUG: Departments after sorting:', sortedDepartments.map((d: any) => ({ name: d.name, count: d.publications?.length })));
     
-    // Add CRM Level 1 label north of the highest-count subnode
+    // Add CRM Level 1 label south of the highest-count subnode
     if (sortedDepartments.length > 0 && sortedDepartments[0].publications && sortedDepartments[0].publications.length > 0) {
       const crmLevel1 = sortedDepartments[0].publications[0].crm_level_1;
       console.log('DEBUG: CRM Level 1:', crmLevel1);
@@ -231,10 +231,10 @@ const BeneluxMap: React.FC<MapProps> = ({
         const verticalSpacing = 0.015; // Same spacing as departments
         const count = sortedDepartments.length;
         
-        // Position north of the last department (which has highest publication count)
+        // Position south of the last department (which has highest publication count)
         // Last department is at index (count-1)
         const lastDeptLat = instLat - (verticalSpacing * (count - 1) / 2) + (verticalSpacing * (count - 1));
-        const labelLat = lastDeptLat - verticalSpacing; // Subtract to go north (above the last dept)
+        const labelLat = lastDeptLat + verticalSpacing; // Add to go south (below the last dept)
         const labelLng = instLng + 0.027; // Slightly right
         
         const crmLabel = L.divIcon({
