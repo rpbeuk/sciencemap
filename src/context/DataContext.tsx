@@ -144,27 +144,32 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
           console.warn('Could not load CRM mappings:', err);
         }
         
-        // Group publications by institution (CRM Level 1)
-        const instMap = new Map<string, Institution>();
+        // Group publications by ZIPCODE (location-based clustering)
+        const locationMap = new Map<string, Institution>();
         
         enrichedPubs.forEach((pub: any) => {
+          const zipcode = pub.zipcode ? String(parseInt(pub.zipcode)) : null;
           const instName = pub.crm_level_1 || 'Unknown Institute';
           const city = pub.lastauthorcity || 'Unknown City';
-          const key = `${instName}-${city}`;
+          const country = pub.lastauthorcountry || 'Unknown';
           
-          if (!instMap.has(key)) {
-            instMap.set(key, {
-              name: instName,
+          if (!zipcode) return; // Skip publications without zipcode
+          
+          // Use zipcode as the primary key for location clustering
+          if (!locationMap.has(zipcode)) {
+            const coords = getCoordinatesForZipcode(zipcode, zipcodeDb);
+            locationMap.set(zipcode, {
+              name: `${city} (${zipcode})`,
               city: city,
-              postalCode: pub.zipcode ? String(pub.zipcode) : '',
-              country: pub.lastauthorcountry || 'Unknown',
-              coordinates: [51.5, 4.75], // Default, will be updated
+              postalCode: zipcode,
+              country: country,
+              coordinates: coords,
               publications: [],
               departments: [],
             });
           }
           
-          const inst = instMap.get(key)!;
+          const location = locationMap.get(zipcode)!;
           const publication: Publication = {
             pmid: pub.pmid,
             title: pub.title || '',
@@ -174,17 +179,17 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             summary: pub.summary || '',
             city: city,
             institute: instName,
-            country: pub.lastauthorcountry || '',
+            country: country,
             department: pub.crm_level_3 || crmMappings[pub.pmid] || 'General',
           };
-          inst.publications.push(publication);
+          location.publications.push(publication);
         });
         
-        // Create departments for each institution
-        const institutions = Array.from(instMap.values()).map(inst => {
+        // Create departments for each location
+        const institutions = Array.from(locationMap.values()).map(location => {
           const deptMap = new Map<string, Publication[]>();
           
-          inst.publications.forEach(pub => {
+          location.publications.forEach(pub => {
             const dept = pub.department || 'General';
             if (!deptMap.has(dept)) {
               deptMap.set(dept, []);
@@ -196,14 +201,8 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             .map(([name, pubs]) => ({ name, publications: pubs }))
             .sort((a, b) => a.name.localeCompare(b.name));
           
-          // Assign better coordinates if zipcode exists using loaded database
-          const coordinates = inst.postalCode ? 
-            getCoordinatesForZipcode(inst.postalCode, zipcodeDb) : 
-            [51.5, 4.75];
-          
           return {
-            ...inst,
-            coordinates: coordinates as [number, number],
+            ...location,
             departments,
           };
         });
@@ -211,7 +210,7 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         setInstitutions(institutions);
         const allPubs = institutions.flatMap(inst => inst.publications);
         setPublications(allPubs);
-        console.log(`Loaded ${institutions.length} institutions from ${allPubs.length} publications`);
+        console.log(`Loaded ${institutions.length} unique zipcode locations with ${allPubs.length} total publications`);
         setUseSupabase(true);
         return;
       } catch (err) {
