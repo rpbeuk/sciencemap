@@ -33,7 +33,8 @@ function AppContent() {
         overflow: 'hidden',
         border: '3px solid red',
         boxSizing: 'border-box',
-        position: 'relative'
+        position: 'relative',
+        flex: '0 0 auto'
       }}>
         <BeneluxMap
           institutions={supabaseInsts}

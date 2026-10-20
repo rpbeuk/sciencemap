@@ -27,16 +27,22 @@ const BeneluxMap: React.FC<MapProps> = ({
   const zoom = 8;
 
   useEffect(() => {
-    // Ensure map knows its container size
+    // Ensure map knows its container size and tiles render at integer pixels
     if (mapRef.current) {
-      // Wait a tick for DOM to settle
-      setTimeout(() => {
+      // Call invalidateSize twice - once immediately, once after a small delay
+      mapRef.current.invalidateSize();
+      
+      const timer = setTimeout(() => {
         if (mapRef.current) {
-          mapRef.current.invalidateSize();
+          mapRef.current.invalidateSize(false);
+          // Reset view to ensure tiles are rendered at correct zoom level
+          mapRef.current.setView(center, zoom, { animate: false });
         }
-      }, 100);
+      }, 50);
+      
+      return () => clearTimeout(timer);
     }
-  }, []);
+  }, [center, zoom]);
 
   const getMarkerColor = (count: number): string => {
     if (count > 50) return '#dc2626';

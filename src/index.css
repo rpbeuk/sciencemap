@@ -30,6 +30,37 @@ body {
   padding: 0 !important;
   display: block !important;
   position: relative !important;
+  background-clip: padding-box !important;
+}
+
+/* Fix tile layer rendering to prevent subpixel rendering */
+.leaflet-tile {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Ensure tile pane uses integer coordinates */
+.leaflet-pane {
+  position: absolute !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.leaflet-tile-pane {
+  z-index: 2;
+}
+
+/* Disable any transforms that might cause misalignment */
+.leaflet-transform {
+  position: relative !important;
+}
+
+/* Ensure proper rendering of map tiles */
+.leaflet-zoom-anim .leaflet-tile,
+.leaflet-zoom-anim .leaflet-marker-shadow {
+  will-change: transform;
 }
 
 .leaflet-popup-content {
