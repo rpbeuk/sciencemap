@@ -9,25 +9,7 @@ interface FilterPanelProps {
   onFiltersChange: (filters: FilterOptions) => void;
 }
 
-const DUTCH_PROVINCES: Record<string, string[]> = {
-  'North Holland': ['Amsterdam', 'Haarlem', 'Alkmaar', 'Enkhuizen', 'Hoofddorp', 'Landsmeer', 'Naarden', 'Zaventem'],
-  'South Holland': ['Rotterdam', 'Den Haag', 'Leiden', 'Delft', 'Dordrecht', 'Gouda', 'Leiderdorp', 'Oegstgeest', 'Rijswijk', 'Waddinxveen', 'Zoetermeer', 'Voorburg', 'Delfgauw', 'Nieuw Vennep', 'Badhoevedorp'],
-  'Utrecht': ['Utrecht', 'Amersfoort', 'Bilthoven', 'Bunnik', 'Houten', 'Maarssen', 'Nieuwegein', 'Veenendaal', 'Zeist', 'Ijsselstein'],
-  'Flevoland': ['Almere', 'Lelystad', 'Zevenhuizen'],
-  'Gelderland': ['Nijmegen', 'Arnhem', 'Wageningen', 'Ede', 'Deventer', 'Harderwijk', 'Duiven', 'Huissen', 'Wijchen', 'Beuningen', 'Beek-Ubbergen', 'Heumen', 'Boven Leeuwen'],
-  'North Brabant': ['Breda', 'Eindhoven', 'Tilburg', "'s Hertogenbosch", 'Den Bosch', "'s-Hertogenbosch", 'Oss', 'Enschede', 'Venlo', 'Son', 'Best', 'Veldhoven', 'Vught', 'Oosterhout', 'Made', 'Nunhem', 'Boxmeer', 'Horst'],
-  'Limburg': ['Maastricht', 'Geleen', 'Kerkrade'],
-  'Overijssel': ['Enschede', 'Zwolle', 'Deventer', 'Hengelo', 'Drachten', 'Tynaarlo', 'Joure', 'Bolsward'],
-  'Friesland': ['Bolsward', 'Enkhuizen', 'Joure'],
-  'Groningen': ['Groningen', 'Assen', 'Emmen'],
-  'Drenthe': ['Assen', 'Emmen', 'Tynaarlo'],
-};
-
-const ALL_REGIONS = [
-  'Belgium',
-  'Luxembourg',
-  ...Object.keys(DUTCH_PROVINCES).sort(),
-];
+const COUNTRIES = ['Belgium', 'Luxembourg', 'Netherlands'];
 
 const PORTFOLIOS = [
   'Sample Prep',
@@ -39,7 +21,7 @@ const PORTFOLIOS = [
 ];
 
 const FilterPanel: React.FC<FilterPanelProps> = ({ onFiltersChange }) => {
-  const [selectedRegions, setSelectedRegions] = useState<string[]>(ALL_REGIONS);
+  const [selectedRegions, setSelectedRegions] = useState<string[]>(COUNTRIES);
   const [selectedPortfolios, setSelectedPortfolios] = useState<string[]>(PORTFOLIOS);
 
   const handleRegionChange = (region: string) => {
@@ -59,12 +41,12 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ onFiltersChange }) => {
   };
 
   const handleSelectAllRegions = () => {
-    if (selectedRegions.length === ALL_REGIONS.length) {
+    if (selectedRegions.length === COUNTRIES.length) {
       setSelectedRegions([]);
       onFiltersChange({ regions: [], portfolios: selectedPortfolios });
     } else {
-      setSelectedRegions(ALL_REGIONS);
-      onFiltersChange({ regions: ALL_REGIONS, portfolios: selectedPortfolios });
+      setSelectedRegions(COUNTRIES);
+      onFiltersChange({ regions: COUNTRIES, portfolios: selectedPortfolios });
     }
   };
 
@@ -101,7 +83,7 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ onFiltersChange }) => {
         ScienceMap
       </h1>
 
-      {/* Regions Section */}
+      {/* Countries Section */}
       <div style={{ marginBottom: '32px' }}>
         <h3 style={{ 
           margin: '0 0 14px 0', 
@@ -111,13 +93,13 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ onFiltersChange }) => {
           textTransform: 'uppercase',
           letterSpacing: '0.5px'
         }}>
-          🌍 Regions
+          🌍 Countries
         </h3>
         <div style={{ marginBottom: '10px' }}>
           <label style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', gap: '10px' }}>
             <input
               type="checkbox"
-              checked={selectedRegions.length === ALL_REGIONS.length}
+              checked={selectedRegions.length === COUNTRIES.length}
               onChange={handleSelectAllRegions}
               style={{ 
                 cursor: 'pointer',
@@ -129,15 +111,15 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ onFiltersChange }) => {
             <span style={{ fontSize: '13px', fontWeight: '500', color: '#1f2937' }}>Select All</span>
           </label>
         </div>
-        {ALL_REGIONS.map((region: string) => (
+        {COUNTRIES.map((country: string) => (
           <label
-            key={region}
+            key={country}
             style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', gap: '10px', marginBottom: '10px' }}
           >
             <input
               type="checkbox"
-              checked={selectedRegions.includes(region)}
-              onChange={() => handleRegionChange(region)}
+              checked={selectedRegions.includes(country)}
+              onChange={() => handleRegionChange(country)}
               style={{ 
                 cursor: 'pointer',
                 width: '16px',
@@ -145,7 +127,7 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ onFiltersChange }) => {
                 accentColor: '#ea580c'
               }}
             />
-            <span style={{ fontSize: '13px', color: '#4b5563' }}>{region}</span>
+            <span style={{ fontSize: '13px', color: '#4b5563' }}>{country}</span>
           </label>
         ))}
       </div>
