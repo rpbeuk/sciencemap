@@ -30,23 +30,23 @@ Error generating stack: `+e.message+`
           ${e.city}, ${e.country}<br/>
           ${r} publications
         </div>
-      `,{permanent:!1,direction:`top`,offset:[0,-10]}),o.current[`${e.name}-${e.city}`]=a})},[e,n]),(0,_.useEffect)(()=>{if(!a.current||!t)return;let e=a.current;l.current=!0,e.flyTo([t.coordinates[0],t.coordinates[1]],11,{duration:1,easeLinearity:.25}),e.setMaxZoom(11);let n=()=>{l.current=!1,e.off(`zoomend`,n)};e.on(`zoomend`,n)},[t]),(0,_.useEffect)(()=>{if(!a.current)return;let e=a.current;if(s.current.forEach(t=>{e.removeLayer(t)}),c.current.forEach(t=>{e.removeLayer(t)}),s.current=[],c.current=[],!t||!t.departments)return;let n=t.coordinates[0],i=t.coordinates[1],o=t.departments,l=[...o].sort((e,t)=>(t.publications?.length||0)-(e.publications?.length||0));if(console.log(`DEBUG: Departments before sorting:`,o.map(e=>({name:e.name,count:e.publications?.length}))),console.log(`DEBUG: Departments after sorting:`,l.map(e=>({name:e.name,count:e.publications?.length}))),l.length>0&&l[0].publications&&l[0].publications.length>0){let t=l[0].publications[0].crm_level_1;if(console.log(`DEBUG: CRM Level 1:`,t),t){let r=n+.04,a=i+.04,o=y.default.divIcon({html:`
+      `,{permanent:!1,direction:`top`,offset:[0,-10]}),o.current[`${e.name}-${e.city}`]=a})},[e,n]),(0,_.useEffect)(()=>{if(!a.current||!t)return;let e=a.current;l.current=!0,e.flyTo([t.coordinates[0],t.coordinates[1]],11,{duration:1,easeLinearity:.25}),e.setMaxZoom(11);let n=()=>{l.current=!1,e.off(`zoomend`,n)};e.on(`zoomend`,n)},[t]),(0,_.useEffect)(()=>{if(!a.current)return;let e=a.current;if(s.current.forEach(t=>{e.removeLayer(t)}),c.current.forEach(t=>{e.removeLayer(t)}),s.current=[],c.current=[],!t||!t.departments)return;let n=t.coordinates[0],i=t.coordinates[1],o=t.departments,l=[...o].sort((e,t)=>(t.publications?.length||0)-(e.publications?.length||0));if(console.log(`DEBUG: Departments before sorting:`,o.map(e=>({name:e.name,count:e.publications?.length}))),console.log(`DEBUG: Departments after sorting:`,l.map(e=>({name:e.name,count:e.publications?.length}))),l.length>0&&l[0].publications&&l[0].publications.length>0){let t=l[0].publications[0].crm_level_1;if(console.log(`DEBUG: CRM Level 1:`,t),t){let r=.015,a=n-r*(l.length-1)/2-r,o=i+.04,s=y.default.divIcon({html:`
             <div style="
-              background-color: #1f2937;
-              color: white;
-              padding: 8px 14px;
-              border-radius: 6px;
-              font-size: 12px;
+              background-color: transparent;
+              color: #000000;
+              padding: 0;
+              border-radius: 0;
+              font-size: 14px;
               font-weight: 700;
               white-space: nowrap;
               font-family: Arial, sans-serif;
-              box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-              border: 1px solid rgba(255,255,255,0.2);
+              box-shadow: none;
+              border: none;
               z-index: 1000;
             ">
               ${t}
             </div>
-          `,className:`crm-label`,iconSize:[240,36],iconAnchor:[120,18]}),s=y.default.marker([r,a],{icon:o,zIndexOffset:1e3}).addTo(e);c.current.push(s)}}let u=.015,d=l.length;l.forEach((t,a)=>{let o=n-u*(d-1)/2+u*a,c=i+.04,l=t.publications.length,f=t.name,p=y.default.divIcon({html:`
+          `,className:`crm-label`,iconSize:[240,20],iconAnchor:[0,10]}),u=y.default.marker([a,o],{icon:s,zIndexOffset:1e3}).addTo(e);c.current.push(u)}}let u=.015,d=l.length;l.forEach((t,a)=>{let o=n-u*(d-1)/2+u*a,c=i+.04,l=t.publications.length,f=t.name,p=y.default.divIcon({html:`
           <div style="display: flex; align-items: center; gap: 0; margin: 0; padding: 0; position: relative;">
             <div style="background-color: #ea580c; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #000; color: white; font-weight: bold; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); font-family: Arial, sans-serif; flex-shrink: 0; z-index: 2;">${l}</div>
             <div style="background-color: white; padding: 6px 14px; border-radius: 8px; color: black; font-weight: normal; font-size: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); font-family: Arial, sans-serif; white-space: nowrap; margin-left: -10px; z-index: 1;">${f}</div>

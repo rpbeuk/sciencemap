@@ -228,30 +228,34 @@ const BeneluxMap: React.FC<MapProps> = ({
       const crmLevel1 = sortedDepartments[0].publications[0].crm_level_1;
       console.log('DEBUG: CRM Level 1:', crmLevel1);
       if (crmLevel1) {
-        const labelLat = instLat + 0.04; // Above the department nodes
+        const verticalSpacing = 0.015; // Same spacing as departments
+        const count = sortedDepartments.length;
+        
+        // Position above the first department with same vertical spacing
+        const labelLat = instLat - (verticalSpacing * (count - 1) / 2) - verticalSpacing;
         const labelLng = instLng + 0.04;
         
         const crmLabel = L.divIcon({
           html: `
             <div style="
-              background-color: #1f2937;
-              color: white;
-              padding: 8px 14px;
-              border-radius: 6px;
-              font-size: 12px;
+              background-color: transparent;
+              color: #000000;
+              padding: 0;
+              border-radius: 0;
+              font-size: 14px;
               font-weight: 700;
               white-space: nowrap;
               font-family: Arial, sans-serif;
-              box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-              border: 1px solid rgba(255,255,255,0.2);
+              box-shadow: none;
+              border: none;
               z-index: 1000;
             ">
               ${crmLevel1}
             </div>
           `,
           className: 'crm-label',
-          iconSize: [240, 36],
-          iconAnchor: [120, 18],
+          iconSize: [240, 20],
+          iconAnchor: [0, 10],
         });
         
         const crmMarker = L.marker([labelLat, labelLng], {
