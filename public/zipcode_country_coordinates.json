@@ -1,622 +1,498 @@
 {
   "Belgium|2650": {
-    "zipcode": "2650",
-    "country": "Belgium",
-    "city": null,
     "coordinates": [
       51.2194,
       4.4025
     ],
+    "city": null,
     "pub_count": 1
   },
   "the Netherlands|2333": {
-    "zipcode": "2333",
-    "country": "the Netherlands",
-    "city": null,
     "coordinates": [
       52.185,
       4.4567
     ],
+    "city": null,
     "pub_count": 51
   },
   "Belgium|4000": {
-    "zipcode": "4000",
-    "country": "Belgium",
-    "city": null,
     "coordinates": [
       50.6326,
       5.5673
     ],
+    "city": null,
     "pub_count": 19
   },
   "Belgium|1000": {
-    "zipcode": "1000",
-    "country": "Belgium",
-    "city": "Brussels",
     "coordinates": [
       50.8509,
       4.3747
     ],
+    "city": "Brussels",
     "pub_count": 1
   },
   "Belgium|9000": {
-    "zipcode": "9000",
-    "country": "Belgium",
-    "city": "Ghent",
     "coordinates": [
       51.0379,
       3.7196
     ],
+    "city": "Ghent",
     "pub_count": 74
   },
   "the Netherlands|6700": {
-    "zipcode": "6700",
-    "country": "the Netherlands",
-    "city": "Wageningen",
     "coordinates": [
       51.9704,
       5.6645
     ],
+    "city": "Wageningen",
     "pub_count": 6
   },
   "Belgium|3000": {
-    "zipcode": "3000",
-    "country": "Belgium",
-    "city": "Leuven",
     "coordinates": [
       50.8798,
       4.7005
     ],
+    "city": "Leuven",
     "pub_count": 97
   },
   "Belgium|1050": {
-    "zipcode": "1050",
-    "country": "Belgium",
-    "city": "Brussels",
     "coordinates": [
       50.8509,
       4.3747
     ],
+    "city": "Brussels",
     "pub_count": 21
   },
   "the Netherlands|3015": {
-    "zipcode": "3015",
-    "country": "the Netherlands",
-    "city": "Rotterdam",
     "coordinates": [
       51.9225,
       4.4792
     ],
+    "city": "Rotterdam",
     "pub_count": 18
   },
   "the Netherlands|1105": {
-    "zipcode": "1105",
-    "country": "the Netherlands",
-    "city": "Amsterdam",
     "coordinates": [
       52.3798,
       4.8929
     ],
+    "city": "Amsterdam",
     "pub_count": 44
   },
   "the Netherlands|2311": {
-    "zipcode": "2311",
-    "country": "the Netherlands",
-    "city": "Leiden",
     "coordinates": [
       52.172,
       4.5119
     ],
+    "city": "Leiden",
     "pub_count": 12
   },
   "the Netherlands|5612": {
-    "zipcode": "5612",
-    "country": "the Netherlands",
-    "city": "Eindhoven",
     "coordinates": [
       51.438,
       5.4733
     ],
+    "city": "Eindhoven",
     "pub_count": 8
   },
   "Belgium|3500": {
-    "zipcode": "3500",
-    "country": "Belgium",
-    "city": "Diepenbeek",
     "coordinates": [
       50.8365,
       5.3619
     ],
+    "city": "Diepenbeek",
     "pub_count": 6
   },
   "the Netherlands|2628": {
-    "zipcode": "2628",
-    "country": "the Netherlands",
-    "city": "Delft",
     "coordinates": [
       51.1417,
       4.4583
     ],
+    "city": "Delft",
     "pub_count": 11
   },
   "the Netherlands|9713": {
-    "zipcode": "9713",
-    "country": "the Netherlands",
-    "city": "Groningen",
     "coordinates": [
       53.21,
       6.5531
     ],
+    "city": "Groningen",
     "pub_count": 9
   },
   "the Netherlands|6708": {
-    "zipcode": "6708",
-    "country": "the Netherlands",
-    "city": "Wageningen",
     "coordinates": [
       51.9704,
       5.6645
     ],
+    "city": "Wageningen",
     "pub_count": 37
   },
   "the Netherlands|6525": {
-    "zipcode": "6525",
-    "country": "the Netherlands",
-    "city": "Nijmegen",
     "coordinates": [
       51.8425,
       5.852
     ],
+    "city": "Nijmegen",
     "pub_count": 20
   },
   "the Netherlands|3584": {
-    "zipcode": "3584",
-    "country": "the Netherlands",
-    "city": "Utrecht",
     "coordinates": [
       52.1267,
       5.2584
     ],
+    "city": "Utrecht",
     "pub_count": 47
   },
   "Belgium|1348": {
-    "zipcode": "1348",
-    "country": "Belgium",
-    "city": "Brussels",
     "coordinates": [
       50.8509,
       4.3747
     ],
+    "city": "Brussels",
     "pub_count": 10
   },
   "the Netherlands|1066": {
-    "zipcode": "1066",
-    "country": "the Netherlands",
-    "city": "Amsterdam",
     "coordinates": [
       52.3798,
       4.8929
     ],
+    "city": "Amsterdam",
     "pub_count": 9
   },
   "the Netherlands|9747": {
-    "zipcode": "9747",
-    "country": "the Netherlands",
-    "city": "Groningen",
     "coordinates": [
       51.0144,
       4.0833
     ],
+    "city": "Groningen",
     "pub_count": 2
   },
   "the Netherlands|1081": {
-    "zipcode": "1081",
-    "country": "the Netherlands",
-    "city": "Amsterdam",
     "coordinates": [
       50.8509,
       4.3747
     ],
+    "city": "Amsterdam",
     "pub_count": 15
   },
   "the Netherlands|9712": {
-    "zipcode": "9712",
-    "country": "the Netherlands",
-    "city": "Groningen",
     "coordinates": [
       53.2145,
       6.5597
     ],
+    "city": "Groningen",
     "pub_count": 6
   },
   "Belgium|9052": {
-    "zipcode": "9052",
-    "country": "Belgium",
-    "city": "Ghent",
     "coordinates": [
       51.0379,
       3.7196
     ],
+    "city": "Ghent",
     "pub_count": 7
   },
   "the Netherlands|6200": {
-    "zipcode": "6200",
-    "country": "the Netherlands",
-    "city": "Maastricht",
     "coordinates": [
-      50.3817,
-      4.8517
+      50.8333,
+      5.6667
     ],
+    "city": "Maastricht",
     "pub_count": 1
   },
   "the Netherlands|1012": {
-    "zipcode": "1012",
-    "country": "the Netherlands",
-    "city": "Amsterdam",
     "coordinates": [
       52.3798,
       4.8929
     ],
+    "city": "Amsterdam",
     "pub_count": 7
   },
   "Luxembourg|4365": {
-    "zipcode": "4365",
-    "country": "Luxembourg",
-    "city": "Esch-sur-Alzette",
     "coordinates": [
-      50.5667,
-      5.65
+      49.6194,
+      5.9756
     ],
+    "city": "Esch-sur-Alzette",
     "pub_count": 7
   },
   "Belgium|7000": {
-    "zipcode": "7000",
-    "country": "Belgium",
-    "city": "Mons",
     "coordinates": [
       50.4502,
       4.4914
     ],
+    "city": "Mons",
     "pub_count": 4
   },
   "Belgium|9820": {
-    "zipcode": "9820",
-    "country": "Belgium",
-    "city": "Merelbeke",
     "coordinates": [
       51.0306,
       4.0692
     ],
+    "city": "Merelbeke",
     "pub_count": 5
   },
   "Belgium|5030": {
-    "zipcode": "5030",
-    "country": "Belgium",
-    "city": "Gembloux",
     "coordinates": [
       50.45,
       4.8667
     ],
+    "city": "Gembloux",
     "pub_count": 3
   },
   "Belgium|6041": {
-    "zipcode": "6041",
-    "country": "Belgium",
-    "city": "Gosselies",
     "coordinates": [
       50.9,
       5.8667
     ],
+    "city": "Gosselies",
     "pub_count": 6
   },
   "Belgium|1200": {
-    "zipcode": "1200",
-    "country": "Belgium",
-    "city": "Brussels",
     "coordinates": [
       50.8509,
       4.3747
     ],
+    "city": "Brussels",
     "pub_count": 4
   },
   "the Netherlands|6229": {
-    "zipcode": "6229",
-    "country": "the Netherlands",
-    "city": "Maastricht",
     "coordinates": [
       50.9167,
       5.8833
     ],
+    "city": "Maastricht",
     "pub_count": 6
   },
   "Belgium|8400": {
-    "zipcode": "8400",
-    "country": "Belgium",
-    "city": "Oostende",
     "coordinates": [
       51.2167,
       3.2
     ],
+    "city": "Oostende",
     "pub_count": 2
   },
   "Belgium|2000": {
-    "zipcode": "2000",
-    "country": "Belgium",
-    "city": "Antwerp",
     "coordinates": [
       51.2194,
       4.4025
     ],
+    "city": "Antwerp",
     "pub_count": 5
   },
   "Luxembourg|4362": {
-    "zipcode": "4362",
-    "country": "Luxembourg",
-    "city": "Esch-Sur-Alzette",
     "coordinates": [
-      50.5667,
-      5.6333
+      49.6194,
+      5.9756
     ],
+    "city": "Esch-Sur-Alzette",
     "pub_count": 1
   },
   "Belgium|1040": {
-    "zipcode": "1040",
-    "country": "Belgium",
-    "city": "Leuven",
     "coordinates": [
       50.8509,
       4.3747
     ],
+    "city": "Leuven",
     "pub_count": 1
   },
   "Belgium|2440": {
-    "zipcode": "2440",
-    "country": "Belgium",
-    "city": "Geel",
     "coordinates": [
       51.2194,
       4.4025
     ],
+    "city": "Geel",
     "pub_count": 2
   },
   "the Netherlands|7500": {
-    "zipcode": "7500",
-    "country": "the Netherlands",
-    "city": "Enschede",
     "coordinates": [
       51.9667,
       5.9
     ],
+    "city": "Enschede",
     "pub_count": 2
   },
   "Belgium|3001": {
-    "zipcode": "3001",
-    "country": "Belgium",
-    "city": "Heverlee",
     "coordinates": [
       50.8798,
       4.7005
     ],
+    "city": "Heverlee",
     "pub_count": 4
   },
   "the Netherlands|4401": {
-    "zipcode": "4401",
-    "country": "the Netherlands",
-    "city": "Yerseke",
     "coordinates": [
-      50.5833,
-      5.6833
+      51.4416,
+      3.9833
     ],
+    "city": "Yerseke",
     "pub_count": 1
   },
   "Belgium|3080": {
-    "zipcode": "3080",
-    "country": "Belgium",
-    "city": "Tervuren",
     "coordinates": [
       50.8798,
       4.7005
     ],
+    "city": "Tervuren",
     "pub_count": 1
   },
   "Belgium|5000": {
-    "zipcode": "5000",
-    "country": "Belgium",
-    "city": "Namur",
     "coordinates": [
       50.4667,
       4.8667
     ],
+    "city": "Namur",
     "pub_count": 4
   },
   "the Netherlands|3508": {
-    "zipcode": "3508",
-    "country": "the Netherlands",
-    "city": "Utrecht",
     "coordinates": [
       52.0866,
       5.12
     ],
+    "city": "Utrecht",
     "pub_count": 1
   },
   "the Netherlands|5600": {
-    "zipcode": "5600",
-    "country": "the Netherlands",
-    "city": "Eindhoven",
     "coordinates": [
       51.4416,
       5.4697
     ],
+    "city": "Eindhoven",
     "pub_count": 2
   },
   "Belgium|1070": {
-    "zipcode": "1070",
-    "country": "Belgium",
-    "city": "Brussels",
     "coordinates": [
       50.8509,
       4.3747
     ],
+    "city": "Brussels",
     "pub_count": 4
   },
   "the Netherlands|7511": {
-    "zipcode": "7511",
-    "country": "the Netherlands",
-    "city": "Enschede",
     "coordinates": [
       51.9667,
       5.9167
     ],
+    "city": "Enschede",
     "pub_count": 1
   },
   "Belgium|1090": {
-    "zipcode": "1090",
-    "country": "Belgium",
-    "city": "Brussels",
     "coordinates": [
       50.8509,
       4.3747
     ],
+    "city": "Brussels",
     "pub_count": 1
   },
   "the Netherlands|7522": {
-    "zipcode": "7522",
-    "country": "the Netherlands",
-    "city": "Enschede",
     "coordinates": [
       51.95,
       5.9333
     ],
+    "city": "Enschede",
     "pub_count": 4
   },
   "the Netherlands|1098": {
-    "zipcode": "1098",
-    "country": "the Netherlands",
-    "city": "Amsterdam",
     "coordinates": [
       50.8509,
       4.3747
     ],
+    "city": "Amsterdam",
     "pub_count": 3
   },
   "the Netherlands|6500": {
-    "zipcode": "6500",
-    "country": "the Netherlands",
-    "city": "Nijmegen",
     "coordinates": [
       51.8425,
       5.852
     ],
+    "city": "Nijmegen",
     "pub_count": 4
   },
   "the Netherlands|1018": {
-    "zipcode": "1018",
-    "country": "the Netherlands",
-    "city": "Amsterdam",
     "coordinates": [
       50.8509,
       4.3747
     ],
+    "city": "Amsterdam",
     "pub_count": 1
   },
   "Belgium|1180": {
-    "zipcode": "1180",
-    "country": "Belgium",
-    "city": "Brussels",
     "coordinates": [
       50.8509,
       4.3747
     ],
+    "city": "Brussels",
     "pub_count": 2
   },
   "the Netherlands|2629": {
-    "zipcode": "2629",
-    "country": "the Netherlands",
-    "city": "Delft",
     "coordinates": [
       51.145,
       4.46
     ],
+    "city": "Delft",
     "pub_count": 2
   },
   "Belgium|2610": {
-    "zipcode": "2610",
-    "country": "Belgium",
-    "city": "Antwerp",
     "coordinates": [
       51.2194,
       4.4025
     ],
+    "city": "Antwerp",
     "pub_count": 1
   },
   "Belgium|8500": {
-    "zipcode": "8500",
-    "country": "Belgium",
-    "city": "Kortrijk",
     "coordinates": [
       50.9597,
       3.0667
     ],
+    "city": "Kortrijk",
     "pub_count": 1
   },
   "Belgium|3590": {
-    "zipcode": "3590",
-    "country": "Belgium",
-    "city": "Diepenbeek",
     "coordinates": [
       50.8365,
       5.3619
     ],
+    "city": "Diepenbeek",
     "pub_count": 2
   },
   "the Netherlands|9700": {
-    "zipcode": "9700",
-    "country": "the Netherlands",
-    "city": "Groningen",
     "coordinates": [
       53.213,
       6.5681
     ],
+    "city": "Groningen",
     "pub_count": 1
   },
   "the Netherlands|2300": {
-    "zipcode": "2300",
-    "country": "the Netherlands",
-    "city": "Leiden",
     "coordinates": [
       52.1601,
       4.4944
     ],
+    "city": "Leiden",
     "pub_count": 1
   },
   "Luxembourg|1210": {
-    "zipcode": "1210",
-    "country": "Luxembourg",
-    "city": "Strassen",
     "coordinates": [
-      52.2886,
-      4.8614
+      49.6463,
+      6.1287
     ],
+    "city": "Strassen",
     "pub_count": 2
   },
   "the Netherlands|8200": {
-    "zipcode": "8200",
-    "country": "the Netherlands",
-    "city": "Lelystad",
     "coordinates": [
-      51.1744,
-      3.1833
+      52.4539,
+      5.2753
     ],
+    "city": "Lelystad",
     "pub_count": 1
   },
   "the Netherlands|6629": {
-    "zipcode": "6629",
-    "country": "the Netherlands",
-    "city": "Maastricht",
     "coordinates": [
       51.6333,
       6.25
     ],
+    "city": "Maastricht",
     "pub_count": 1
   }
 }
