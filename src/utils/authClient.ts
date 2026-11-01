@@ -30,8 +30,8 @@ export async function loginUser(email: string, password: string): Promise<{ succ
       createdAt: authData.user.created_at,
     };
 
+    // Supabase stores session automatically, but also cache in localStorage for quick access
     localStorage.setItem('sciencemap_user', JSON.stringify(user));
-    localStorage.setItem('sciencemap_session', new Date().toISOString());
 
     return { success: true, user };
   } catch (error: any) {
@@ -42,33 +42,45 @@ export async function loginUser(email: string, password: string): Promise<{ succ
 
 export async function getCurrentUser(): Promise<User | null> {
   try {
+    // First check Supabase session
     const { data: sessionData } = await supabase.auth.getSession();
 
-    if (!sessionData?.session?.user) {
-      return null;
+    if (sessionData?.session?.user) {
+      const user: User = {
+        id: sessionData.session.user.id,
+        email: sessionData.session.user.email || '',
+        name: sessionData.session.user.user_metadata?.name,
+        createdAt: sessionData.session.user.created_at,
+      };
+      return user;
     }
 
-    const user: User = {
-      id: sessionData.session.user.id,
-      email: sessionData.session.user.email || '',
-      name: sessionData.session.user.user_metadata?.name,
-      createdAt: sessionData.session.user.created_at,
-    };
+    // Fallback to cached localStorage
+    const cached = localStorage.getItem('sciencemap_user');
+    if (cached) {
+      return JSON.parse(cached);
+    }
 
-    return user;
+    return null;
   } catch (error) {
     console.error('Get current user error:', error);
-    return null;
+    // Fallback to localStorage cache on error
+    try {
+      const cached = localStorage.getItem('sciencemap_user');
+      return cached ? JSON.parse(cached) : null;
+    } catch {
+      return null;
+    }
   }
 }
 
 export async function logoutUser(): Promise<void> {
   try {
     await supabase.auth.signOut();
-    localStorage.removeItem('sciencemap_user');
-    localStorage.removeItem('sciencemap_session');
   } catch (error) {
     console.error('Logout error:', error);
+  } finally {
+    localStorage.removeItem('sciencemap_user');
   }
 }
 
