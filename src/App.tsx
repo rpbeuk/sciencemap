@@ -12,6 +12,8 @@ import { LogOut } from 'lucide-react';
 function AppContent() {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedInstitution, setSelectedInstitution] = useState<any>(null);
+  const [selectedDepartment, setSelectedDepartment] = useState<any>(null);
   
   const { 
     institutions: supabaseInsts,
@@ -87,9 +89,6 @@ function AppContent() {
       Loading map data...
     </div>;
   }
-
-  const [selectedInstitution, setSelectedInstitution] = useState<any>(null);
-  const [selectedDepartment, setSelectedDepartment] = useState<any>(null);
 
   // Filter by territory
   const filteredInstitutions = supabaseInsts.filter(inst => {

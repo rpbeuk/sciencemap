@@ -8,10 +8,13 @@ window.addEventListener('error', (event) => {
   console.error('Global error:', event.error);
   const root = document.getElementById('root');
   if (root) {
-    root.innerHTML = `<div style="padding: 20px; color: red; font-family: monospace; background: #fff3cd;">
-      <h2>Error</h2>
-      <p>${event.error?.message || 'Unknown error'}</p>
-      <pre>${event.error?.stack || ''}</pre>
+    root.innerHTML = `<div style="padding: 20px; color: red; font-family: monospace; background: #fff3cd; overflow: auto;">
+      <h2>Error Caught</h2>
+      <p><strong>Message:</strong> ${(event.error?.message || 'Unknown error').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</p>
+      <details style="margin-top: 10px;">
+        <summary>Stack trace</summary>
+        <pre style="background: #fff; padding: 10px; margin-top: 10px; overflow: auto; max-height: 300px;">${(event.error?.stack || 'No stack').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</pre>
+      </details>
     </div>`;
   }
 });
@@ -22,22 +25,22 @@ window.addEventListener('unhandledrejection', (event) => {
   if (root) {
     root.innerHTML = `<div style="padding: 20px; color: red; font-family: monospace; background: #fff3cd;">
       <h2>Unhandled Promise Rejection</h2>
-      <p>${event.reason?.message || String(event.reason)}</p>
+      <p>${String(event.reason).replace(/</g, '&lt;').replace(/>/g, '&gt;')}</p>
     </div>`;
   }
 });
 
-console.log('ScienceMap is starting...');
+console.log('[ScienceMap] Starting...');
 
 try {
   const root = document.getElementById('root');
   if (!root) throw new Error('Root element not found');
   
-  console.log('Root element found, creating React root...');
+  console.log('[ScienceMap] Creating React root...');
   
   const reactRoot = createRoot(root);
   
-  console.log('Rendering App component...');
+  console.log('[ScienceMap] Rendering App component...');
   
   reactRoot.render(
     <StrictMode>
@@ -45,15 +48,15 @@ try {
     </StrictMode>,
   );
   
-  console.log('App rendered successfully');
+  console.log('[ScienceMap] Rendered successfully');
 } catch (error: any) {
-  console.error('Fatal error during React initialization:', error);
+  console.error('[ScienceMap] Fatal error:', error);
   const root = document.getElementById('root');
   if (root) {
     root.innerHTML = `<div style="padding: 20px; color: red; font-family: monospace; background: #fff3cd;">
-      <h2>React Initialization Error</h2>
-      <p>${error?.message || String(error)}</p>
-      <pre>${error?.stack || ''}</pre>
+      <h2>React Error</h2>
+      <p>${(error?.message || String(error)).replace(/</g, '&lt;').replace(/>/g, '&gt;')}</p>
+      <pre style="background: #fff; padding: 10px; margin-top: 10px; overflow: auto;">${(error?.stack || '').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</pre>
     </div>`;
   }
 }
