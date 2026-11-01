@@ -14,7 +14,7 @@ An interactive web application to visualize scientific publications across the B
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js 22.12+
 - npm or yarn
 
 ### Installation
