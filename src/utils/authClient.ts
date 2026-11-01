@@ -3,35 +3,31 @@ import { supabase } from './supabaseClient';
 export interface User {
   id: string;
   email: string;
-  name: string;
-  createdAt: string;
+  name?: string;
+  createdAt?: string;
 }
 
 export async function loginUser(email: string, password: string): Promise<{ success: boolean; user?: User; error?: string }> {
   try {
-    // Query the users table to authenticate
-    const { data: users, error: queryError } = await supabase
-      .from('users')
-      .select('id, email, name, password, created_at')
-      .eq('email', email)
-      .single();
+    // Use Supabase native authentication (shared with LeadScanner)
+    const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
 
-    if (queryError || !users) {
-      return { success: false, error: 'Invalid email or password' };
+    if (authError) {
+      return { success: false, error: authError.message || 'Invalid email or password' };
     }
 
-    // Simple password comparison (in production, use bcrypt or similar)
-    // For now, we'll store plain passwords (NOT SECURE - for MVP only)
-    if (users.password !== password) {
-      return { success: false, error: 'Invalid email or password' };
+    if (!authData?.user) {
+      return { success: false, error: 'Login failed - no user data returned' };
     }
 
-    // Store user session in localStorage
     const user: User = {
-      id: users.id,
-      email: users.email,
-      name: users.name,
-      createdAt: users.created_at,
+      id: authData.user.id,
+      email: authData.user.email || '',
+      name: authData.user.user_metadata?.name,
+      createdAt: authData.user.created_at,
     };
 
     localStorage.setItem('sciencemap_user', JSON.stringify(user));
@@ -44,69 +40,39 @@ export async function loginUser(email: string, password: string): Promise<{ succ
   }
 }
 
-export async function registerUser(email: string, password: string, name: string): Promise<{ success: boolean; user?: User; error?: string }> {
+export async function getCurrentUser(): Promise<User | null> {
   try {
-    // Check if user already exists
-    const { data: existingUser } = await supabase
-      .from('users')
-      .select('id')
-      .eq('email', email)
-      .single();
+    const { data: sessionData } = await supabase.auth.getSession();
 
-    if (existingUser) {
-      return { success: false, error: 'Email already registered' };
+    if (!sessionData?.session?.user) {
+      return null;
     }
 
-    // Create new user
-    const { data: newUser, error: insertError } = await supabase
-      .from('users')
-      .insert([
-        {
-          email,
-          password, // NOT SECURE - should be hashed
-          name,
-          created_at: new Date().toISOString(),
-        },
-      ])
-      .select('id, email, name, created_at')
-      .single();
-
-    if (insertError || !newUser) {
-      return { success: false, error: insertError?.message || 'Failed to create user' };
-    }
-
-    // Auto-login after registration
     const user: User = {
-      id: newUser.id,
-      email: newUser.email,
-      name: newUser.name,
-      createdAt: newUser.created_at,
+      id: sessionData.session.user.id,
+      email: sessionData.session.user.email || '',
+      name: sessionData.session.user.user_metadata?.name,
+      createdAt: sessionData.session.user.created_at,
     };
 
-    localStorage.setItem('sciencemap_user', JSON.stringify(user));
-    localStorage.setItem('sciencemap_session', new Date().toISOString());
-
-    return { success: true, user };
-  } catch (error: any) {
-    console.error('Registration error:', error);
-    return { success: false, error: error.message || 'An error occurred during registration' };
-  }
-}
-
-export function getCurrentUser(): User | null {
-  try {
-    const userStr = localStorage.getItem('sciencemap_user');
-    return userStr ? JSON.parse(userStr) : null;
-  } catch {
+    return user;
+  } catch (error) {
+    console.error('Get current user error:', error);
     return null;
   }
 }
 
-export function logoutUser(): void {
-  localStorage.removeItem('sciencemap_user');
-  localStorage.removeItem('sciencemap_session');
+export async function logoutUser(): Promise<void> {
+  try {
+    await supabase.auth.signOut();
+    localStorage.removeItem('sciencemap_user');
+    localStorage.removeItem('sciencemap_session');
+  } catch (error) {
+    console.error('Logout error:', error);
+  }
 }
 
-export function isUserLoggedIn(): boolean {
-  return getCurrentUser() !== null;
+export async function isUserLoggedIn(): Promise<boolean> {
+  const user = await getCurrentUser();
+  return user !== null;
 }

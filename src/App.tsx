@@ -22,9 +22,12 @@ function AppContent() {
 
   // Check if user is logged in on mount
   useEffect(() => {
-    const currentUser = getCurrentUser();
-    setUser(currentUser);
-    setIsLoading(false);
+    const checkUser = async () => {
+      const currentUser = await getCurrentUser();
+      setUser(currentUser);
+      setIsLoading(false);
+    };
+    checkUser();
   }, []);
 
   // Initialize filters from localStorage or use defaults

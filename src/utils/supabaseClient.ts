@@ -1,7 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
 
-const SUPABASE_URL = 'https://zwropbskjywvpzaqyrtd.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_QliePmyF31f-uYMayncEig_tRAbWl7x';
+// Use the same Supabase project as LeadScanner for shared authentication
+const SUPABASE_URL = 'https://ezsjvipvfpgbriwjuxxz.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_Jmz-UcKpBhb-SAPiE9CrCA_I0AOM9C6';
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
