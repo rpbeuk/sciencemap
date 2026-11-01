@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/sciencemap/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rpbeuk-cautious-umbrella</title>
+    <script>
+      window.appStatus = {loaded: false, error: null, errorDetails: ''};
+      window.addEventListener('error', (e) => {
+        window.appStatus.error = e.message;
+        window.appStatus.errorDetails = e.stack || '';
+        console.error('Global error:', e.message, e.stack);
+      });
+      window.addEventListener('unhandledrejection', (e) => {
+        window.appStatus.error = e.reason;
+        window.appStatus.errorDetails = JSON.stringify(e.reason);
+        console.error('Unhandled rejection:', e.reason);
+      });
+      console.log('Script running, about to load module');
+    </script>
+    <script type="module" crossorigin src="/sciencemap/assets/index-D_nc_B_p.js"></script>
+    <link rel="stylesheet" crossorigin href="/sciencemap/assets/index-xyhPH3SO.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // After a delay, if root is still empty, show error info
+      setTimeout(() => {
+        if (!document.getElementById('root').innerHTML && window.appStatus.error) {
+          document.body.innerHTML = '<pre style="padding:20px;color:red;font-family:monospace">React Initialization Error:\n' + window.appStatus.error + '\n\n' + window.appStatus.errorDetails + '</pre>';
+        }
+      }, 3000);
+    </script>
+  </body>
+</html>

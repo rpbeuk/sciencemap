@@ -1,0 +1,1777 @@
+[
+  {
+    "pmid": 40370812,
+    "crm_level_1": "Unknown / unmatched account",
+    "crm_level_3": "Internal Medicine"
+  },
+  {
+    "pmid": 40790063,
+    "crm_level_1": "Ghent University",
+    "crm_level_3": "Head and Skin"
+  },
+  {
+    "pmid": 40390081,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40429965,
+    "crm_level_1": "Erasmus University Medical Center",
+    "crm_level_3": "Pathology"
+  },
+  {
+    "pmid": 40324303,
+    "crm_level_1": "Leiden University Medical Center",
+    "crm_level_3": "Pathology"
+  },
+  {
+    "pmid": 40669684,
+    "crm_level_1": "Amsterdam UMC, University of Amsterdam and Vrije Universiteit Amsterdam",
+    "crm_level_3": "Medicine"
+  },
+  {
+    "pmid": 41209846,
+    "crm_level_1": "University Hospitals Leuven",
+    "crm_level_3": "Medicine"
+  },
+  {
+    "pmid": 42577122,
+    "crm_level_1": "Hasselt University",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40317959,
+    "crm_level_1": "CHU Saint Pierre",
+    "crm_level_3": "Otolaryngology-Head and Neck Surgery"
+  },
+  {
+    "pmid": 42053865,
+    "crm_level_1": "Université de Namur",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 42380097,
+    "crm_level_1": "Universitair Medisch Centrum Groningen (UMCG)",
+    "crm_level_3": "Biomedical Sciences"
+  },
+  {
+    "pmid": 40833239,
+    "crm_level_1": "CHU Saint Pierre",
+    "crm_level_3": "Not specified"
+  },
+  {
+    "pmid": 39641307,
+    "crm_level_1": "Leiden University Medical Center",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40803821,
+    "crm_level_1": "Ziekenhuisnetwerk Antwerpen vzw",
+    "crm_level_3": "Not specified"
+  },
+  {
+    "pmid": 39878507,
+    "crm_level_1": "Radboud University",
+    "crm_level_3": "Molecular Biology"
+  },
+  {
+    "pmid": 41520034,
+    "crm_level_1": "Princess Máxima Center for Pediatric Oncology",
+    "crm_level_3": "Pediatric Oncology"
+  },
+  {
+    "pmid": 41069688,
+    "crm_level_1": "Vrije Universiteit Amsterdam",
+    "crm_level_3": "Not specified"
+  },
+  {
+    "pmid": 39981254,
+    "crm_level_1": "National Institute for Public Health and the Environment (RIVM)",
+    "crm_level_3": "Infectious Disease Control"
+  },
+  {
+    "pmid": 40698077,
+    "crm_level_1": "Université catholique de Louvain (UCLouvain)",
+    "crm_level_3": "Pediatric Hepatology and Cell Therapy"
+  },
+  {
+    "pmid": 40210900,
+    "crm_level_1": "Amsterdam UMC Location Vrije Universiteit Amsterdam",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40038305,
+    "crm_level_1": "Ghent University Hospital",
+    "crm_level_3": "Internal Medicine and Pediatrics"
+  },
+  {
+    "pmid": 41280668,
+    "crm_level_1": "Universitair Medisch Centrum Utrecht (UMCU)",
+    "crm_level_3": "Medical Oncology"
+  },
+  {
+    "pmid": 39979678,
+    "crm_level_1": "Radboud university medical center",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41066244,
+    "crm_level_1": "Wageningen University",
+    "crm_level_3": "Internal Medicine"
+  },
+  {
+    "pmid": 40425813,
+    "crm_level_1": "Erasmus Medical Center Cancer Institute",
+    "crm_level_3": "Neurosurgery"
+  },
+  {
+    "pmid": 41087751,
+    "crm_level_1": "KU Leuven - University of Leuven",
+    "crm_level_3": "Neurosciences"
+  },
+  {
+    "pmid": 40470675,
+    "crm_level_1": "Amsterdam UMCs Location VUmc",
+    "crm_level_3": "Molecular Cell Biology and Immunology"
+  },
+  {
+    "pmid": 42133347,
+    "crm_level_1": "Rijksuniversiteit Groningen (RUG)",
+    "crm_level_3": "Cell Biochemistry"
+  },
+  {
+    "pmid": 39794539,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Oncology and Leuven Cancer Institute (LKI)"
+  },
+  {
+    "pmid": 41211809,
+    "crm_level_1": "Vrije Universiteit Amsterdam",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41986711,
+    "crm_level_1": "University Medical Center Utrecht",
+    "crm_level_3": "Molecular Medicine"
+  },
+  {
+    "pmid": 41372409,
+    "crm_level_1": "Hubrecht Institute",
+    "crm_level_3": "Hubrecht Institute"
+  },
+  {
+    "pmid": 42225894,
+    "crm_level_1": "VIB",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41673119,
+    "crm_level_1": "Ghent University Hospital",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41321638,
+    "crm_level_1": "Radboud University Nijmegen",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40133363,
+    "crm_level_1": "University of Groningen",
+    "crm_level_3": "Molecular Pharmacology"
+  },
+  {
+    "pmid": 40281034,
+    "crm_level_1": "Amsterdam UMC location Vrije Universiteit Amsterdam",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 42427460,
+    "crm_level_1": "VIB-KU Leuven Center for Cancer Biology",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40069774,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41924733,
+    "crm_level_1": "Leiden University Medical Center",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40559399,
+    "crm_level_1": "Amsterdam University Medical Center, University of Amsterdam",
+    "crm_level_3": "Endocrinology and Metabolism"
+  },
+  {
+    "pmid": 40901470,
+    "crm_level_1": "Kling Biotherapeutics BV",
+    "crm_level_3": "Not specified"
+  },
+  {
+    "pmid": 40763986,
+    "crm_level_1": "Utrecht University",
+    "crm_level_3": "Biomolecular Research"
+  },
+  {
+    "pmid": 42111195,
+    "crm_level_1": "Erasmus MC, University Medical Center Rotterdam",
+    "crm_level_3": "Immunology"
+  },
+  {
+    "pmid": 40301163,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41519924,
+    "crm_level_1": "Erasmus University Medical Center",
+    "crm_level_3": "Molecular Genetics"
+  },
+  {
+    "pmid": 42523594,
+    "crm_level_1": "Ghent University",
+    "crm_level_3": "Basic and Applied Medical Sciences"
+  },
+  {
+    "pmid": 41889906,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 42179884,
+    "crm_level_1": "University Medical Center Utrecht",
+    "crm_level_3": "Oral and Maxillofacial Surgery & Special Dental Care"
+  },
+  {
+    "pmid": 40861440,
+    "crm_level_1": "Utrecht University",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41868610,
+    "crm_level_1": "Ncardia Services BV",
+    "crm_level_3": "Not specified"
+  },
+  {
+    "pmid": 40443673,
+    "crm_level_1": "Maastricht University",
+    "crm_level_3": "Psychiatry and Neuropsychology"
+  },
+  {
+    "pmid": 40466939,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Tumor Inflammation and Angiogenesis"
+  },
+  {
+    "pmid": 41015217,
+    "crm_level_1": "Medisch Spectrum Twente",
+    "crm_level_3": "Not specified"
+  },
+  {
+    "pmid": 41913794,
+    "crm_level_1": "Leiden University Medical Center",
+    "crm_level_3": "Medical Oncology"
+  },
+  {
+    "pmid": 41757047,
+    "crm_level_1": "Université Catholique de Louvain (UCL)",
+    "crm_level_3": "Biomolecular Science and Technology"
+  },
+  {
+    "pmid": 40094380,
+    "crm_level_1": "VIB",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40065102,
+    "crm_level_1": "VIB",
+    "crm_level_3": "Tumor Inflammation and Angiogenesis"
+  },
+  {
+    "pmid": 42098128,
+    "crm_level_1": "Ghent University",
+    "crm_level_3": "Human Structure and Repair"
+  },
+  {
+    "pmid": 42358960,
+    "crm_level_1": "Amsterdam UMC, Location VUmc",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40595302,
+    "crm_level_1": "Maastricht University",
+    "crm_level_3": "Pharmacology and Toxicology"
+  },
+  {
+    "pmid": 39898054,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41387429,
+    "crm_level_1": "Hubrecht Institute",
+    "crm_level_3": "Developmental Biology and Stem Cell Research"
+  },
+  {
+    "pmid": 39979287,
+    "crm_level_1": "University of Luxembourg",
+    "crm_level_3": "Life Sciences and Medicine"
+  },
+  {
+    "pmid": 39859157,
+    "crm_level_1": "Ghent University Hospital",
+    "crm_level_3": "Neurology"
+  },
+  {
+    "pmid": 40650745,
+    "crm_level_1": "Katholieke Universiteit Leuven (KUL)",
+    "crm_level_3": "Not specified"
+  },
+  {
+    "pmid": 41593300,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41862497,
+    "crm_level_1": "Université Libre de Bruxelles",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41252490,
+    "crm_level_1": "University Medical Center Groningen",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40074868,
+    "crm_level_1": "KU Leuven (University of Leuven)",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41100560,
+    "crm_level_1": "Ghent University",
+    "crm_level_3": "Biotechnology"
+  },
+  {
+    "pmid": 41783857,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40631158,
+    "crm_level_1": "Amsterdam UMC, University of Amsterdam",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41407399,
+    "crm_level_1": "UMC Utrecht",
+    "crm_level_3": "Translational Immunology"
+  },
+  {
+    "pmid": 41876669,
+    "crm_level_1": "KU Leuven-University of Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40841360,
+    "crm_level_1": "Princess Máxima Center for Pediatric Oncology",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41698162,
+    "crm_level_1": "Erasmus MC, University Medical Center",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41991987,
+    "crm_level_1": "Leiden University Medical Center",
+    "crm_level_3": "Dermatology"
+  },
+  {
+    "pmid": 41193605,
+    "crm_level_1": "Ghent University",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41619772,
+    "crm_level_1": "VIB-KU Leuven Center for Cancer Biology",
+    "crm_level_3": "Tumor Microenvironment and Therapeutic Resistance"
+  },
+  {
+    "pmid": 41917327,
+    "crm_level_1": "Université Libre de Bruxelles",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41440628,
+    "crm_level_1": "Technische Universiteit Delft (TU Delft)",
+    "crm_level_3": "Biomechanical Engineering"
+  },
+  {
+    "pmid": 39755720,
+    "crm_level_1": "University of Luxembourg",
+    "crm_level_3": "Life Sciences and Medicine (DLSM)"
+  },
+  {
+    "pmid": 41203811,
+    "crm_level_1": "UCLouvain",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40859293,
+    "crm_level_1": "Belgian Red Cross Flanders",
+    "crm_level_3": "Transfusion Research Center"
+  },
+  {
+    "pmid": 41698873,
+    "crm_level_1": "Université catholique de Louvain",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 42383010,
+    "crm_level_1": "Amsterdam University Medical Center, University of Amsterdam",
+    "crm_level_3": "Reproductive Biology Laboratory"
+  },
+  {
+    "pmid": 41286448,
+    "crm_level_1": "Flanders Institute for Biotechnology (VIB)",
+    "crm_level_3": "Brain and Disease Research"
+  },
+  {
+    "pmid": 41561071,
+    "crm_level_1": "University of Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40217270,
+    "crm_level_1": "Universiteit van Amsterdam (UVA)",
+    "crm_level_3": "Experimental Vascular Medicine"
+  },
+  {
+    "pmid": 41404114,
+    "crm_level_1": "Utrecht University",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 42464473,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40307424,
+    "crm_level_1": "Hasselt University",
+    "crm_level_3": "Neurosciences"
+  },
+  {
+    "pmid": 40674148,
+    "crm_level_1": "Maastricht University",
+    "crm_level_3": "Imaging Mass Spectrometry"
+  },
+  {
+    "pmid": 42437975,
+    "crm_level_1": "Vrije Universiteit Amsterdam",
+    "crm_level_3": "Molecular and Cellular Neurobiology"
+  },
+  {
+    "pmid": 41143002,
+    "crm_level_1": "Leiden University Medical Center",
+    "crm_level_3": "Anatomy and Embryology"
+  },
+  {
+    "pmid": 41060467,
+    "crm_level_1": "Wageningen University and Research",
+    "crm_level_3": "Toxicology"
+  },
+  {
+    "pmid": 40598301,
+    "crm_level_1": "Belgian Red Cross Flanders",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41338242,
+    "crm_level_1": "Erasmus MC, University Medical Center",
+    "crm_level_3": "Clinical Genetics"
+  },
+  {
+    "pmid": 39996773,
+    "crm_level_1": "University Medical Center Groningen, University of Groningen",
+    "crm_level_3": "Pathology and Medical Biology"
+  },
+  {
+    "pmid": 41002473,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Materials Engineering"
+  },
+  {
+    "pmid": 39932940,
+    "crm_level_1": "Antwerp University",
+    "crm_level_3": "Experimental Medicine and Pediatrics"
+  },
+  {
+    "pmid": 41124261,
+    "crm_level_1": "VIB",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40595660,
+    "crm_level_1": "Leiden University Medical Center",
+    "crm_level_3": "Internal Medicine - Nephrology"
+  },
+  {
+    "pmid": 42378039,
+    "crm_level_1": "Radboud UMC",
+    "crm_level_3": "Human Genetics"
+  },
+  {
+    "pmid": 40435262,
+    "crm_level_1": "University of Ghent",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40896146,
+    "crm_level_1": "Vrije Universiteit Brussel",
+    "crm_level_3": "Biology of the Testis (BITE) Laboratory"
+  },
+  {
+    "pmid": 41988691,
+    "crm_level_1": "Amsterdam Institute for Immunology and Infectious Diseases",
+    "crm_level_3": "Immunology and Infectious Diseases"
+  },
+  {
+    "pmid": 41413276,
+    "crm_level_1": "Leiden University Medical Center",
+    "crm_level_3": "Immunology"
+  },
+  {
+    "pmid": 40269985,
+    "crm_level_1": "VIB",
+    "crm_level_3": "Molecular Neurology"
+  },
+  {
+    "pmid": 40603966,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41811845,
+    "crm_level_1": "VIB Center for Inflammation Research, Ghent University",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40307618,
+    "crm_level_1": "VIB",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41667436,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41300182,
+    "crm_level_1": "Ghent University",
+    "crm_level_3": "Neurology"
+  },
+  {
+    "pmid": 42032221,
+    "crm_level_1": "Life Science Methods BV",
+    "crm_level_3": "Not specified"
+  },
+  {
+    "pmid": 42409797,
+    "crm_level_1": "Amsterdam UMC, Vrije Universiteit Amsterdam",
+    "crm_level_3": "Pathology"
+  },
+  {
+    "pmid": 41134892,
+    "crm_level_1": "VIB-KU Leuven Center for Cancer Biology",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 39720875,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Chronic Diseases and Metabolism (CHROMETA)"
+  },
+  {
+    "pmid": 40361471,
+    "crm_level_1": "Ghent University Hospital",
+    "crm_level_3": "Oro-Maxillofacial"
+  },
+  {
+    "pmid": 40695104,
+    "crm_level_1": "Cliniques Universitaires Saint-Luc, Université Catholique de Louvain",
+    "crm_level_3": "Gynecology and Andrology"
+  },
+  {
+    "pmid": 40916477,
+    "crm_level_1": "Leiden University Medical Center",
+    "crm_level_3": "Parasitology"
+  },
+  {
+    "pmid": 40835856,
+    "crm_level_1": "VU Medisch Centrum (VUMC)",
+    "crm_level_3": "Gynaecology"
+  },
+  {
+    "pmid": 40353777,
+    "crm_level_1": "Amsterdam University Medical Center (UMC)",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 42026061,
+    "crm_level_1": "VIB Center for Inflammation Research",
+    "crm_level_3": "Dendritic Cell Biology and Cancer Immunotherapy"
+  },
+  {
+    "pmid": 40249077,
+    "crm_level_1": "Sanquin Blood Supply Foundation",
+    "crm_level_3": "Research"
+  },
+  {
+    "pmid": 41798914,
+    "crm_level_1": "Institute of Tropical Medicine",
+    "crm_level_3": "Clinical Sciences"
+  },
+  {
+    "pmid": 42578668,
+    "crm_level_1": "VIB Center for Inflammation Research",
+    "crm_level_3": "Immunoregulation and Mucosal Immunology"
+  },
+  {
+    "pmid": 39838063,
+    "crm_level_1": "Radboud University Medical Center",
+    "crm_level_3": "Human Genetics"
+  },
+  {
+    "pmid": 39875687,
+    "crm_level_1": "University of Liege",
+    "crm_level_3": "Pediatrics"
+  },
+  {
+    "pmid": 41871085,
+    "crm_level_1": "VIB",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41134879,
+    "crm_level_1": "Leiden University Medical Center",
+    "crm_level_3": "Medicine"
+  },
+  {
+    "pmid": 41540008,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Cellular and Molecular Medicine"
+  },
+  {
+    "pmid": 40181085,
+    "crm_level_1": "University of Twente",
+    "crm_level_3": "Biomedical Photonic Imaging"
+  },
+  {
+    "pmid": 39892785,
+    "crm_level_1": "Utrecht University",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40230629,
+    "crm_level_1": "VIB Center for Inflammation Research",
+    "crm_level_3": "Inflammation Research Ghent Belgium peter.vandenabeele@irc.vib-ugent.be"
+  },
+  {
+    "pmid": 40631571,
+    "crm_level_1": "Erasmus MC",
+    "crm_level_3": "Biomedical Engineering"
+  },
+  {
+    "pmid": 41348541,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 42483212,
+    "crm_level_1": "Amsterdam UMC, Academic Medical Center, University of Amsterdam",
+    "crm_level_3": "Pediatric Infectious Diseases"
+  },
+  {
+    "pmid": 40280178,
+    "crm_level_1": "University Medical Center Groningen",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40586362,
+    "crm_level_1": "Wageningen University & Research",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41918557,
+    "crm_level_1": "Ghent University",
+    "crm_level_3": "Pharmaceutical Microbiology"
+  },
+  {
+    "pmid": 41872154,
+    "crm_level_1": "Université catholique de Louvain",
+    "crm_level_3": "Neuroscience"
+  },
+  {
+    "pmid": 41387482,
+    "crm_level_1": "Leiden University Medical Centre",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 39820684,
+    "crm_level_1": "Maastricht University Medical Centre",
+    "crm_level_3": "Neurosurgery"
+  },
+  {
+    "pmid": 41094042,
+    "crm_level_1": "University Medical Centre Utrecht",
+    "crm_level_3": "Nephrology and Hypertension"
+  },
+  {
+    "pmid": 42587752,
+    "crm_level_1": "Utrecht University",
+    "crm_level_3": "Clinical Sciences"
+  },
+  {
+    "pmid": 40204947,
+    "crm_level_1": "University Medical Center Utrecht",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 42274561,
+    "crm_level_1": "Vlaams Instituut voor Biotechnologie (VIB)",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 42047476,
+    "crm_level_1": "Amsterdam UMC and University of Amsterdam",
+    "crm_level_3": "Internal Medicine"
+  },
+  {
+    "pmid": 42397469,
+    "crm_level_1": "Wageningen University and Research",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41798065,
+    "crm_level_1": "Vrije Universiteit Amsterdam",
+    "crm_level_3": "Chemistry and Pharmaceutical Sciences"
+  },
+  {
+    "pmid": 40728519,
+    "crm_level_1": "VIB-KU Leuven Centre for Brain & Disease Research",
+    "crm_level_3": "Ion Channel Research (LICR)"
+  },
+  {
+    "pmid": 40415700,
+    "crm_level_1": "Queen Astrid Military Hospital",
+    "crm_level_3": "Molecular and Cellular Technology"
+  },
+  {
+    "pmid": 39562049,
+    "crm_level_1": "Amsterdam UMC",
+    "crm_level_3": "Experimental Oncology and Radiobiology"
+  },
+  {
+    "pmid": 41070524,
+    "crm_level_1": "Eindhoven University of Technology",
+    "crm_level_3": "Biomedical Engineering"
+  },
+  {
+    "pmid": 41024433,
+    "crm_level_1": "Université libre de Bruxelles",
+    "crm_level_3": "Signal Transduction and Metabolism Laboratory"
+  },
+  {
+    "pmid": 41077097,
+    "crm_level_1": "Radboud University Medical Center",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41798951,
+    "crm_level_1": "Vrije Universiteit Amsterdam",
+    "crm_level_3": "Amsterdam University Medical Centers (UMC) location Vrije Universiteit Amsterdam"
+  },
+  {
+    "pmid": 42031998,
+    "crm_level_1": "HUB Organoids (HUB4)",
+    "crm_level_3": "Not specified"
+  },
+  {
+    "pmid": 41929307,
+    "crm_level_1": "Utrecht University",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40673161,
+    "crm_level_1": "Vrije Universiteit Brussel",
+    "crm_level_3": "Translational Oncology Research Centre"
+  },
+  {
+    "pmid": 42218150,
+    "crm_level_1": "VIB Center for Inflammation Research",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40681493,
+    "crm_level_1": "Vrije Universiteit Amsterdam",
+    "crm_level_3": "Anatomy and Neurosciences"
+  },
+  {
+    "pmid": 39968531,
+    "crm_level_1": "Radboud University",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 39861781,
+    "crm_level_1": "Radboud University Medical Center",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 39910186,
+    "crm_level_1": "KU Leuven - University of Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41132685,
+    "crm_level_1": "Vlaams Instituut Voor Biotechnologie (VIB)",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 42436193,
+    "crm_level_1": "Université libre de Buxelles (ULB)",
+    "crm_level_3": "Stem Cells and Cancer"
+  },
+  {
+    "pmid": 42403921,
+    "crm_level_1": "Dendrogenix",
+    "crm_level_3": "Not specified"
+  },
+  {
+    "pmid": 40541269,
+    "crm_level_1": "Academisch Medisch Centrum (AMC)",
+    "crm_level_3": "Not specified"
+  },
+  {
+    "pmid": 40062354,
+    "crm_level_1": "Leiden University Medical Centre",
+    "crm_level_3": "Infectious Diseases (LU-CID)"
+  },
+  {
+    "pmid": 40007067,
+    "crm_level_1": "Maastricht University",
+    "crm_level_3": "Imaging Mass Spectrometry (IMS)"
+  },
+  {
+    "pmid": 39850253,
+    "crm_level_1": "Eindhoven University of Technology",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41204342,
+    "crm_level_1": "Ghent University",
+    "crm_level_3": "Sociology"
+  },
+  {
+    "pmid": 40562495,
+    "crm_level_1": "Leiden University",
+    "crm_level_3": "BioTherapeutics"
+  },
+  {
+    "pmid": 40138597,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Chronic Diseases & Metabolism (CHROMETA)"
+  },
+  {
+    "pmid": 42001189,
+    "crm_level_1": "Radboud University Medical Center",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41555086,
+    "crm_level_1": "Leiden University Medical Center",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41491222,
+    "crm_level_1": "University Medical Center Utrecht",
+    "crm_level_3": "Surgical Oncology"
+  },
+  {
+    "pmid": 40983680,
+    "crm_level_1": "Vrije Universiteit Amsterdam",
+    "crm_level_3": "Neurogenomics and Cognitive Research"
+  },
+  {
+    "pmid": 41271616,
+    "crm_level_1": "Amsterdam UMC, University of Amsterdam",
+    "crm_level_3": "Internal Medicine"
+  },
+  {
+    "pmid": 41079206,
+    "crm_level_1": "Radboud Universiteit Nijmegen",
+    "crm_level_3": "Management"
+  },
+  {
+    "pmid": 40702707,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Cardiovascular Sciences"
+  },
+  {
+    "pmid": 41952048,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 42275147,
+    "crm_level_1": "Amsterdam University Medical Centers, University of Amsterdam",
+    "crm_level_3": "Medical Biology"
+  },
+  {
+    "pmid": 39799579,
+    "crm_level_1": "Amsterdam UMC",
+    "crm_level_3": "Experimental Vascular Medicine"
+  },
+  {
+    "pmid": 41990048,
+    "crm_level_1": "Amsterdam UMC, Vrije Universiteit",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 42510862,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Imaging and Pathology"
+  },
+  {
+    "pmid": 40610614,
+    "crm_level_1": "Wageningen University and Research",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 39893642,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40754140,
+    "crm_level_1": "University of Utrecht",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40186782,
+    "crm_level_1": "UCLouvain, Université catholique de Louvain",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 42316962,
+    "crm_level_1": "Amsterdam University Medical Center",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 39880824,
+    "crm_level_1": "Erasmus MC Cancer Institute",
+    "crm_level_3": "Medical Oncology"
+  },
+  {
+    "pmid": 40149573,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40702215,
+    "crm_level_1": "Hasselt University",
+    "crm_level_3": "Neuroscience"
+  },
+  {
+    "pmid": 41254329,
+    "crm_level_1": "Utrecht University",
+    "crm_level_3": "Translational Immunology"
+  },
+  {
+    "pmid": 40702585,
+    "crm_level_1": "VIB Center for Inflammation Research",
+    "crm_level_3": "Inflammation Research"
+  },
+  {
+    "pmid": 40672309,
+    "crm_level_1": "VU University Amsterdam",
+    "crm_level_3": "Functional Genomics"
+  },
+  {
+    "pmid": 41152331,
+    "crm_level_1": "Universiteit van Amsterdam (UVA)",
+    "crm_level_3": "Not specified"
+  },
+  {
+    "pmid": 41279529,
+    "crm_level_1": "Amsterdam Institute for Global Health and Development",
+    "crm_level_3": "Global Health and Development"
+  },
+  {
+    "pmid": 40899810,
+    "crm_level_1": "Ghent University",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41410782,
+    "crm_level_1": "University of Antwerp",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 39984601,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40374662,
+    "crm_level_1": "Radboud University Medical Center",
+    "crm_level_3": "Radboud University Medical Center"
+  },
+  {
+    "pmid": 42253992,
+    "crm_level_1": "VIB",
+    "crm_level_3": "Myeloid Cell Biology in Tissue Damage and Inflammation"
+  },
+  {
+    "pmid": 42294095,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Respiratory Diseases and Thoracic Surgery (BREATHE)"
+  },
+  {
+    "pmid": 41469777,
+    "crm_level_1": "Delft University of Technology",
+    "crm_level_3": "Bionanoscience"
+  },
+  {
+    "pmid": 42168651,
+    "crm_level_1": "Leiden University",
+    "crm_level_3": "Molecular Physiology"
+  },
+  {
+    "pmid": 40373114,
+    "crm_level_1": "Amsterdam UMC, location AMC",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40727948,
+    "crm_level_1": "University of Namur",
+    "crm_level_3": "Life Sciences"
+  },
+  {
+    "pmid": 42236513,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40703802,
+    "crm_level_1": "University Medical Center Utrecht",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41327286,
+    "crm_level_1": "Utrecht University",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41677066,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Development & Regeneration"
+  },
+  {
+    "pmid": 40381201,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40356848,
+    "crm_level_1": "KU Leuven - University of Leuven",
+    "crm_level_3": "Chronic Diseases & Metabolism (CHROMETA) KU Leuven - University of Leuven Leuven Belgium"
+  },
+  {
+    "pmid": 41164751,
+    "crm_level_1": "Free University of Brussels",
+    "crm_level_3": "Interdisciplinary Research"
+  },
+  {
+    "pmid": 40637282,
+    "crm_level_1": "Utrecht University",
+    "crm_level_3": "Infectious Diseases and Immunology"
+  },
+  {
+    "pmid": 40789452,
+    "crm_level_1": "Radboudumc",
+    "crm_level_3": "Chemical Immunology"
+  },
+  {
+    "pmid": 41778850,
+    "crm_level_1": "VIB",
+    "crm_level_3": "Cellular Metabolism and Metabolic Regulation"
+  },
+  {
+    "pmid": 41786713,
+    "crm_level_1": "Leiden University Medical Center",
+    "crm_level_3": "Rheumatology"
+  },
+  {
+    "pmid": 40082474,
+    "crm_level_1": "Utrecht University",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 42457718,
+    "crm_level_1": "Eindhoven University of Technology",
+    "crm_level_3": "Biomedical Engineering and Institute for Complex Molecular Systems"
+  },
+  {
+    "pmid": 40260554,
+    "crm_level_1": "Leiden University",
+    "crm_level_3": "Drug Research (LACDR)"
+  },
+  {
+    "pmid": 41927845,
+    "crm_level_1": "Maastricht University Medical Center+",
+    "crm_level_3": "Maastricht University Medical Center+"
+  },
+  {
+    "pmid": 41813832,
+    "crm_level_1": "Leiden University Medical Center",
+    "crm_level_3": "Proteomics and Metabolomics"
+  },
+  {
+    "pmid": 41360796,
+    "crm_level_1": "University of Utrecht",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41744784,
+    "crm_level_1": "Hasselt University",
+    "crm_level_3": "Biomedical Research Institute (BIOMED)"
+  },
+  {
+    "pmid": 42318556,
+    "crm_level_1": "KU Leuven - University of Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41512865,
+    "crm_level_1": "VU Amsterdam, Amsterdam University Medical Center",
+    "crm_level_3": "Functional Genomics"
+  },
+  {
+    "pmid": 41884152,
+    "crm_level_1": "Erasmus MC, University Medical Center Rotterdam",
+    "crm_level_3": "Internal Medicine"
+  },
+  {
+    "pmid": 40880479,
+    "crm_level_1": "Universiteit Hasselt",
+    "crm_level_3": "Biomedical Research Institute"
+  },
+  {
+    "pmid": 39960283,
+    "crm_level_1": "Leiden University Medical Center",
+    "crm_level_3": "Biomedical Data Sciences"
+  },
+  {
+    "pmid": 41549646,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40718488,
+    "crm_level_1": "University of Liege",
+    "crm_level_3": "Hematology"
+  },
+  {
+    "pmid": 41037262,
+    "crm_level_1": "Leiden University",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41301514,
+    "crm_level_1": "University Medical Center Groningen, University of Groningen",
+    "crm_level_3": "Gastroenterology and Hepatology"
+  },
+  {
+    "pmid": 40940768,
+    "crm_level_1": "Leiden University Medical Center",
+    "crm_level_3": "Internal Medicine"
+  },
+  {
+    "pmid": 40343460,
+    "crm_level_1": "Leiden University Medical Center",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40161398,
+    "crm_level_1": "University Hospitals Leuven",
+    "crm_level_3": "Pulmonary Diseases"
+  },
+  {
+    "pmid": 40447603,
+    "crm_level_1": "VIB",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40287595,
+    "crm_level_1": "Radboud University Medical Center",
+    "crm_level_3": "Medical Biosciences"
+  },
+  {
+    "pmid": 40172954,
+    "crm_level_1": "Vrije Universiteit Amsterdam",
+    "crm_level_3": "Functional Genomics"
+  },
+  {
+    "pmid": 40379030,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41878824,
+    "crm_level_1": "Luxembourg Institute of Health",
+    "crm_level_3": "Precision Health"
+  },
+  {
+    "pmid": 42243549,
+    "crm_level_1": "Vlaams Instituut voor Biotechnologie (VIB)",
+    "crm_level_3": "Brain & Disease Research"
+  },
+  {
+    "pmid": 41065754,
+    "crm_level_1": "Leiden University",
+    "crm_level_3": "Drug Research"
+  },
+  {
+    "pmid": 42502741,
+    "crm_level_1": "Wageningen University and Research",
+    "crm_level_3": "Human Nutrition and Health"
+  },
+  {
+    "pmid": 42123894,
+    "crm_level_1": "University of Liege",
+    "crm_level_3": "Pharmacy"
+  },
+  {
+    "pmid": 40885721,
+    "crm_level_1": "Universiteit Maastricht",
+    "crm_level_3": "Not specified"
+  },
+  {
+    "pmid": 40164620,
+    "crm_level_1": "University of Luxembourg",
+    "crm_level_3": "Systems Biomedicine (LCSB)"
+  },
+  {
+    "pmid": 41027898,
+    "crm_level_1": "58",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40824762,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Therapeutic and Diagnostic Antibodies"
+  },
+  {
+    "pmid": 40912913,
+    "crm_level_1": "Erasmus MC",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40172635,
+    "crm_level_1": "Maastricht University Medical Center",
+    "crm_level_3": "Pathology"
+  },
+  {
+    "pmid": 41295842,
+    "crm_level_1": "Ghent University",
+    "crm_level_3": "Excellence in Mycotoxicology and Public Health (CEMPH)"
+  },
+  {
+    "pmid": 40707512,
+    "crm_level_1": "Leiden University Medical Center",
+    "crm_level_3": "Infectious Diseases"
+  },
+  {
+    "pmid": 39981239,
+    "crm_level_1": "Vlaams Instituut voor Biotechnologie (VIB)",
+    "crm_level_3": "Inflammation Research"
+  },
+  {
+    "pmid": 41372410,
+    "crm_level_1": "The Netherlands Cancer Institute",
+    "crm_level_3": "Oncogenomics"
+  },
+  {
+    "pmid": 41580912,
+    "crm_level_1": "University of Twente",
+    "crm_level_3": "Developmental BioEngineering"
+  },
+  {
+    "pmid": 40188073,
+    "crm_level_1": "Universiteit Maastricht",
+    "crm_level_3": "Cell Biology-Inspired Tissue Engineering"
+  },
+  {
+    "pmid": 41267169,
+    "crm_level_1": "Amsterdam UMC, Location University of Amsterdam",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 39907280,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40246848,
+    "crm_level_1": "University of Luxembourg",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41273039,
+    "crm_level_1": "University of Twente",
+    "crm_level_3": "BioEngineering Technologies"
+  },
+  {
+    "pmid": 41993274,
+    "crm_level_1": "Université Libre de Bruxelles (ULB)",
+    "crm_level_3": "Diabetes Research"
+  },
+  {
+    "pmid": 40909677,
+    "crm_level_1": "Erasmus MC University Medical Center",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 42010744,
+    "crm_level_1": "Leiden University Medical Centre",
+    "crm_level_3": "Gastroenterology and Hepatology"
+  },
+  {
+    "pmid": 39843922,
+    "crm_level_1": "The Netherlands Cancer Institute",
+    "crm_level_3": "Tumor Biology & Immunology"
+  },
+  {
+    "pmid": 41601407,
+    "crm_level_1": "Vrije Universiteit Amsterdam",
+    "crm_level_3": "Molecular Cell Biology and Immunology"
+  },
+  {
+    "pmid": 41986725,
+    "crm_level_1": "Hubrecht Institute",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40250846,
+    "crm_level_1": "Amsterdam UMC Location AMC",
+    "crm_level_3": "Intensive Care Medicine"
+  },
+  {
+    "pmid": 40565289,
+    "crm_level_1": "Université Libre de Bruxelles",
+    "crm_level_3": "Diabetes Research (UCDR)"
+  },
+  {
+    "pmid": 41409598,
+    "crm_level_1": "Amsterdam University Medical Centre, University of Amsterdam",
+    "crm_level_3": "Medical Microbiology and Infection Prevention"
+  },
+  {
+    "pmid": 40777739,
+    "crm_level_1": "Leiden University Medical Centre",
+    "crm_level_3": "Human Genetics"
+  },
+  {
+    "pmid": 40883260,
+    "crm_level_1": "Hasselt University",
+    "crm_level_3": "Life Sciences"
+  },
+  {
+    "pmid": 41680326,
+    "crm_level_1": "VIB-UGent",
+    "crm_level_3": "Inflammation Research"
+  },
+  {
+    "pmid": 41948282,
+    "crm_level_1": "Utrecht University",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41530536,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41131424,
+    "crm_level_1": "VIB",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41537777,
+    "crm_level_1": "Vrije Universiteit Brussel",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40046758,
+    "crm_level_1": "Utrecht University",
+    "crm_level_3": "Pharmacology"
+  },
+  {
+    "pmid": 39747884,
+    "crm_level_1": "VIB",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40885730,
+    "crm_level_1": "Radboud University Medical Centre Nijmegen",
+    "crm_level_3": "Medicine"
+  },
+  {
+    "pmid": 40334059,
+    "crm_level_1": "Leiden University Medical Center",
+    "crm_level_3": "Experimental Vascular Medicine and Regenerative Medicine"
+  },
+  {
+    "pmid": 41611717,
+    "crm_level_1": "Vrije Universiteit Amsterdam",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 42149716,
+    "crm_level_1": "Amsterdam University Medical Center",
+    "crm_level_3": "Physiology"
+  },
+  {
+    "pmid": 41430470,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41857173,
+    "crm_level_1": "Luxembourg Institute of Health",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41322196,
+    "crm_level_1": "University of Liège",
+    "crm_level_3": "Virology and Immunology"
+  },
+  {
+    "pmid": 39891859,
+    "crm_level_1": "Wageningen University & Research",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41490774,
+    "crm_level_1": "58",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41318029,
+    "crm_level_1": "Vrije University",
+    "crm_level_3": "Functional Genomics"
+  },
+  {
+    "pmid": 40436861,
+    "crm_level_1": "Ghent University",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 39809767,
+    "crm_level_1": "AstraZeneca (EsoBiotec)",
+    "crm_level_3": "Not specified"
+  },
+  {
+    "pmid": 39843492,
+    "crm_level_1": "Radboud University Medical Center",
+    "crm_level_3": "Radiation Oncology"
+  },
+  {
+    "pmid": 40830221,
+    "crm_level_1": "Wageningen University & Research",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 42317767,
+    "crm_level_1": "Université Catholique de Louvain (UCLouvain)",
+    "crm_level_3": "Louvain Drug Research Institute (LDRI)"
+  },
+  {
+    "pmid": 41714642,
+    "crm_level_1": "University of Antwerp",
+    "crm_level_3": "Bioscience Engineering"
+  },
+  {
+    "pmid": 39832080,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40287634,
+    "crm_level_1": "University of Amsterdam",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 42367253,
+    "crm_level_1": "Leiden University Medical Center",
+    "crm_level_3": "Transplantation and Nephrology"
+  },
+  {
+    "pmid": 41575190,
+    "crm_level_1": "University of Liège",
+    "crm_level_3": "Immunology and Infectious Diseases"
+  },
+  {
+    "pmid": 42151416,
+    "crm_level_1": "KU Leuven and University Hospitals Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 42256886,
+    "crm_level_1": "UCLouvain",
+    "crm_level_3": "Louvain Drug Research Institute"
+  },
+  {
+    "pmid": 40926231,
+    "crm_level_1": "LUMC",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41054507,
+    "crm_level_1": "University of Amsterdam",
+    "crm_level_3": "Molecular Hematology"
+  },
+  {
+    "pmid": 42498667,
+    "crm_level_1": "Leiden University",
+    "crm_level_3": "Cell Systems and Drug Safety"
+  },
+  {
+    "pmid": 42021306,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40690428,
+    "crm_level_1": "University of Amsterdam and Vrije Universiteit Amsterdam",
+    "crm_level_3": "Oral Cell Biology"
+  },
+  {
+    "pmid": 40596824,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Medical Research.: Katholieke Universiteit Leuven Rega Institute for Medical Research"
+  },
+  {
+    "pmid": 40246872,
+    "crm_level_1": "Amsterdam UMC, University of Amsterdam",
+    "crm_level_3": "Gastroenterology and Hepatology"
+  },
+  {
+    "pmid": 42082151,
+    "crm_level_1": "Amsterdam UMC, University of Amsterdam",
+    "crm_level_3": "Medical Biochemistry"
+  },
+  {
+    "pmid": 41271704,
+    "crm_level_1": "Princess Maxima Center for Pediatric Oncology",
+    "crm_level_3": "Pediatric Oncology"
+  },
+  {
+    "pmid": 42362572,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41799441,
+    "crm_level_1": "Amsterdam UMC",
+    "crm_level_3": "Human Genetics"
+  },
+  {
+    "pmid": 41073374,
+    "crm_level_1": "Leiden University",
+    "crm_level_3": "Biology Leiden"
+  },
+  {
+    "pmid": 40676227,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 39761259,
+    "crm_level_1": "Janssen Pharmaceutica NV",
+    "crm_level_3": "Not specified"
+  },
+  {
+    "pmid": 41698932,
+    "crm_level_1": "Vrije Universiteit Brussel",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41115454,
+    "crm_level_1": "NKI - AvL",
+    "crm_level_3": "Gastrointestinal Oncology"
+  },
+  {
+    "pmid": 40199742,
+    "crm_level_1": "University Medical Center Groningen",
+    "crm_level_3": "Pediatrics"
+  },
+  {
+    "pmid": 41896269,
+    "crm_level_1": "Erasmus University Medical Center",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41400926,
+    "crm_level_1": "Delft University of Technology",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41083823,
+    "crm_level_1": "University of Amsterdam",
+    "crm_level_3": "Genetic Metabolic Diseases"
+  },
+  {
+    "pmid": 40918145,
+    "crm_level_1": "Radboud University Medical Centre",
+    "crm_level_3": "Pediatric Nephrology"
+  },
+  {
+    "pmid": 40622575,
+    "crm_level_1": "KU Leuven",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40104050,
+    "crm_level_1": "Erasmus MC",
+    "crm_level_3": "Cell Biology"
+  },
+  {
+    "pmid": 42204136,
+    "crm_level_1": "University Medical Centre Groningen",
+    "crm_level_3": "Cardiology"
+  },
+  {
+    "pmid": 42595355,
+    "crm_level_1": "University of Liège",
+    "crm_level_3": "Metastasis Research Laboratory"
+  },
+  {
+    "pmid": 41261135,
+    "crm_level_1": "Netherlands Cancer Institute",
+    "crm_level_3": "Molecular Oncology and Immunology"
+  },
+  {
+    "pmid": 40828654,
+    "crm_level_1": "VIB Center for Inflammation Research, Ghent University",
+    "crm_level_3": "Internal Medicine and Pediatrics"
+  },
+  {
+    "pmid": 40081943,
+    "crm_level_1": "University of Liege",
+    "crm_level_3": "Experimental Pathology"
+  },
+  {
+    "pmid": 42463662,
+    "crm_level_1": "VIB Center for Inflammation Research",
+    "crm_level_3": "ER Stress and Inflammation"
+  },
+  {
+    "pmid": 41216597,
+    "crm_level_1": "Leiden University Medical Center",
+    "crm_level_3": "Gastroenterology & Hepatology"
+  },
+  {
+    "pmid": 40274989,
+    "crm_level_1": "Erasmus University Medical Center",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 39900620,
+    "crm_level_1": "Eindhoven University of Technology",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41381543,
+    "crm_level_1": "Radboud University Medical Center",
+    "crm_level_3": "Medical BioSciences"
+  },
+  {
+    "pmid": 40817406,
+    "crm_level_1": "Princess Máxima Center for Pediatric Oncology",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40735689,
+    "crm_level_1": "Leiden University Medical Center",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 42339266,
+    "crm_level_1": "Utrecht University",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 42215459,
+    "crm_level_1": "University Medical Center Utrecht and Utrecht University",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41453911,
+    "crm_level_1": "Ghent University",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 39932958,
+    "crm_level_1": "Leiden University Medical Center",
+    "crm_level_3": "Cell and Chemical Biology"
+  },
+  {
+    "pmid": 41390672,
+    "crm_level_1": "University of Groningen",
+    "crm_level_3": "Pathology and Medical Biology"
+  },
+  {
+    "pmid": 42034643,
+    "crm_level_1": "Vlaams Instituut voor Biotechnologie (VIB)",
+    "crm_level_3": "Not specified"
+  },
+  {
+    "pmid": 41912870,
+    "crm_level_1": "University of Liege",
+    "crm_level_3": "Cancer Biology"
+  },
+  {
+    "pmid": 41974675,
+    "crm_level_1": "Johnson & Johnson",
+    "crm_level_3": "Not specified"
+  },
+  {
+    "pmid": 40695798,
+    "crm_level_1": "University Medical Center Utrecht",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 40368896,
+    "crm_level_1": "Erasmus MC-University Medical Center",
+    "crm_level_3": "Gastroenterology and Hepatology"
+  },
+  {
+    "pmid": 40541527,
+    "crm_level_1": "Université Libre de Bruxelles",
+    "crm_level_3": "Molecular Biology and ULB Neuroscience Institute (UNI)"
+  },
+  {
+    "pmid": 42206969,
+    "crm_level_1": "Eindhoven University of Technology",
+    "crm_level_3": "Unknown department"
+  },
+  {
+    "pmid": 41936603,
+    "crm_level_1": "Erasmus Medical Center",
+    "crm_level_3": "Unknown department"
+  }
+]
