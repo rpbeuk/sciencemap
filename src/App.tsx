@@ -15,6 +15,8 @@ function AppContent() {
   
   const { 
     institutions: supabaseInsts,
+    loading: dataLoading,
+    error: dataError,
   } = useData();
 
   const defaultTerritories = ['N101', 'N102', 'N106', 'N109', 'N101', 'N103', 'N104', 'N108', 'N110'];
@@ -64,6 +66,26 @@ function AppContent() {
   // Show login screen if not authenticated
   if (!user) {
     return <LoginScreen onLoginSuccess={setUser} />;
+  }
+
+  // Show error if data failed to load
+  if (dataError) {
+    return <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', background: '#fff', fontSize: '16px', color: '#c00', padding: '20px', textAlign: 'center' }}>
+      <div>
+        <h2>Error Loading Data</h2>
+        <p>{dataError}</p>
+        <button onClick={() => window.location.reload()} style={{ padding: '8px 16px', background: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
+          Reload Page
+        </button>
+      </div>
+    </div>;
+  }
+
+  // Show loading if data is still loading
+  if (dataLoading) {
+    return <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', background: '#f5f5f5', fontSize: '16px', color: '#666' }}>
+      Loading map data...
+    </div>;
   }
 
   const [selectedInstitution, setSelectedInstitution] = useState<any>(null);
