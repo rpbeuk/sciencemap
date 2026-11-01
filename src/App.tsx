@@ -100,24 +100,33 @@ function AppContent() {
   // Get all dataset tags from selected datasets
   const selectedDatasetTags = (filters.datasets || defaultDatasets).map(dataset => DATASET_TAGS[dataset]).filter(Boolean);
 
-  // Filter by territory, portfolio tags, and dataset tags
-  const filteredInstitutions = supabaseInsts.filter(inst => {
-    const pubsFiltered = inst.publications.filter((pub: any) => {
-      // Check if publication matches selected territories
-      const matchesTerritory = filters.territories.includes(pub.territory);
-      
-      // Check if publication has matching portfolio tags (if portfolios are selected)
-      const pubTags = pub.tags || [];
-      const hasMatchingTag = selectedTags.length === 0 || pubTags.some((tag: string) => selectedTags.includes(tag));
-      
-      // Check if publication matches selected datasets
-      const matchesDataset = selectedDatasetTags.length === 0 || selectedDatasetTags.includes(pub.dataset_tag);
-      
-      return matchesTerritory && hasMatchingTag && matchesDataset;
-    });
-    
-    return pubsFiltered.length > 0;
-  });
+  // Filter by territory, portfolio tags, and dataset tags (an empty selection shows nothing)
+  const matchesFilters = (pub: any) => {
+    const pubTags = pub.tags || [];
+    return (
+      filters.territories.includes(pub.territory) &&
+      pubTags.some((tag: string) => selectedTags.includes(tag)) &&
+      selectedDatasetTags.includes(pub.dataset_tag)
+    );
+  };
+
+  // Keep only matching publications inside each location/department so counts and panels respect the filters
+  const filteredInstitutions = supabaseInsts
+    .map(inst => ({
+      ...inst,
+      publications: inst.publications.filter(matchesFilters),
+      departments: inst.departments
+        .map((dept: any) => ({ ...dept, publications: dept.publications.filter(matchesFilters) }))
+        .filter((dept: any) => dept.publications.length > 0),
+    }))
+    .filter(inst => inst.publications.length > 0);
+
+  const activeInstitution = selectedInstitution
+    ? filteredInstitutions.find(i => i.name === selectedInstitution.name) || null
+    : null;
+  const activeDepartment = selectedDepartment
+    ? activeInstitution?.departments.find((d: any) => d.name === selectedDepartment.name) || null
+    : null;
 
   return (
     <div style={{ 
@@ -194,14 +203,14 @@ function AppContent() {
           <div style={{ flex: 1 }}>
             <BeneluxMap
               institutions={filteredInstitutions}
-              selectedInstitution={selectedInstitution}
-              selectedDepartment={selectedDepartment}
+              selectedInstitution={activeInstitution}
+              selectedDepartment={activeDepartment}
               onInstitutionClick={setSelectedInstitution}
               onDepartmentClick={setSelectedDepartment}
             />
           </div>
 
-          {selectedDepartment && (
+          {activeDepartment && (
             <div style={{
               position: 'fixed',
               top: 0,
@@ -234,7 +243,7 @@ function AppContent() {
               </div>
 
               {/* CRM Level 1 - Institution Name */}
-              {selectedDepartment.publications && selectedDepartment.publications.length > 0 && (
+              {activeDepartment.publications && activeDepartment.publications.length > 0 && (
                 <div style={{ 
                   marginBottom: '12px', 
                   fontSize: '12px', 
@@ -243,16 +252,16 @@ function AppContent() {
                   paddingBottom: '8px',
                   borderBottom: '1px solid #e5e7eb'
                 }}>
-                  {selectedDepartment.publications[0].crm_level_1}
+                  {activeDepartment.publications[0].crm_level_1}
                 </div>
               )}
 
               <h3 style={{ margin: '0 0 16px 0', fontSize: '14px', fontWeight: '600' }}>
-                {selectedDepartment.name}
+                {activeDepartment.name}
               </h3>
 
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', paddingBottom: '24px' }}>
-                {[...selectedDepartment.publications].reverse().map((pub: any, idx: number) => (
+                {[...activeDepartment.publications].reverse().map((pub: any, idx: number) => (
                   <div 
                     key={idx}
                     className="publication-card"
