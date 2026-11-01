@@ -66,6 +66,8 @@ export interface Publication {
   crm_level_1?: string;
   crm_level_3?: string;
   zipcode?: number;
+  dataset_tag?: string;
+  tags?: string[];
 }
 
 export interface Department {
@@ -185,6 +187,8 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             department: pub.crm_level_3 || crmMappings[pub.pmid] || 'General',
             crm_level_1: instName,
             crm_level_3: pub.crm_level_3 || crmMappings[pub.pmid] || 'General',
+            tags: pub.tags || [],
+            dataset_tag: pub.dataset_tag,
           };
           location.publications.push(publication);
         });

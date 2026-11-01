@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 export interface FilterOptions {
   territories: string[];
   portfolios: string[];
+  datasets?: string[];
 }
 
 interface FilterPanelProps {
@@ -23,17 +24,24 @@ const PORTFOLIOS = [
   'Clinical',
 ];
 
+const DATASETS = [
+  'Tissue Digestion',
+  'CGT - Regenerative Medicine',
+  'CGT - Translational',
+];
+
 const FilterPanel: React.FC<FilterPanelProps> = ({ onFiltersChange }) => {
   const [expandedCountry, setExpandedCountry] = useState<string | null>('Belgium/Lux');
   const [selectedTerritories, setSelectedTerritories] = useState<string[]>(['N101', 'N102', 'N106', 'N109', 'N101', 'N103', 'N104', 'N108', 'N110']);
   const [selectedPortfolios, setSelectedPortfolios] = useState<string[]>(PORTFOLIOS);
+  const [selectedDatasets, setSelectedDatasets] = useState<string[]>(DATASETS);
 
   const handleTerritoryChange = (territory: string) => {
     const newTerritories = selectedTerritories.includes(territory)
       ? selectedTerritories.filter(t => t !== territory)
       : [...selectedTerritories, territory];
     setSelectedTerritories(newTerritories);
-    onFiltersChange({ territories: newTerritories, portfolios: selectedPortfolios });
+    onFiltersChange({ territories: newTerritories, portfolios: selectedPortfolios, datasets: selectedDatasets });
   };
 
   const handleSelectAllTerritories = (country: string) => {
@@ -41,13 +49,13 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ onFiltersChange }) => {
     const allSelected = countryTerritories.every(t => selectedTerritories.includes(t));
     
     if (allSelected) {
-      const newTerritories = selectedTerritories.filter(t => !countryTerritories.includes(t));
-      setSelectedTerritories(newTerritories);
-      onFiltersChange({ territories: newTerritories, portfolios: selectedPortfolios });
+      // When unchecking a country, deselect ALL territories (both countries)
+      setSelectedTerritories([]);
+      onFiltersChange({ territories: [], portfolios: selectedPortfolios, datasets: selectedDatasets });
     } else {
-      const newTerritories = [...selectedTerritories, ...countryTerritories.filter(t => !selectedTerritories.includes(t))];
-      setSelectedTerritories(newTerritories);
-      onFiltersChange({ territories: newTerritories, portfolios: selectedPortfolios });
+      // When checking a country, only select that country's territories
+      setSelectedTerritories(countryTerritories);
+      onFiltersChange({ territories: countryTerritories, portfolios: selectedPortfolios, datasets: selectedDatasets });
     }
   };
 
@@ -56,16 +64,34 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ onFiltersChange }) => {
       ? selectedPortfolios.filter(p => p !== portfolio)
       : [...selectedPortfolios, portfolio];
     setSelectedPortfolios(newPortfolios);
-    onFiltersChange({ territories: selectedTerritories, portfolios: newPortfolios });
+    onFiltersChange({ territories: selectedTerritories, portfolios: newPortfolios, datasets: selectedDatasets });
   };
 
   const handleSelectAllPortfolios = () => {
     if (selectedPortfolios.length === PORTFOLIOS.length) {
       setSelectedPortfolios([]);
-      onFiltersChange({ territories: selectedTerritories, portfolios: [] });
+      onFiltersChange({ territories: selectedTerritories, portfolios: [], datasets: selectedDatasets });
     } else {
       setSelectedPortfolios(PORTFOLIOS);
-      onFiltersChange({ territories: selectedTerritories, portfolios: PORTFOLIOS });
+      onFiltersChange({ territories: selectedTerritories, portfolios: PORTFOLIOS, datasets: selectedDatasets });
+    }
+  };
+
+  const handleDatasetChange = (dataset: string) => {
+    const newDatasets = selectedDatasets.includes(dataset)
+      ? selectedDatasets.filter(d => d !== dataset)
+      : [...selectedDatasets, dataset];
+    setSelectedDatasets(newDatasets);
+    onFiltersChange({ territories: selectedTerritories, portfolios: selectedPortfolios, datasets: newDatasets });
+  };
+
+  const handleSelectAllDatasets = () => {
+    if (selectedDatasets.length === DATASETS.length) {
+      setSelectedDatasets([]);
+      onFiltersChange({ territories: selectedTerritories, portfolios: selectedPortfolios, datasets: [] });
+    } else {
+      setSelectedDatasets(DATASETS);
+      onFiltersChange({ territories: selectedTerritories, portfolios: selectedPortfolios, datasets: DATASETS });
     }
   };
 
@@ -225,6 +251,55 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ onFiltersChange }) => {
               }}
             />
             <span style={{ fontSize: '13px', color: '#4b5563' }}>{portfolio}</span>
+          </label>
+        ))}
+      </div>
+
+      {/* Datasets Section */}
+      <div style={{ marginBottom: '20px' }}>
+        <h3 style={{ 
+          margin: '0 0 14px 0', 
+          fontSize: '13px', 
+          fontWeight: '600',
+          color: '#374151',
+          textTransform: 'uppercase',
+          letterSpacing: '0.5px'
+        }}>
+          🗂️ Datasets
+        </h3>
+        <div style={{ marginBottom: '10px' }}>
+          <label style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', gap: '10px' }}>
+            <input
+              type="checkbox"
+              checked={selectedDatasets.length === DATASETS.length}
+              onChange={handleSelectAllDatasets}
+              style={{ 
+                cursor: 'pointer',
+                width: '16px',
+                height: '16px',
+                accentColor: '#ea580c'
+              }}
+            />
+            <span style={{ fontSize: '13px', fontWeight: '500', color: '#1f2937' }}>Select All</span>
+          </label>
+        </div>
+        {DATASETS.map((dataset) => (
+          <label
+            key={dataset}
+            style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', gap: '10px', marginBottom: '10px' }}
+          >
+            <input
+              type="checkbox"
+              checked={selectedDatasets.includes(dataset)}
+              onChange={() => handleDatasetChange(dataset)}
+              style={{ 
+                cursor: 'pointer',
+                width: '16px',
+                height: '16px',
+                accentColor: '#ea580c'
+              }}
+            />
+            <span style={{ fontSize: '13px', color: '#4b5563' }}>{dataset}</span>
           </label>
         ))}
       </div>

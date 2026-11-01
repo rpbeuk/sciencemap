@@ -9,6 +9,23 @@ import { getCurrentUser, logoutUser } from './utils/authClient';
 import { useData, DataProvider } from './context/DataContext';
 import { LogOut } from 'lucide-react';
 
+// Mapping of portfolios to their tags
+const PORTFOLIO_TAGS: Record<string, string[]> = {
+  'Sample Prep': ['tissue digestion', 'cell therapy', 'regenerative medicine'],
+  'Cell Separation': ['cell separation'],
+  'Cell Culture': ['cell culture'],
+  'Cell Analysis': ['cell analysis'],
+  'Imaging': ['imaging'],
+  'Clinical': ['clinical'],
+};
+
+// Mapping of dataset display names to database tags
+const DATASET_TAGS: Record<string, string> = {
+  'Tissue Digestion': 'tissue-digestion',
+  'CGT - Regenerative Medicine': 'cgt-regenerative-medicine',
+  'CGT - Translational': 'cgt-translational',
+};
+
 function AppContent() {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -23,6 +40,7 @@ function AppContent() {
 
   const defaultTerritories = ['N101', 'N102', 'N106', 'N109', 'N101', 'N103', 'N104', 'N108', 'N110'];
   const defaultPortfolios = ['Sample Prep', 'Cell Separation', 'Cell Culture', 'Cell Analysis', 'Imaging', 'Clinical'];
+  const defaultDatasets = ['Tissue Digestion', 'CGT - Regenerative Medicine', 'CGT - Translational'];
 
   // Check if user is logged in on mount
   useEffect(() => {
@@ -34,26 +52,12 @@ function AppContent() {
     checkUser();
   }, []);
 
-  // Initialize filters from localStorage or use defaults
-  const [filters, setFilters] = useState<FilterOptions>(() => {
-    try {
-      const saved = localStorage.getItem('sciencemap-filters');
-      if (saved) {
-        return JSON.parse(saved);
-      }
-    } catch (e) {
-      console.error('Failed to load filters from localStorage:', e);
-    }
-    return {
-      territories: defaultTerritories,
-      portfolios: defaultPortfolios,
-    };
+  // Always start with all territories, portfolios and datasets visible (FilterPanel also starts fully selected)
+  const [filters, setFilters] = useState<FilterOptions>({
+    territories: defaultTerritories,
+    portfolios: defaultPortfolios,
+    datasets: defaultDatasets,
   });
-
-  // Save filters to localStorage whenever they change
-  useEffect(() => {
-    localStorage.setItem('sciencemap-filters', JSON.stringify(filters));
-  }, [filters]);
 
   const handleLogout = () => {
     logoutUser();
@@ -90,13 +94,29 @@ function AppContent() {
     </div>;
   }
 
-  // Filter by territory
+  // Get all tags from selected portfolios
+  const selectedTags = filters.portfolios.flatMap(portfolio => PORTFOLIO_TAGS[portfolio] || []);
+
+  // Get all dataset tags from selected datasets
+  const selectedDatasetTags = (filters.datasets || defaultDatasets).map(dataset => DATASET_TAGS[dataset]).filter(Boolean);
+
+  // Filter by territory, portfolio tags, and dataset tags
   const filteredInstitutions = supabaseInsts.filter(inst => {
-    const pubsWithTerritory = inst.publications.filter((pub: any) => 
-      filters.territories.includes(pub.territory)
-    );
+    const pubsFiltered = inst.publications.filter((pub: any) => {
+      // Check if publication matches selected territories
+      const matchesTerritory = filters.territories.includes(pub.territory);
+      
+      // Check if publication has matching portfolio tags (if portfolios are selected)
+      const pubTags = pub.tags || [];
+      const hasMatchingTag = selectedTags.length === 0 || pubTags.some((tag: string) => selectedTags.includes(tag));
+      
+      // Check if publication matches selected datasets
+      const matchesDataset = selectedDatasetTags.length === 0 || selectedDatasetTags.includes(pub.dataset_tag);
+      
+      return matchesTerritory && hasMatchingTag && matchesDataset;
+    });
     
-    return pubsWithTerritory.length > 0;
+    return pubsFiltered.length > 0;
   });
 
   return (
