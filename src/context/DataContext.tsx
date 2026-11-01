@@ -150,8 +150,9 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         enrichedPubs.forEach((pub: any) => {
           const zipcode = pub.zipcode ? String(parseInt(pub.zipcode)) : null;
           const instName = pub.crm_level_1 || 'Unknown Institute';
-          const city = pub.lastauthorcity || 'Unknown City';
-          const country = pub.lastauthorcountry || 'Unknown';
+          const city = pub.lastauthorcity || pub.last_author_city || 'Unknown City';
+          const rawCountry = pub.lastauthorcountry || pub.last_author_country || 'Unknown';
+          const country = rawCountry === 'Netherlands' ? 'the Netherlands' : rawCountry;
           
           if (!zipcode || !country) return; // Skip publications without zipcode or country
           

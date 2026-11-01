@@ -494,5 +494,165 @@
     ],
     "city": "Maastricht",
     "pub_count": 1
+  },
+  "Belgium|1435": {
+    "coordinates": [
+      50.6333,
+      4.6167
+    ],
+    "city": "Mont-Saint-Guibert",
+    "pub_count": 5
+  },
+  "Belgium|2400": {
+    "coordinates": [
+      51.1833,
+      5.1
+    ],
+    "city": "Mol",
+    "pub_count": 1
+  },
+  "Belgium|3900": {
+    "coordinates": [
+      51.2167,
+      5.4167
+    ],
+    "city": "Overpelt",
+    "pub_count": 1
+  },
+  "Belgium|3960": {
+    "coordinates": [
+      51.15,
+      5.5833
+    ],
+    "city": "Bree Gerdingen",
+    "pub_count": 1
+  },
+  "Belgium|5530": {
+    "coordinates": [
+      50.3161,
+      4.9725
+    ],
+    "city": "Yvoir Dorinne",
+    "pub_count": 1
+  },
+  "Belgium|6690": {
+    "coordinates": [
+      50.2847,
+      5.9186
+    ],
+    "city": "Vielsalm",
+    "pub_count": 1
+  },
+  "the Netherlands|1112": {
+    "coordinates": [
+      52.3396,
+      4.9626
+    ],
+    "city": "Diemen",
+    "pub_count": 2
+  },
+  "the Netherlands|1942": {
+    "coordinates": [
+      52.4833,
+      4.6569
+    ],
+    "city": "Beverwijk",
+    "pub_count": 1
+  },
+  "the Netherlands|2288": {
+    "coordinates": [
+      52.0363,
+      4.325
+    ],
+    "city": "Rijswijk",
+    "pub_count": 1
+  },
+  "the Netherlands|2342": {
+    "coordinates": [
+      52.18,
+      4.4694
+    ],
+    "city": "Oegstgeest",
+    "pub_count": 1
+  },
+  "the Netherlands|2595": {
+    "coordinates": [
+      52.0833,
+      4.3333
+    ],
+    "city": "Bezuidenhout",
+    "pub_count": 1
+  },
+  "the Netherlands|2719": {
+    "coordinates": [
+      52.0537,
+      4.4924
+    ],
+    "city": "Rokkeveen-West",
+    "pub_count": 1
+  },
+  "the Netherlands|3000": {
+    "coordinates": [
+      51.8796,
+      4.5059
+    ],
+    "city": "Rotterdam postbusnummers",
+    "pub_count": 1
+  },
+  "the Netherlands|5211": {
+    "coordinates": [
+      51.6992,
+      5.3042
+    ],
+    "city": "'s-Hertogenbosch",
+    "pub_count": 2
+  },
+  "the Netherlands|5349": {
+    "coordinates": [
+      51.765,
+      5.5181
+    ],
+    "city": "Oss",
+    "pub_count": 3
+  },
+  "the Netherlands|6202": {
+    "coordinates": [
+      50.8483,
+      5.6889
+    ],
+    "city": "Maastricht",
+    "pub_count": 1
+  },
+  "the Netherlands|6574": {
+    "coordinates": [
+      51.8375,
+      5.9014
+    ],
+    "city": "Ubbergen",
+    "pub_count": 1
+  },
+  "the Netherlands|8025": {
+    "coordinates": [
+      52.5125,
+      6.0944
+    ],
+    "city": "Zwolle",
+    "pub_count": 1
+  },
+  "Luxembourg|4367": {
+    "coordinates": [
+      49.5,
+      5.9
+    ],
+    "city": "Belvaux",
+    "pub_count": 1
+  },
+  "the Netherlands|1118": {
+    "coordinates": [
+      52.31,
+      4.76
+    ],
+    "city": "Schiphol",
+    "pub_count": 1
   }
 }
