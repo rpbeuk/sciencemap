@@ -2,16 +2,30 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import BeneluxMap from './components/BeneluxMap';
 import FilterPanel from './components/FilterPanel';
+import { LoginScreen } from './components/LoginScreen';
 import type { FilterOptions } from './components/FilterPanel';
+import type { User } from './utils/authClient';
+import { getCurrentUser, logoutUser } from './utils/authClient';
 import { useData, DataProvider } from './context/DataContext';
+import { LogOut } from 'lucide-react';
 
 function AppContent() {
+  const [user, setUser] = useState<User | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  
   const { 
     institutions: supabaseInsts,
   } = useData();
 
   const defaultTerritories = ['N101', 'N102', 'N106', 'N109', 'N101', 'N103', 'N104', 'N108', 'N110'];
   const defaultPortfolios = ['Sample Prep', 'Cell Separation', 'Cell Culture', 'Cell Analysis', 'Imaging', 'Clinical'];
+
+  // Check if user is logged in on mount
+  useEffect(() => {
+    const currentUser = getCurrentUser();
+    setUser(currentUser);
+    setIsLoading(false);
+  }, []);
 
   // Initialize filters from localStorage or use defaults
   const [filters, setFilters] = useState<FilterOptions>(() => {
@@ -34,6 +48,21 @@ function AppContent() {
     localStorage.setItem('sciencemap-filters', JSON.stringify(filters));
   }, [filters]);
 
+  const handleLogout = () => {
+    logoutUser();
+    setUser(null);
+  };
+
+  // Show loading state
+  if (isLoading) {
+    return <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }} />;
+  }
+
+  // Show login screen if not authenticated
+  if (!user) {
+    return <LoginScreen onLoginSuccess={setUser} />;
+  }
+
   const [selectedInstitution, setSelectedInstitution] = useState<any>(null);
   const [selectedDepartment, setSelectedDepartment] = useState<any>(null);
 
@@ -55,7 +84,50 @@ function AppContent() {
       padding: 0, 
       overflow: 'hidden',
       backgroundColor: '#f5f5f5',
+      position: 'relative',
     }}>
+      {/* User Info & Logout Button */}
+      <div style={{
+        position: 'absolute',
+        top: '16px',
+        right: '16px',
+        zIndex: 100,
+        display: 'flex',
+        alignItems: 'center',
+        gap: '12px',
+        background: 'white',
+        padding: '10px 14px',
+        borderRadius: '8px',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+        fontSize: '12px',
+      }}>
+        <span style={{ color: '#6b7280' }}>
+          👤 {user.name}
+        </span>
+        <button
+          onClick={handleLogout}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '6px',
+            background: '#ef4444',
+            color: 'white',
+            border: 'none',
+            padding: '6px 10px',
+            borderRadius: '6px',
+            cursor: 'pointer',
+            fontSize: '12px',
+            fontWeight: '600',
+            transition: 'all 0.2s ease',
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.background = '#dc2626')}
+          onMouseLeave={(e) => (e.currentTarget.style.background = '#ef4444')}
+        >
+          <LogOut size={14} />
+          Logout
+        </button>
+      </div>
+
       <FilterPanel onFiltersChange={setFilters} />
       
       <div style={{ 
