@@ -210,6 +210,30 @@ function AppContent() {
             />
           </div>
 
+          <div style={{
+            position: 'absolute',
+            bottom: '12px',
+            left: '12px',
+            zIndex: 500,
+            background: 'white',
+            padding: '8px 10px',
+            borderRadius: '8px',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+            fontSize: '12px',
+            fontFamily: 'Arial, sans-serif',
+          }}>
+            {[
+              ['Tissue Digestion', '#facc15'],
+              ['CGT - Regenerative Medicine', '#dc2626'],
+              ['CGT - Translational', '#7dd3fc'],
+            ].map(([label, color]) => (
+              <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '6px', margin: '2px 0' }}>
+                <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: color, border: '1px solid #000', display: 'inline-block' }} />
+                {label}
+              </div>
+            ))}
+          </div>
+
           {activeDepartment && (
             <div style={{
               position: 'fixed',

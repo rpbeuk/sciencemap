@@ -11,6 +11,33 @@ interface MapProps {
   onDepartmentClick: (dept: any) => void;
 }
 
+const DATASET_COLORS: Record<string, string> = {
+  'tissue-digestion': '#facc15',
+  'cgt-regenerative-medicine': '#dc2626',
+  'cgt-translational': '#7dd3fc',
+};
+const DEFAULT_FILL = '#ea580c';
+
+// Solid colour for one dataset, or a proportional pie for mixed datasets
+const datasetFill = (pubs: any[]): string => {
+  const counts: Record<string, number> = {};
+  pubs.forEach(p => {
+    const tag = p.dataset_tag && DATASET_COLORS[p.dataset_tag] ? p.dataset_tag : '';
+    counts[tag] = (counts[tag] || 0) + 1;
+  });
+  const entries = Object.entries(counts);
+  const colorOf = (tag: string) => DATASET_COLORS[tag] || DEFAULT_FILL;
+  if (entries.length <= 1) return colorOf(entries[0]?.[0] ?? '');
+  let acc = 0;
+  const stops = entries.map(([tag, n]) => {
+    const start = (acc / pubs.length) * 100;
+    acc += n;
+    const end = (acc / pubs.length) * 100;
+    return `${colorOf(tag)} ${start}% ${end}%`;
+  });
+  return `conic-gradient(${stops.join(', ')})`;
+};
+
 const BeneluxMap: React.FC<MapProps> = ({
   institutions,
   selectedInstitution,
@@ -109,13 +136,13 @@ const BeneluxMap: React.FC<MapProps> = ({
     // Add markers for all institutions
     institutions.forEach((institution) => {
       const count = institution.publications.length;
-      const color = '#ea580c'; // Always orange
+      const color = datasetFill(institution.publications);
 
       // Create custom icon with publication count
       const icon = L.divIcon({
         html: `
           <div style="
-            background-color: ${color};
+            background: ${color};
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -123,7 +150,8 @@ const BeneluxMap: React.FC<MapProps> = ({
             align-items: center;
             justify-content: center;
             border: 2px solid #000;
-            color: white;
+            color: #000;
+            text-shadow: 0 0 3px #fff, 0 0 3px #fff;
             font-weight: bold;
             font-size: 14px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
@@ -292,7 +320,7 @@ const BeneluxMap: React.FC<MapProps> = ({
       const deptIcon = L.divIcon({
         html: `
           <div style="display: flex; align-items: center; gap: 0; margin: 0; padding: 0; position: relative;">
-            <div style="background-color: #ea580c; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #000; color: white; font-weight: bold; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); font-family: Arial, sans-serif; flex-shrink: 0; z-index: 2;">${pubCount}</div>
+            <div style="background: ${datasetFill(dept.publications)}; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #000; color: #000; text-shadow: 0 0 3px #fff, 0 0 3px #fff; font-weight: bold; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); font-family: Arial, sans-serif; flex-shrink: 0; z-index: 2;">${pubCount}</div>
             <div style="background-color: white; padding: 6px 14px; border-radius: 8px; color: black; font-weight: normal; font-size: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); font-family: Arial, sans-serif; white-space: nowrap; margin-left: ${overlapOffset}px; z-index: 1;">${deptName}</div>
           </div>
         `,
